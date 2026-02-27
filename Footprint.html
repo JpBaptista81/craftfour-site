@@ -1,0 +1,3060 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Footprint | CRAFT⁴</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="header.css">
+
+<style>
+
+:root{
+  --brand-blue:#1C6089;
+  --footer-color:#817B7A;
+
+  --text-primary:#C7C9CF;
+  --text-secondary:#b3bcce;
+  --accent-blue:#1C6089;
+
+  --bg-overlay-start:rgba(0,0,0,.78);
+  --bg-overlay-end:rgba(0,0,0,.68);
+
+  --radius-lg:18px;
+  --container-max:1400px;
+
+  --spacing-xs:8px;
+  --spacing-sm:16px;
+  --spacing-md:32px;
+  --spacing-lg:60px;
+  --spacing-xl:140px;
+
+  --transition-smooth:.35s ease;
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(8,8,10,0.75);
+  backdrop-filter:blur(12px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .35s ease;
+  z-index:999;
+}
+
+.overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:0;
+}
+
+/* ================= DESIGN TOKENS ================= */
+:root{
+  --brand-blue:#1C6089;
+  --footer-color:#817B7A;
+
+  --text-primary:#C7C9CF;
+  --text-secondary:#b3bcce;
+  --accent-blue:#1C6089;
+
+  --bg-overlay-start:rgba(0,0,0,.78);
+  --bg-overlay-end:rgba(0,0,0,.68);
+
+  --radius-lg:18px;
+  --container-max:1400px;
+
+  --spacing-xs:8px;
+  --spacing-sm:16px;
+  --spacing-md:32px;
+  --spacing-lg:60px;
+  --spacing-xl:140px;
+
+  --transition-smooth:.35s ease;
+}
+
+/* ================= RESET ================= */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html, body{
+  height:100%;
+}
+
+/* ================= LAYOUT CORE ================= */
+body{
+  font-family:'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background:url('images/Bg_Footprint.jpg') no-repeat center center;
+  background-size:cover;
+  background-attachment:scroll;
+  color:var(--text-secondary);
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* Overlay Layer */
+
+header, main, footer{
+  position:relative;
+  overflow-x:hidden;
+  z-index:1;
+}
+
+/* ================= MAIN ================= */
+
+.container{
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+/* ================= HERO TEXT ================= */
+
+.hero-title{
+  font-size: clamp(32px, 6vw, 71px);
+  font-weight:500;
+  color:#C7C9CF;
+}
+.hero-subtitle{
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight:500;
+  color:#1C6089;
+}
+	
+	
+.brand.confidence.highlight1{
+  font-size: clamp(32px, 6vw, 20px);
+  font-weight:500;
+  color:#C7C9CF;
+}
+	
+.bottom-statement .hero-accent{
+  color:#1C6089; /* brand blue */
+  font-weight:600;
+}
+	
+/* ================= ACTIVE NAV ================= */
+.nav-buttons a.about-active{
+  color:#1C6089;
+}
+	
+/* ================= CTA ================= */
+.glow-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:150px;
+  height:42px;
+  border-radius:999px;
+  background:linear-gradient(180deg,#6f2109 0%,#8a2d10 55%,#a43a18 100%);
+  border:2px solid #ff8a2a;
+  color:#C7C9CF;
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  text-decoration:none;
+  transition:transform var(--transition-smooth);
+}
+
+.glow-button:hover{
+  transform:translateY(-2px);
+}
+
+/* ================= FOOTER ================= */
+footer{
+  height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  color:var(--footer-color);
+  flex-shrink:0;
+}
+	
+
+/* ================= BACKGROUND CINEMATIC OVERLAY ================= */
+.bg-overlay{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    var(--bg-overlay-start),
+    var(--bg-overlay-end)
+  );
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ================= FINAL MOBILE HEADER SYSTEM ================= */
+
+.hamburger{
+  display:none;
+  position:absolute;
+  right:24px;
+  top:50%;
+  transform:translateY(-50%);
+  width:32px;
+  height:24px;
+  flex-direction:column;
+  justify-content:space-between;
+  cursor:pointer;
+  z-index:1100;
+}
+
+.hamburger span{
+  height:3px;
+  background:#f4f7fb;
+  border-radius:2px;
+  transition:.35s ease;
+}
+
+.hamburger.active span:nth-child(1){
+  transform:translateY(10px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2){
+  opacity:0;
+}
+.hamburger.active span:nth-child(3){
+  transform:translateY(-10px) rotate(-45deg);
+}
+
+</style>
+
+<style>
+/* ===== MOBILE GO BACK STYLE (MATCH HOME) ===== */
+.mobile-back{
+    display:none;
+    position: fixed;
+    right: 18px;
+    bottom: 38px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    z-index: 90;
+    font-size: 22px;
+    font-weight: 600;
+    color: #ff9a3c;
+    text-align:center;
+    line-height:46px;
+    text-decoration:none;
+    filter: drop-shadow(0 0 6px rgba(255,154,60,0.45));
+    
+}
+
+    
+</style>
+
+<style>
+/* ===== CLEAN MOBILE BACK FIX ===== */
+
+/* Ensure overlay never blocks clicks */
+
+/* Force mobile back above everything */
+.mobile-back{
+    position: fixed;
+    z-index: 100000;
+    pointer-events: auto;
+}
+</style>
+
+<style>
+/* ===== MOBILE BACK PERFECT CENTER FIX ===== */
+.mobile-back{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    line-height:normal;
+    font-size:24px;
+    padding:0;
+}
+</style>
+
+<style>
+/* ===== STRICT RESPONSIVE VISIBILITY ===== */
+
+/* Default: desktop = show normal button, hide < */
+.mobile-back{
+    display:none;
+}
+
+.go-back-button{
+    display:inline-flex;
+}
+
+/* Mobile / Tablet */
+
+</style>
+
+<style>
+/* ===== BLUE PULSE ENERGETIC HAMBURGER ===== */
+
+.hamburger span{
+  box-shadow:0 0 14px rgba(28,96,137,.55);
+  animation:bluePulse 2.5s ease-in-out infinite;
+  transition:transform .35s cubic-bezier(.4,0,.2,1),
+             opacity .25s ease,
+             box-shadow .3s ease;
+}
+
+@keyframes bluePulse{
+  0%,100%{
+    box-shadow:0 0 10px rgba(28,96,137,.45);
+  }
+ }
+
+header.mobile-open .hamburger span{
+  animation:none;
+  box-shadow:0 0 26px rgba(28,96,137,1);
+}
+
+/* ===== MOBILE LOGO SPACING MATCH IMAGE ===== */
+
+</style>
+
+<style>
+/* ================= CLEAN CONSOLIDATED MOBILE SYSTEM ================= */
+
+@media (max-width:1200px; }
+  .mobile-back{ display:flex; }
+
+}
+
+@media (max-width:1200px; }
+
+  /* Hide desktop nav */
+  .nav-buttons,
+  .header-actions{ display:none; }
+
+  /* Mobile full screen menu */
+  header.mobile-open{
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100vh;
+    background:linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.96) 0%,
+      rgba(0,0,0,0.88) 60%,
+      rgba(0,0,0,0.80) 100%
+    );
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    padding-top:140px; /* final spacing */
+    z-index:9999;
+  }
+
+  /* Logo spacing */
+  header.mobile-open .logo{
+    margin:0 auto 60px auto;
+  }
+
+  /* Center nav items */
+  header.mobile-open .nav-buttons{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    gap:0px;
+  }
+
+  header.mobile-open .nav-buttons a{
+    text-align:center;
+  }
+
+  /* Center CTA */
+  header.mobile-open .header-actions{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    margin:40px auto 0 auto;
+  }
+
+  header.mobile-open .header-actions .glow-button{
+    margin:0 auto;
+  }
+
+  /* X position */
+  header.mobile-open .hamburger{
+    position:fixed;
+    top:36px;
+    right:24px;
+    transform:none;
+    z-index:10000;
+  }
+
+  body.menu-open{  }
+
+}
+</style>
+
+<style>
+/* ================= PRO MOTION REFINEMENT ================= */
+
+/* Smoother hamburger easing */
+.hamburger span{
+  transition: transform .45s cubic-bezier(.22,1,.36,1),
+              opacity .3s ease,
+              box-shadow .4s ease;
+}
+
+/* Backdrop blur for mobile menu */
+@media (max-width:1200px;
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  /* Stagger animation for nav items */
+  header.mobile-open .nav-buttons a{
+    opacity:0;
+    transform:translateY(12px);
+    animation:fadeSlideUp .5s forwards;
+  }
+
+  header.mobile-open .nav-buttons a:nth-child(1){ animation-delay:.05s; }
+  header.mobile-open .nav-buttons a:nth-child(2){ animation-delay:.10s; }
+  header.mobile-open .nav-buttons a:nth-child(3){ animation-delay:.15s; }
+  header.mobile-open .nav-buttons a:nth-child(4){ animation-delay:.20s; }
+  header.mobile-open .nav-buttons a:nth-child(5){ animation-delay:.25s; }
+
+  @keyframes fadeSlideUp{
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+
+  /* CTA micro interaction */
+  header.mobile-open .glow-button:active{
+    transform:scale(.95);
+  }
+}
+
+/* Subtle premium hover refinement */
+.glow-button{
+  transition: transform .35s cubic-bezier(.22,1,.36,1),
+              box-shadow .4s ease;
+}
+
+.glow-button:hover{
+  box-shadow:0 8px 28px rgba(255,138,42,.35);
+}
+
+</style>
+
+<style>
+/* ================= CINEMATIC MOTION SYSTEM ================= */
+
+:root{
+  --easing-cinematic:cubic-bezier(.22,1,.36,1);
+}
+
+/* ===== HERO CINEMATIC ENTRY ===== */
+
+
+
+
+
+
+@keyframes heroIn{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ===== MOBILE MENU CINEMATIC OVERLAY ===== */
+@media (max-width:1200px;
+  }
+
+  @keyframes menuFadeIn{
+    from{ opacity:0; }
+    to{ opacity:1; }
+  }
+
+  /* Logo enters first */
+  header.mobile-open .logo{
+    opacity:0;
+    transform:translateY(20px);
+    animation:menuItemIn .7s var(--easing-cinematic) forwards;
+  }
+
+  /* Nav items stagger */
+  header.mobile-open .nav-buttons a{
+    opacity:0;
+    transform:translateY(20px);
+    animation:menuItemIn .7s var(--easing-cinematic) forwards;
+  }
+
+  header.mobile-open .nav-buttons a:nth-child(1){ animation-delay:.08s; }
+  header.mobile-open .nav-buttons a:nth-child(2){ animation-delay:.16s; }
+  header.mobile-open .nav-buttons a:nth-child(3){ animation-delay:.24s; }
+  header.mobile-open .nav-buttons a:nth-child(4){ animation-delay:.32s; }
+  header.mobile-open .nav-buttons a:nth-child(5){ animation-delay:.40s; }
+
+  /* CTA enters last */
+  header.mobile-open .header-actions{
+    opacity:0;
+    transform:translateY(20px);
+    animation:menuItemIn .7s var(--easing-cinematic) forwards;
+    animation-delay:.5s;
+  }
+
+  @keyframes menuItemIn{
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+
+}
+
+/* ===== HAMBURGER DRAMATIC CLICK FEEDBACK ===== */
+.hamburger{
+  transition:transform .35s var(--easing-cinematic);
+}
+
+.hamburger:active{
+  transform:scale(.88);
+}
+
+header.mobile-open .hamburger span{
+  box-shadow:0 0 30px rgba(28,96,137,1);
+}
+
+/* ===== CTA CINEMATIC INTERACTION ===== */
+.glow-button{
+  transition:transform .4s var(--easing-cinematic),
+             box-shadow .4s var(--easing-cinematic);
+}
+
+.glow-button:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 40px rgba(255,138,42,.45);
+}
+
+.glow-button:active{
+  transform:scale(.94);
+}
+
+</style>
+
+<style>
+/* ================= UNIVERSAL RESPONSIVE SYSTEM ================= */
+
+/* --- Small Phones (≤380px) --- */
+@media (max-width:1200px;
+    height:42px;
+    font-size:20px;
+  }
+}
+
+/* --- Standard Phones (≤480px) --- */
+@media (max-width:1200px; }
+  
+  
+}
+</style>
+
+<style>
+/* ================= TV / MEETING ROOM MODE ================= */
+
+/* 4K Screens */
+@media (min-width:2560px){
+
+  body{
+    letter-spacing:0.3px;
+  }
+
+
+}
+
+/* Large TV 4K+ (3840px and above) */
+@media (min-width:3840px){
+
+  
+
+}
+</style>
+
+<style>
+/* ================= BOARDROOM / TV / PROJECTOR MODE ================= */
+
+/* Large 4K TVs (75–85"+) */
+@media (min-width:3000px){
+
+  body{
+    font-weight:400;
+  }
+
+
+}
+</style>
+
+<!-- ===== PRODUCTION OPTIMIZATION ===== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="description" content="CRAFT⁴ Technologies — Simulation-driven engineering for faster, smarter industrial decisions.">
+<meta property="og:title" content="CRAFT⁴ Technologies">
+<meta property="og:description" content="Engineering Tomorrow’s Industry">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0f1c">
+
+<style>
+/* Ensure font rendering stability */
+html{ -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+
+/* Unify easing variable */
+:root{
+  --easing-global:cubic-bezier(.22,1,.36,1);
+}
+
+/* Remove excessive shadow on ultra large screens */
+@media (min-width:3000px){
+  .hero-title,.hero-subtitle,
+}
+
+/* =======================================
+   CINEMATIC FULL BALANCE MODE (FIXED)
+======================================= */
+
+/* Keep layout architecture intact */
+
+/* Hero rhythm refinement */
+
+
+
+
+.hero-description{
+  margin-bottom:clamp(12px,1.8vh,22px);
+  line-height:1.55;
+}
+
+/* Bottom statement proportional refinement */
+
+
+/* Smooth micro balance */
+.hero-title,
+.hero-subtitle,
+
+
+/* Small-height refinement without forcing full viewport */
+@media (max-height:900px){
+  
+
+  
+  
+}
+
+</style>
+
+<style>
+.brand-hero{
+  position:relative;
+  isolation:isolate;
+  width:100%;
+}
+</style>
+
+<style>
+/* ================= NAV BUTTON UNDERLINE SYSTEM ================= */
+
+.nav-buttons a{
+  position:relative;
+  color:#C7C9CF; /* Default color */
+  text-decoration:none;
+  font-weight:500;
+  transition:color .3s ease;
+}
+
+.nav-buttons a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:100%;
+  height:2px;
+  background:linear-gradient(to right, #1C6089 40%, rgba(28,96,137,0.65) 60%); /* More gradual transition */
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .35s cubic-bezier(.22,1,.36,1);
+}
+
+/* Hover */
+.nav-buttons a:hover{
+  color:#1C6089;
+}
+
+.nav-buttons a:hover::after{
+  transform:scaleX(1);
+}
+
+/* Active */
+.nav-buttons a.about-active{
+  color:#1C6089;
+}
+
+
+</style>
+
+<style>
+/* ================= TV MODE SYSTEM ================= */
+
+body.tv-mode .nav-buttons a{
+  font-size:22px;
+  letter-spacing:0.5px;
+}
+
+
+
+body.tv-mode 
+
+body.tv-mode 
+
+body.tv-mode .card-content h4{
+  font-size:26px;
+}
+
+body.tv-mode .card-content p{
+  font-size:18px;
+}
+</style>
+
+<style>
+/* ================= INTERNAL POPUP DARKEN 50% ================= */
+
+.popup::before{
+  background:
+    radial-gradient(circle at 50% 20%, rgba(0,0,0,0.15), rgba(0,0,0,0.40)),
+    linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.50));
+}
+
+</style>
+
+<style>
+/* ===== MOBILE CARD SIZE OVERRIDE ===== */
+@media (max-width:1200px;
+    max-width:1200px; height:500px;
+        height:500px;
+    /* removed legacy aspect-ratio 2/1 */
+  }
+
+}
+</style>
+
+<style>
+/* ===== MOBILE HEIGHT 330px (NO SCALE ENGINE) ===== */
+@media (max-width:1200px;
+    width:100%; max-width:1200px;
+        height:auto;
+        max-height:500px; overflow:hidden;
+  }
+
+}
+</style>
+
+<style>
+/* ===== MOBILE HERO TEXT ===== */
+.mobile-only{
+  display:none;
+}
+
+@media (max-width:1200px;
+    margin-top:16px;
+    font-size:1rem;
+    line-height:1.5;
+    opacity:.9;
+  }
+
+  .hero-description{
+    display:none;
+  }
+}
+	
+	
+/* ===== MOBILE BOTTOM STATEMENT OFFSET (REAL SPACING) ===== */
+	
+@media (max-width:1200px; max-width:1200px;
+        height:auto;
+        max-height:500px;
+    aspect-ratio:auto;
+    min-width:675px;
+        height:auto;
+        max-height:500px;
+    max-width:1200px; min-width:900px;
+        height:auto;
+        max-height:500px;
+  }
+
+}
+</style>
+
+<style>
+/* ===== MOBILE BOTTOM STATEMENT OFFSET ===== */
+</style>
+
+<style>
+/* ===== MOBILE LAYOUT OFFSET (200px CLEAN FIX) ===== */
+@media (max-width:1200px;
+}
+
+/* Header sempre visível acima da overlay */
+header{
+  position:relative;
+  z-index:20;
+  flex:0 0 auto;
+}
+
+/* Remover centramento vertical problemático */
+
+/* Ajuste para ecrãs baixos */
+@media (max-height:900px){
+  
+}
+
+</style>
+
+<style>
+/* ==========================================
+   CRAFT⁴ PREMIUM SCROLLBAR — 6px
+   Brand Color: #1C6089
+========================================== */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1C6089;
+  border-radius: 20px;
+  transition: background .3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1C6089;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1C6089 transparent;
+}
+
+</style>
+
+<style>
+/* ==========================================
+   CRAFT⁴ VIEWPORT BALANCE FIX (NO FAKE SCROLL)
+   Only allow scroll when content truly exceeds viewport height
+========================================== */
+
+/* Remove artificial vertical spacing */
+
+/* Remove previous forced offsets on mobile */
+@media (max-width:1200px;
+}
+</style>
+<style>
+@media (max-width:1200px;
+}
+
+html, body {
+  caret-color: transparent;
+}
+</style>
+
+
+<style>
+.hero-underconstruction{
+  display:block;
+  margin:40px auto 0 auto;
+  max-width:1200px;
+  width:90%;
+  height:auto;
+        max-height:500px;
+  animation:breathingUltra 8s cubic-bezier(.22,1,.36,1) infinite;
+  transform-origin:center;
+  filter:drop-shadow(0 0 6px rgba(28,96,137,0.65)); /* subtle persistent blue glow */
+}
+
+@keyframes breathingUltra{
+  0%{
+    transform:scale(1.4);
+    filter:drop-shadow(0 0 6px rgba(28,96,137,0.65));
+  }
+  50%{
+    transform:scale(1.43);
+    filter:drop-shadow(0 0 18px rgba(28,96,137,0.65));
+  }
+  100%{
+    transform:scale(1.4);
+    filter:drop-shadow(0 0 6px rgba(28,96,137,0.65));
+  }
+}
+  50%{
+    transform:scale(1.45);
+    filter:drop-shadow(0 0 18px rgba(255,170,60,0.35));
+  }
+  100%{
+    transform:scale(1.4);
+    filter:drop-shadow(0 0 0px rgba(255,170,60,0.0));
+  }
+}
+  50%  { transform:scale(1.55); }
+  100% { transform:scale(1.5); }
+}
+  50%  { transform:scale(1.51); }
+  100% { transform:scale(1.5); }
+}
+  50%  { transform:scale(1.01); }
+  100% { transform:scale(1.5); }
+}
+</style>
+
+
+<style>
+.right-premium-list{
+  display:flex;
+  flex-direction:column;
+  gap:0px;
+  width:100%;
+}
+
+.right-premium-list .item{
+  justify-content:flex-start;
+  display:flex;
+  gap:0px;
+  padding-bottom:18px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.right-premium-list .year{
+  min-width:70px;
+  font-weight:700;
+  font-size:18px;
+  color:#1C6089;
+  letter-spacing:1px;
+}
+
+.right-premium-list .company{
+  text-align:left;
+  font-weight:600;
+  font-size:17px;
+  color:#E6EDF7;
+}
+
+.right-premium-list .location{
+  font-size:15px;
+  color:#AEB7C8;
+  margin-top:4px;
+}
+
+.right-premium-list .item:last-child{
+  border-bottom:none;
+}
+</style>
+
+
+<style>
+
+
+
+<style>
+
+
+
+<style>
+
+
+
+<style>
+
+
+
+<style>
+/* ==========================================
+   RIGHT COLUMN — EXECUTIVE TECHNICAL 10/10
+========================================== */
+
+.right-premium-list{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:0px;
+  padding-left:22px;
+  overflow-x:hidden;
+}
+
+/* Vertical technical line */
+.right-premium-list::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:1px;
+  background:rgba(28,96,137,0.35);
+}
+
+/* Each item */
+.right-premium-list .item{
+  display:flex;
+  align-items:flex-start;
+  gap:0px;
+  padding:6px 0;
+  border:none;
+}
+
+/* Year */
+.right-premium-list .year{
+  width:58px;
+  flex-shrink:0;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:1.2px;
+  color:#1C6089;
+  opacity:.9;
+}
+
+/* Content block */
+.right-premium-list .content{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  max-width:1200px;
+}
+
+/* Company */
+.right-premium-list .company{
+  font-size:16px;
+  font-weight:600;
+  color:#E6EDF7;
+  line-height:1.25;
+}
+
+/* Location */
+.right-premium-list .location{
+  font-size:13px;
+  font-weight:400;
+  color:#AEB7C8;
+  margin-top:2px;
+  opacity:.85;
+}
+
+/* Subtle premium hover */
+.right-premium-list .item:hover .company{
+  color:#ffffff;
+}
+
+</style>
+
+
+<style>
+/* ==========================================
+   RIGHT COLUMN — PREMIUM INVISIBLE SCROLL
+   Recommendation Implementation
+========================================== */
+
+.right-premium-list{ position:relative; }
+
+
+
+</style>
+
+
+<style>
+/* ==========================================
+   RIGHT COLUMN — CLEAN RAIL SCROLL SYSTEM
+   No visible scrollbar — rail only
+========================================== */
+
+.right-premium-list{ position:relative; }
+
+/* Fully hide scrollbar (WebKit) */
+.right-premium-list::-webkit-scrollbar{
+  width:0px;
+  height:0px;
+}
+
+/* Subtle permanent rail */
+.right-premium-list::after{
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  width:2px;
+  height:100%;
+  background:rgba(28,96,137,0.18);
+  transition:background .3s ease;
+  pointer-events:none;
+}
+
+/* Stronger rail on hover */
+.right-premium-list:hover::after{
+  background:rgba(28,96,137,0.55);
+}
+
+</style>
+
+
+<style>
+/* ==========================================
+   RIGHT COLUMN — FIXED SCROLL SYSTEM
+========================================== */
+
+/* Target the right column card directly */
+.brand-grid-1x2 > div:last-child{
+  max-height:500px;
+  overflow-y:auto;
+  overflow-x:hidden;
+  position:relative;
+  scrollbar-width:none; /* Firefox */
+}
+
+/* Hide scrollbar completely */
+.brand-grid-1x2 > div:last-child::-webkit-scrollbar{
+  width:0px;
+  height:0px;
+}
+
+/* Premium rail indicator */
+.brand-grid-1x2 > div:last-child::after{
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  width:2px;
+  height:100%;
+  background:rgba(28,96,137,0.18);
+  transition:background .25s ease;
+  pointer-events:none;
+}
+
+/* Stronger rail on hover */
+.brand-grid-1x2 > div:last-child:hover::after{
+  background:rgba(28,96,137,0.55);
+}
+
+</style>
+
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+#map {
+    width:100%;
+    height:500px;
+    border-radius:18px;
+}
+.leaflet-popup-content-wrapper {
+    background:#111;
+    color:#F3F5F7;
+}
+.leaflet-popup-tip { background:#111; }
+</style>
+
+
+<style>
+/* === FORCE LEFT ALIGNMENT FOR CITY & COUNTRY === */
+.right-premium-list .content{
+    text-align:left !important;
+    align-items:flex-start !important;
+}
+
+.right-premium-list .company,
+.right-premium-list .location{
+    text-align:left !important;
+}
+</style>
+
+
+<style>
+/* Executive subtle attribution styling */
+.leaflet-control-attribution{
+    background:rgba(0,0,0,0.45) !important;
+    backdrop-filter:blur(6px);
+    border-radius:8px;
+    font-size:11px;
+    padding:4px 8px;
+    color:#8892A5 !important;
+    border:none !important;
+}
+
+.leaflet-control-attribution a{
+    color:#A8B3C7 !important;
+    text-decoration:none;
+}
+</style>
+
+
+<style>
+/* Ultra-subtle but legally visible attribution */
+.leaflet-control-attribution{
+    opacity:0.25;
+    font-size:9px;
+    background:transparent !important;
+    color:#6f7c8a !important;
+    padding:2px 4px;
+}
+
+.leaflet-control-attribution:hover{
+    opacity:0.65; /* becomes clearer on hover */
+}
+
+.leaflet-control-attribution a{
+    color:#6f7c8a !important;
+    text-decoration:none;
+}
+</style>
+
+
+<style>
+/* Glow effect for markers */
+
+
+.leaflet-marker-icon {
+    transition: transform .35s cubic-bezier(.22,1,.36,1),
+                filter .35s ease;
+    transform-origin: bottom center;
+    filter: drop-shadow(0 0 6px rgba(28,96,137,0.75));
+}
+
+.leaflet-marker-icon:hover {
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 16px rgba(28,96,137,1));
+}
+
+.marker-ripple {
+    animation: ripplePulse .7s ease-out;
+}
+
+@keyframes ripplePulse {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.35); }
+    100% { transform: scale(1); }
+}
+
+
+</style>
+
+
+<style>
+.leaflet-control-zoom {
+    display: none !important;
+}
+</style>
+
+
+<style>
+html, body {
+    overflow-y: hidden !important; /* remove outer vertical bar */
+}
+
+/* keep scroll only inside right column */
+.brand-grid-1x2 > div:last-child {
+    overflow-y: auto !important;
+}
+
+/* optional: hide visual scrollbar but keep scroll */
+.brand-grid-1x2 > div:last-child::-webkit-scrollbar {
+    width: 6px;
+}
+</style>
+
+
+<style>
+/* ===============================
+   MICRO BRANDING BADGE
+================================== */
+.map-brand-badge{
+    position:absolute;
+    bottom:12px;
+    right:18px;
+    font-size:11px;
+    letter-spacing:.5px;
+    color:rgba(200,210,225,.35);
+    pointer-events:none;
+    transition:opacity .4s ease;
+}
+
+#map:hover + .map-brand-badge{
+    opacity:.7;
+}
+</style>
+
+
+<style>
+/* ==========================================
+   PREMIUM POPUP UPGRADE — EXECUTIVE 10/10
+========================================== */
+
+/* Popup container refinement */
+.leaflet-popup-content-wrapper{
+    background:#0f141c;
+    border-radius:14px;
+    padding:14px 16px;
+    box-shadow:
+        0 18px 50px rgba(0,0,0,.6),
+        0 0 40px rgba(28,96,137,.15);
+}
+
+/* Year highlight (assumes first bold element) */
+.leaflet-popup-content b{
+    display:block;
+    font-size:20px;
+    font-weight:700;
+    color:#1C6089;
+    margin-bottom:6px;
+    letter-spacing:.5px;
+}
+
+/* Divider line under year */
+.leaflet-popup-content b::after{
+    content:"";
+    display:block;
+    width:40px;
+    height:2px;
+    margin-top:6px;
+    background:#1C6089;
+    opacity:.7;
+}
+
+/* Company (second line) */
+.leaflet-popup-content{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:15px;
+    line-height:1.45;
+    color:#E6EDF7;
+}
+
+/* Secondary text (city / country) */
+.leaflet-popup-content span,
+.leaflet-popup-content small{
+    color:#AEB7C8;
+    font-weight:400;
+}
+
+/* Popup tip match */
+.leaflet-popup-tip{
+    background:#0f141c;
+}
+</style>
+	
+<style>
+.hero-confidence{
+    color:#82858B;
+}
+</style>
+	
+<style>
+/* ===== REMOVE TEXT CARET ===== */
+*:focus {
+  outline: none;
+}
+
+html, body {
+  caret-color: transparent;
+}
+</style>
+	
+
+<style>
+/* ================= SAFE HEADER OVERRIDE (DESKTOP + MOBILE) ================= */
+
+/* --- FORCE DESKTOP VISIBILITY --- */
+@media (min-width:1201px){
+  .nav-buttons{
+    display:flex !important;
+  }
+
+  .header-actions{
+    display:flex !important;
+  }
+
+  .hamburger{
+    display:none !important;
+  }
+}
+
+/* --- CLEAN MOBILE SYSTEM --- */
+@media (max-width:1200px){
+
+  .hamburger{
+    display:flex !important;
+    position:absolute;
+    right:24px;
+    top:50%;
+    transform:translateY(-50%);
+  }
+
+  .nav-buttons,
+  .header-actions{
+    display:none !important;
+  }
+
+  header.mobile-open{
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100vh;
+    background:linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.96),
+      rgba(0,0,0,0.88)
+    );
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    padding-top:140px;
+    z-index:9999;
+  }
+
+  header.mobile-open .nav-buttons{
+    display:flex !important;
+    flex-direction:column;
+    align-items:center;
+    gap:24px;
+  }
+
+  header.mobile-open .header-actions{
+    display:flex !important;
+    margin-top:40px;
+  }
+
+}
+</style>
+
+
+<style>
+/* ===== SAFE MOBILE MENU FIX ===== */
+@media (max-width:1200px){
+
+  header.mobile-open{
+    align-items:center !important;
+  }
+
+  header.mobile-open .nav-buttons{
+    display:flex !important;
+    flex-direction:column;
+    align-items:center !important;
+    justify-content:center !important;
+    width:100%;
+    text-align:center;
+  }
+
+  header.mobile-open .header-actions{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    width:100%;
+    margin-top:40px;
+  }
+
+  header.mobile-open .hamburger{
+    position:fixed !important;
+    top:28px !important;
+    right:24px !important;
+    transform:none !important;
+    z-index:10001;
+  }
+
+}
+</style>
+
+
+<style>
+/* ===== MOBILE CTA TRUE CENTER FIX ===== */
+@media (max-width:1200px){
+
+  header.mobile-open .header-actions{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    width:100% !important;
+    padding:0 !important;
+    margin:40px 0 0 0 !important;
+  }
+
+  header.mobile-open .header-actions .glow-button{
+    margin:0 auto !important;
+  }
+
+}
+</style>
+
+</head>
+
+<body>
+<div class="bg-overlay"></div>
+<header>
+<img src="images/logo.png" class="logo" alt="CRAFT⁴ Logo">
+
+<nav class="nav-buttons">
+  <a href="index.html" data-i18n="home">Home</a>
+  <a href="Industries.html" data-i18n="industries">Industries</a>
+  <a href="Technologies.html" data-i18n="technologies">Technologies</a>
+  <a href="Footprint.html" class="about-active" data-i18n="footprint">Footprint</a>
+  <a href="About.html" data-i18n="about">About</a>
+  <a href="#" id="langBtn">EN</a>
+</nav>
+
+  <div class="header-actions">
+    <a href="Contact.html" class="glow-button" data-i18n="contact">Contacto</a>
+  </div>
+
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+</header>
+<main>
+
+<section class="hero">
+<div class="container">
+  <h1 class="hero-title" data-i18n="hero.title">
+    European Industrial Footprint
+  </h1>
+
+  <h2 class="hero-subtitle" data-i18n="hero.subtitle">
+	Applied Engineering Across Leading European OEM & Tier 1 Systems 
+  </h2><br>
+	
+  <div class="hero-confidence" data-i18n="brand.confidence.pre">
+    | 25+ Years | 7 Countries | OEM, Tier 1 & Tier 2 | Aerospace, Automotive, Molds & Helmets |
+  </div>
+
+</div>
+</div>
+      <p class="hero-manifesto" data-i18n="hero.manifesto"></p>
+<p class="hero-mobile-text mobile-only" >
+  <span data-i18n="hero.mobile1"></span><br>
+  <span data-i18n="hero.mobile2"></span>
+</p>
+      
+      <p class="hero-description heroDesktop1 desktop-only">
+		<br><span data-i18n="hero.line1"></span><br>
+        <br><span data-i18n="hero.line2"></span></p>
+      <p class="hero-description heroDesktop2 desktop-only">
+		<span data-i18n="hero.line3"></span><br>
+		  
+</div>
+
+
+
+	
+
+</section>
+<section class="brand-grid-section">
+<div class="brand-grid-1x2" style="
+    justify-content:center;
+    align-items:center;
+
+    display:grid;
+    grid-template-columns: 800px 400px;
+    gap:0px;
+    margin-top:60px;
+    max-width:1200px;
+    margin-left:auto;
+    margin-right:auto;
+">
+  <div style="width:800px; height:500px; border-radius:18px; background:transparent; display:flex; align-items:center; justify-content:center; overflow:hidden;
+        padding:28px;
+        font-size:22px;
+        font-weight:600;
+        color:#F3F5F7;
+    ">
+<div style="
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+">
+
+<div id="map"></div>
+
+
+
+</div>
+</div>
+  <div style="width:300px;
+        height:auto;
+        max-height:500px;
+        border-radius:18px;
+        background:transparent;
+        backdrop-filter:none;
+        border:none;
+        display:flex;
+        align-items:flex-start;
+        justify-content:flex-start;
+        overflow-y:auto;
+        padding:28px;
+        font-size:22px;
+        font-weight:600;
+        color:#FFF500;
+    "> 
+<div class="right-premium-list">
+
+  <div class="item">
+    <div class="year">2026</div>
+    <div class="content">
+      <div class="company">GLN Advanced Solutions</div>
+      <div class="location">
+        <span data-i18n="location.leiria"></span> ·
+        <span data-i18n="country.portugal"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="year">2022</div>
+    <div class="content">
+      <div class="company">Volvo Group</div>
+      <div class="location">
+        <span data-i18n="location.gothenburg"></span> ·
+        <span data-i18n="country.sweden"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="year">2020</div>
+    <div class="content">
+      <div class="company">Stellantis</div>
+      <div class="location">
+        <span data-i18n="location.trnava"></span> ·
+        <span data-i18n="country.slovakia"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="year">2019</div>
+    <div class="content">
+      <div class="company">Magna Steyr</div>
+      <div class="location">
+        <span data-i18n="location.graz"></span> ·
+        <span data-i18n="country.austria"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="year">2016</div>
+    <div class="content">
+      <div class="company">Renault</div>
+      <div class="location">
+        <span data-i18n="location.guyancourt"></span> ·
+        <span data-i18n="country.france"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="year">2015</div>
+    <div class="content">
+      <div class="company">Faurecia</div>
+      <div class="location">
+        <span data-i18n="location.meru"></span> ·
+        <span data-i18n="country.france"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="year">2014</div>
+    <div class="content">
+      <div class="company">Automotive Lighting</div>
+      <div class="location">
+        <span data-i18n="location.guyancourt"></span> ·
+        <span data-i18n="country.france"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="year">2013</div>
+    <div class="content">
+      <div class="company">GRUPO ANTOLIN</div>
+      <div class="location">
+        <span data-i18n="location.guyancourt"></span> ·
+        <span data-i18n="country.france"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="year">2012</div>
+    <div class="content">
+      <div class="company">Simoldes</div>
+      <div class="location">
+        <span data-i18n="location.oliveira_de_azemeis"></span> ·
+        <span data-i18n="country.portugal"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+  <div class="year">2011</div>
+    <div class="content">
+      <div class="company">NexxPro</div>
+      <div class="location">
+        <span data-i18n="location.anadia"></span> ·
+        <span data-i18n="country.portugal"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="year">2010</div>
+    <div class="content">
+      <div class="company">Dassault Aviation</div>
+      <div class="location">
+        <span data-i18n="location.tarbes"></span> ·
+        <span data-i18n="country.france"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="year">2009</div>
+    <div class="content">
+      <div class="company">AgustaWestland</div>
+      <div class="location">
+        <span data-i18n="location.yeovil"></span> ·
+        <span data-i18n="country.uk"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="year">2008</div>
+    <div class="content">
+      <div class="company">GRUPO ANTOLIN</div>
+      <div class="location">
+        <span data-i18n="location.burgos"></span> ·
+        <span data-i18n="country.spain"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="year">2008</div>
+    <div class="content">
+      <div class="company">CEEIA</div>
+      <div class="location">
+        <span data-i18n="location.porto"></span> ·
+        <span data-i18n="country.portugal"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="year">2007</div>
+    <div class="content">
+      <div class="company">SIRMAF</div>
+      <div class="location">
+        <span data-i18n="location.coimbra"></span> ·
+        <span data-i18n="country.portugal"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="year">2006</div>
+    <div class="content">
+      <div class="company">SOMEMA</div>
+      <div class="location">
+        <span data-i18n="location.marinha_grande"></span> ·
+        <span data-i18n="country.portugal"></span>
+      </div>
+    </div>
+  </div>
+
+<div class="item">
+    <div class="year">2001</div>
+    <div class="content">
+      <div class="company">CIE Automotive</div>
+      <div class="location">
+        <span data-i18n="location.figueira_da_foz"></span> ·
+        <span data-i18n="country.portugal"></span>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+</div>
+	
+	
+<style>
+.brand-grid-a{
+  --accent:#1C6089;
+  --glass-top:rgba(30,35,45,0.55);
+  --glass-bottom:rgba(15,18,25,0.55);
+  --border:rgba(160,200,255,0.22);
+}
+
+.brand-grid-a *{box-sizing:border-box;margin:0;padding:0}
+
+/* ================= GRID ================= */
+
+#mainGrid{
+  perspective:1200px;
+  display:grid;
+  grid-template-columns: 800px 400px;
+  grid-template-rows:repeat(2, 165px);
+  gap:0px;
+  /* removed legacy width 85vw */
+  max-width:1200px;
+  margin:auto;
+}
+
+/* ================= CARD BASE ================= */
+
+.card-base{
+  /* removed legacy width 260px */
+  aspect-ratio: 2.67 / 1;
+  border-radius:16px;
+  background:linear-gradient(180deg,var(--glass-top),var(--glass-bottom));
+  backdrop-filter:blur(10px);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  transform-style:preserve-3d;
+  cursor:pointer;
+  overflow:visible;
+  transition:transform .4s cubic-bezier(.22,.61,.36,1),
+             box-shadow .4s ease;
+  box-shadow:0 10px 24px rgba(0,0,0,.35);
+}
+
+.card-base:hover{
+  transform:translateY(-6px) rotateX(7deg);
+  box-shadow:0 18px 40px rgba(0,0,0,.45);
+}
+
+/* ================= HEX ================= */
+
+.hex-wrap{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:120px;
+  height:60px;
+}
+
+.hex{
+  width:100%;
+  height:100%;
+  padding:1px;
+  background:linear-gradient(180deg,rgba(40,80,130,.6),rgba(15,35,70,.6));
+  clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hex svg{
+  width:36px;
+  height:36px;
+  stroke:var(--accent);
+  fill:none;
+  stroke-width:1.2;
+  transition:transform .4s ease;
+}
+
+.card-base:hover .hex svg{
+  transform:scale(1.05);
+}
+
+/* ================= CONTENT ================= */
+
+.card-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  gap:0px;
+  padding:28px 16px 16px 16px;
+}
+
+.card-content h4{font-weight:600;}
+.card-content p{font-size:12px;color:#BFC9DD;}
+
+/* ================= OVERLAY ================= */
+	
+.brand-grid-a .overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* ================= POPUP ================= */
+
+.popup{
+  /* removed legacy width 85vw */
+  height:85vh;
+  padding:48px 56px;
+  border-radius:22px;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  position:relative;
+  border:1px solid rgba(140,190,255,.32);
+  box-shadow:0 40px 120px rgba(0,0,0,.65),
+             0 0 120px rgba(28,96,137,.18);
+  display:flex;
+  flex-direction:column;
+  transition:background-image .6s ease-in-out;
+}
+
+/* Cinematic dark overlay over popup image */
+
+.popup::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(0,0,0,0.14), rgba(0,0,0,0.35)),
+    linear-gradient(180deg, rgba(5,8,12,0.42), rgba(10,14,20,0.48));
+  z-index:1;
+}
+
+.popup > *{
+  position:relative;
+  z-index:2;
+}
+
+/* Popup header */
+
+.popup-header{text-align:center;margin-bottom:28px;}
+
+.popup-header::after{
+  content:"";
+  display:block;
+  width:60px;
+  height:2px;
+  margin:14px auto 0 auto;
+  background:linear-gradient(90deg,#1C6089,transparent);
+  opacity:.7;
+}
+
+.popup-header h2,
+.popup-header h3{
+  font-size:28px;
+  font-weight:600;
+  letter-spacing:-0.3px;
+}
+
+.popup-header h4{
+  font-size:16px;
+  font-weight:500;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  opacity:0.85;
+}
+
+/* Popup body */
+
+.popup-body{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#BFC9DD;
+  font-size:18px;
+  line-height:1.6;
+}
+
+/* Popup actions */
+
+.popup-actions{
+  display:flex;
+  justify-content:center;
+  gap:0px;
+  margin-top:auto;
+}
+
+/* Secondary popup sizing */
+
+#secondaryOverlay .popup{
+  width:75vw;
+  height:75vh;
+}
+
+/* ================================= */
+/* ===== MICRO POLISH 10/10 ======== */
+/* ================================= */
+
+/* 1️⃣ Stage-like directional popup shadow */
+.popup{
+  box-shadow:
+    0 55px 140px rgba(0,0,0,.70),
+    0 10px 40px rgba(0,0,0,.35),
+    0 0 100px rgba(28,96,137,.12);
+}
+
+/* 2️⃣ Softer popup entrance animation */
+@keyframes popupEnter{
+  0%{
+    opacity:0;
+    transform:translateY(20px) scale(.98);
+  }
+  100%{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.overlay.active .popup{
+  animation:popupEnter .55s cubic-bezier(.22,.61,.36,1);
+}
+
+/* 3️⃣ Improve text readability over bright backgrounds */
+.popup-body{
+  text-shadow:0 1px 2px rgba(0,0,0,.35);
+}
+
+/* 4️⃣ Subtle overlay fade refinement */
+
+/* 5️⃣ Refine card hover easing (more luxury) */
+.card-base{
+  transition:
+    transform .5s cubic-bezier(.22,.61,.36,1),
+    box-shadow .5s cubic-bezier(.22,.61,.36,1);
+}
+
+/* ================================= */
+/* ===== ULTRA DISPLAY SUPPORT ===== */
+/* ================================= */
+
+/* Large TVs & Projectors (4K / 8K / 85"+) */
+@media (min-width:1920px){
+  #mainGrid{
+    max-width:1200px;
+    gap:0px;
+  }
+
+  .card-base{
+    width:320px;
+  }
+
+  .card-content h4{
+    font-size:20px;
+  }
+
+  .card-content p{
+    font-size:14px;
+  }
+}
+
+/* Very Large Screens (Wall displays / Projectors) */
+@media (min-width:2560px){
+  #mainGrid{
+    max-width:1200px;
+    gap:0px;
+  }
+
+  .card-base{
+    height:100%;
+  }
+
+		
+  .popup{
+    max-width:1200px;
+    max-height:1000px;
+  }
+
+  .popup-header h2,
+  .popup-header h3{
+    font-size:34px;
+  }
+
+  .popup-body{
+    font-size:20px;
+  }
+}
+
+/* Prevent excessive stretch on ultra-wide */
+@media (min-width:3440px){
+  #mainGrid{
+    margin:auto;
+    justify-content:center;
+  }
+}
+
+/* ================================= */
+/* ===== FLUID RESPONSIVE SYSTEM === */
+/* ================================= */
+
+/* Smooth fluid grid scaling */
+#mainGrid{
+  /* removed legacy clamp width */
+  gap:clamp(24px, 3vw, 80px);
+  transition:all .6s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Fluid card scaling */
+.card-base{
+  /* removed legacy clamp width */
+  transition:
+    transform .5s cubic-bezier(.22,.61,.36,1),
+    box-shadow .5s cubic-bezier(.22,.61,.36,1),
+    width .6s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Fluid typography */
+.card-content h4{
+  font-size:clamp(16px, 1.2vw, 22px);
+}
+
+.card-content p{
+  font-size:clamp(12px, 0.9vw, 15px);
+}
+
+/* Popup fluid sizing */
+.popup{
+  /* removed legacy clamp width */
+  height:clamp(80vh, 85vh, 1000px);
+  transition:all .6s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Fluid popup typography */
+.popup-header h2,
+.popup-header h3{
+  font-size:clamp(22px, 2vw, 36px);
+}
+
+.popup-body{
+  font-size:clamp(16px, 1.2vw, 22px);
+}
+
+/* Ultra smooth viewport resize animation */
+@media (prefers-reduced-motion: no-preference){
+  body{
+    transition:all .6s cubic-bezier(.22,.61,.36,1);
+  }
+}
+
+#mainGrid {
+    width: 100%;  /* Ajustando para garantir 100% da largura */
+    max-width:1200px;  /* Garantindo que a largura máxima seja 1200px */
+    margin: 0 auto;  /* Centralizando o grid */
+}
+
+.card-base {
+    /* removed legacy width 260px */
+    max-width:1200px;  /* Garantindo que a largura do card não ultrapasse a do grid */
+}
+
+/* === CRAFT⁴ Typography Update === */
+
+.brand-grid-a{
+  font-family:'Space Grotesk', sans-serif;
+}
+
+.brand-grid-a h2,
+.brand-grid-a h3,
+.brand-grid-a h4{
+  color:#F3F5F7;
+}
+
+/* === HARD HEIGHT FIX FOR UNIFORM CARDS === */
+.card-base{
+  height:100%;
+  aspect-ratio:auto;
+  width:100%;
+}
+
+</style>
+
+<br>
+
+
+</section>
+<a href="index.html" 
+   class="mobile-back" 
+   aria-label="Go back">
+   &lt;
+</a>
+
+<a href="index.html"
+   class="go-back-button glow-button"
+   aria-label="Go back">
+   <span data-i18n="go.back"></span>
+</a><br>
+
+<div class="bottom-statement">
+  <span data-i18n="brand.confidence.pre1"></span>
+  <span class="hero-accent" data-i18n="brand.confidence.highlight1"></span>
+  <span data-i18n="brand.confidence.pre2"></span>
+
+
+<!-- ===== END BRAND GRID A MODULE ===== -->
+</main>
+<footer>
+  © 2026 CRAFT⁴ — Engineering is our craft.
+</footer>
+
+	
+	
+
+	
+	
+	
+<script>
+(function(){
+
+const I18N = {
+
+  EN:{
+
+home:"Home",
+industries:"Industries",
+technologies:"Technologies",
+about:"About",
+footprint:"Footprint",
+contact:"Get in Touch",   
+	    
+"hero.title":"European Industrial Footprint",
+"hero.subtitle":"Applied Engineering Across Leading European OEM & Tier 1 Systems",
+"brand.confidence.pre":"| 7 Countries | OEM, Tier 1 & Tier 2 | Aerospace & Automotive | Structured Development Systems |", 
+	   
+"hero.line1": "The engineering foundations behind CRAFT⁴ were developed within leading European OEM and Tier 1 industrial environments, contributing to advanced automotive and aerospace programs under demanding technical standards.",
+"hero.line2": "This expertise was shaped across Portugal, Spain, France, the United Kingdom, Austria, Slovakia, and Sweden — within structured product development systems and high-performance industrial ecosystems.",
+"hero.line3": "Today, that accumulated industrial capability converges within CRAFT⁴.",
+
+"location.leiria": "Leiria",
+"location.gothenburg": "Gothenburg",
+"location.trnava": "Trnava",
+"location.graz": "Graz",
+"location.guyancourt": "Guyancourt",
+"location.meru": "Méru",
+"location.anadia": "Anadia",
+"location.oliveira_de_azemeis": "Oliveira de Azeméis",
+"location.tarbes": "Tarbes",
+"location.yeovil": "Yeovil",
+"location.burgos": "Burgos",
+"location.porto": "Porto",
+"location.coimbra": "Coimbra",
+"location.marinha_grande": "Marinha Grande",
+"location.figueira_da_foz": "Figueira da Foz",
+"country.portugal": "Portugal",
+"country.sweden": "Sweden",
+"country.slovakia": "Slovakia",
+"country.austria": "Austria",
+"country.france": "France",
+"country.uk": "United Kingdom",
+"country.spain": "Spain",
+	  
+"go.back":"Go back",
+	  
+"brand.confidence.pre1": "Consolidated experience across",
+"brand.confidence.highlight1": "critical European industrial programs",
+"brand.confidence.pre2": ", where technical competence and confidentiality go hand in hand.",
+
+  },
+	
+PT:{
+
+home:"Início",
+industries:"Indústrias",
+technologies:"Tecnologias",
+about:"Sobre Nós",
+footprint:"Implantação",
+contact:"Contactar",
+
+"hero.title":"Pegada Industrial Europeia",
+"hero.subtitle":"Engenharia Aplicada em Sistemas OEM e Tier 1 de Referência na Europa",
+
+"brand.confidence.pre":"7 Países | OEM, Tier 1 e Tier 2 | Aeroespacial e Automóvel | Sistemas de Desenvolvimento Estruturados",
+	
+"hero.line1": "As bases de engenharia da CRAFT⁴ foram desenvolvidas em ambientes industriais OEM e Tier 1 de referência na Europa, com participação em programas avançados dos setores automóvel e aeroespacial, sob requisitos técnicos exigentes.",
+"hero.line2": "Esta experiência foi consolidada em Portugal, Espanha, França, Reino Unido, Áustria, Eslováquia e Suécia — integrando processos estruturados de desenvolvimento de produto e ecossistemas industriais de elevado desempenho.",
+"hero.line3": "Hoje, essa capacidade industrial acumulada converge na CRAFT⁴.",
+
+/* ---------- Cidades ---------- */
+
+"location.leiria": "Leiria",
+"location.gothenburg": "Gotemburgo",
+"location.trnava": "Trnava",
+"location.graz": "Graz",
+"location.guyancourt": "Guyancourt",
+"location.meru": "Méru",
+"location.anadia": "Anadia",
+"location.oliveira_de_azemeis": "Oliveira de Azeméis",
+"location.tarbes": "Tarbes",
+"location.yeovil": "Yeovil",
+"location.burgos": "Burgos",
+"location.porto": "Porto",
+"location.coimbra": "Coimbra",
+"location.marinha_grande": "Marinha Grande",
+"location.figueira_da_foz": "Figueira da Foz",
+
+/* ---------- Países ---------- */
+
+"country.portugal": "Portugal",
+"country.sweden": "Suécia",
+"country.slovakia": "Eslováquia",
+"country.austria": "Áustria",
+"country.france": "França",
+"country.uk": "Reino Unido",
+"country.spain": "Espanha",
+
+"go.back":"Voltar",
+
+"brand.confidence.pre1": "Experiência consolidada em",
+"brand.confidence.highlight1": "programas industriais europeus de elevada exigência técnica",
+"brand.confidence.pre2": ", onde competência técnica e confidencialidade caminham lado a lado."
+
+},
+	
+ES:{
+
+home:"Inicio",
+industries:"Industrias",
+technologies:"Tecnologías",
+about:"Sobre Nosotros",
+footprint:"Implantación",
+contact:"Contacto",
+
+"hero.title":"Huella Industrial Europea",
+"hero.subtitle":"Ingeniería Aplicada en Sistemas OEM y Tier 1 Líderes en Europa",
+
+"brand.confidence.pre":"7 Países | OEM, Tier 1 y Tier 2 | Aeroespacial y Automoción | Sistemas de Desarrollo Estructurados",
+	
+"hero.line1": "Las bases de ingeniería de CRAFT⁴ se desarrollaron en entornos industriales OEM y Tier 1 de referencia en Europa, participando en programas avanzados de automoción y aeroespacial bajo estándares técnicos exigentes.",
+"hero.line2": "Esta experiencia se consolidó en Portugal, España, Francia, Reino Unido, Austria, Eslovaquia y Suecia — dentro de sistemas estructurados de desarrollo de producto y ecosistemas industriales de alto rendimiento.",
+"hero.line3": "Hoy, esa capacidad industrial acumulada converge en CRAFT⁴.",
+
+/* ---------- Cidades ---------- */
+
+"location.leiria": "Leiria",
+"location.gothenburg": "Gotemburgo",
+"location.trnava": "Trnava",
+"location.graz": "Graz",
+"location.guyancourt": "Guyancourt",
+"location.meru": "Méru",
+"location.anadia": "Anadia",
+"location.oliveira_de_azemeis": "Oliveira de Azeméis",
+"location.tarbes": "Tarbes",
+"location.yeovil": "Yeovil",
+"location.burgos": "Burgos",
+"location.porto": "Porto",
+"location.coimbra": "Coimbra",
+"location.marinha_grande": "Marinha Grande",
+"location.figueira_da_foz": "Figueira da Foz",
+
+/* ---------- Países ---------- */
+
+"country.portugal": "Portugal",
+"country.sweden": "Suécia",
+"country.slovakia": "Eslováquia",
+"country.austria": "Áustria",
+"country.france": "França",
+"country.uk": "Reino Unido",
+"country.spain": "Espanha",
+
+"go.back":"Volver",
+
+"brand.confidence.pre1": "Experiencia consolidada en",
+"brand.confidence.highlight1": "programas industriales europeos de alta exigencia técnica",
+"brand.confidence.pre2": ", donde la competencia técnica y la confidencialidad van de la mano."
+
+},
+
+FR:{
+
+home:"Accueil",
+industries:"Industries",
+technologies:"Technologies",
+about:"À propos",
+footprint:"Implantation",
+contact:"Contact",
+
+"hero.title":"Empreinte Industrielle Européenne",
+"hero.subtitle":"Ingénierie appliquée au sein des principaux systèmes OEM et Tier 1 européens",
+
+"brand.confidence.pre":"7 Pays | OEM, Tier 1 et Tier 2 | Aérospatial et Automobile | Systèmes de Développement Structurés",
+
+"hero.line1": "Les fondations d’ingénierie de CRAFT⁴ ont été développées au sein d’environnements industriels OEM et Tier 1 de référence en Europe, avec une contribution à des programmes avancés dans l’automobile et l’aéronautique, sous des exigences techniques élevées.",
+"hero.line2": "Cette expertise s’est structurée au Portugal, en Espagne, en France, au Royaume-Uni, en Autriche, en Slovaquie et en Suède — dans des systèmes formalisés de développement produit et des écosystèmes industriels à haute performance.",
+"hero.line3": "Aujourd’hui, cette capacité industrielle accumulée converge au sein de CRAFT⁴.",
+
+/* ---------- Villes ---------- */
+
+"location.leiria": "Leiria",
+"location.gothenburg": "Göteborg",
+"location.trnava": "Trnava",
+"location.graz": "Graz",
+"location.guyancourt": "Guyancourt",
+"location.meru": "Méru",
+"location.anadia": "Anadia",
+"location.oliveira_de_azemeis": "Oliveira de Azeméis",
+"location.tarbes": "Tarbes",
+"location.yeovil": "Yeovil",
+"location.burgos": "Burgos",
+"location.porto": "Porto",
+"location.coimbra": "Coimbra",
+"location.marinha_grande": "Marinha Grande",
+"location.figueira_da_foz": "Figueira da Foz",
+
+/* ---------- Pays ---------- */
+
+"country.portugal": "Portugal",
+"country.sweden": "Suède",
+"country.slovakia": "Slovaquie",
+"country.austria": "Autriche",
+"country.france": "France",
+"country.uk": "Royaume-Uni",
+"country.spain": "Espagne",
+
+"go.back":"Retour",
+
+"brand.confidence.pre1": "Expérience consolidée au sein de",
+"brand.confidence.highlight1": "programmes industriels européens à haute exigence technique",
+"brand.confidence.pre2": ", où compétence technique et confidentialité vont de pair."
+
+},
+	
+DE:{
+
+home:"Startseite",
+industries:"Industrien",
+technologies:"Technologien",
+about:"Über uns",
+footprint:"Präsenz",
+contact:"Kontakt",
+
+"hero.title":"Europäische Industrielle Präsenz",
+"hero.subtitle":"Angewandte Ingenieurtechnik in führenden europäischen OEM- und Tier-1-Systemen",
+
+"brand.confidence.pre":"7 Länder | OEM, Tier 1 & Tier 2 | Luft- und Raumfahrt & Automobilindustrie | Strukturierte Entwicklungssysteme",
+	
+"hero.line1": "Die ingenieurtechnischen Grundlagen von CRAFT⁴ wurden in führenden europäischen OEM- und Tier-1-Industrieumgebungen aufgebaut, mit Beteiligung an fortschrittlichen Automobil- und Luftfahrtprogrammen unter anspruchsvollen technischen Standards.",
+"hero.line2": "Diese Expertise wurde in Portugal, Spanien, Frankreich, dem Vereinigten Königreich, Österreich, der Slowakei und Schweden innerhalb strukturierter Produktentwicklungsprozesse und leistungsfähiger industrieller Ökosysteme gefestigt.",
+"hero.line3": "Heute bündelt CRAFT⁴ diese kumulierte industrielle Kompetenz.",
+
+/* ---------- Städte ---------- */
+
+"location.leiria": "Leiria",
+"location.gothenburg": "Göteborg",
+"location.trnava": "Trnava",
+"location.graz": "Graz",
+"location.guyancourt": "Guyancourt",
+"location.meru": "Méru",
+"location.anadia": "Anadia",
+"location.oliveira_de_azemeis": "Oliveira de Azeméis",
+"location.tarbes": "Tarbes",
+"location.yeovil": "Yeovil",
+"location.burgos": "Burgos",
+"location.porto": "Porto",
+"location.coimbra": "Coimbra",
+"location.marinha_grande": "Marinha Grande",
+"location.figueira_da_foz": "Figueira da Foz",
+
+/* ---------- Länder ---------- */
+
+"country.portugal": "Portugal",
+"country.sweden": "Schweden",
+"country.slovakia": "Slowakei",
+"country.austria": "Österreich",
+"country.france": "Frankreich",
+"country.uk": "Vereinigtes Königreich",
+"country.spain": "Spanien",
+
+"go.back":"Zurück",
+
+"brand.confidence.pre1": "Konsolidierte Erfahrung in",
+"brand.confidence.highlight1": "anspruchsvollen europäischen Industrieprogrammen",
+"brand.confidence.pre2": ", in denen technische Kompetenz und Vertraulichkeit Hand in Hand gehen."
+
+},
+
+ZH:{
+
+home:"首页",
+industries:"行业领域",
+technologies:"技术能力",
+about:"关于我们",
+footprint:"业务布局",
+contact:"联系我们",
+
+"hero.title":"欧洲工业布局",
+"hero.subtitle":"应用工程覆盖欧洲领先的 OEM 与一级供应商系统",
+
+"brand.confidence.pre":"7个国家 | OEM、一级与二级供应商 | 航空航天与汽车 | 结构化开发体系",
+	
+"hero.line1": "CRAFT⁴ 的工程基础建立于欧洲领先的 OEM 和 Tier 1 工业环境中，参与汽车与航空航天领域的先进项目开发，并在严格的技术标准下开展工作。",
+"hero.line2": "相关经验在葡萄牙、西班牙、法国、英国、奥地利、斯洛伐克和瑞典等国家形成，并依托结构化的产品开发体系与高性能工业生态系统不断深化。",
+"hero.line3": "如今，这些积累的工业能力汇聚于 CRAFT⁴。",
+
+/* ---------- 城市 ---------- */
+
+"location.leiria": "莱里亚",
+"location.gothenburg": "哥德堡",
+"location.trnava": "特尔纳瓦",
+"location.graz": "格拉茨",
+"location.guyancourt": "吉扬库尔",
+"location.meru": "梅吕",
+"location.anadia": "阿纳迪亚",
+"location.oliveira_de_azemeis": "奥利韦拉-迪阿泽梅伊什",
+"location.tarbes": "塔布",
+"location.yeovil": "约维尔",
+"location.burgos": "布尔戈斯",
+"location.porto": "波尔图",
+"location.coimbra": "科英布拉",
+"location.marinha_grande": "马里尼亚格兰德",
+"location.figueira_da_foz": "菲盖拉-达福什",
+
+/* ---------- 国家 ---------- */
+
+"country.portugal": "葡萄牙",
+"country.sweden": "瑞典",
+"country.slovakia": "斯洛伐克",
+"country.austria": "奥地利",
+"country.france": "法国",
+"country.uk": "英国",
+"country.spain": "西班牙",
+
+"go.back":"返回",
+
+"brand.confidence.pre1": "在",
+"brand.confidence.highlight1": "高要求的欧洲工业项目",
+"brand.confidence.pre2": "中积累的综合工程经验，技术能力与保密原则始终并行。"
+
+}
+};
+
+const LANGS=["EN","PT","ES","FR","DE","ZH"];
+let currentLang = localStorage.getItem("preferredLanguage") || "EN";
+window.I18N = I18N;
+window.currentLang = currentLang;
+const langBtn=document.getElementById("langBtn");
+
+function applyLanguage(lang){
+  localStorage.setItem("preferredLanguage", lang);
+  if(!I18N[lang]) lang="EN";
+
+  document.documentElement.lang=lang.toLowerCase();
+
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key=el.dataset.i18n;
+    el.textContent=I18N[lang][key] ?? I18N["EN"][key] ?? el.textContent;
+  });
+
+  currentLang=lang;
+  window.currentLang = currentLang;
+  if(langBtn) langBtn.textContent=lang;
+}
+
+function nextLanguage(){
+  const index=(LANGS.indexOf(currentLang)+1)%LANGS.length;
+  applyLanguage(LANGS[index]);
+}
+
+if(langBtn){
+  langBtn.addEventListener("click",e=>{
+    e.preventDefault();
+    nextLanguage();
+  });
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+  applyLanguage(currentLang);
+});
+
+})();
+</script>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const header = document.querySelector("header");
+const body = document.body;
+
+if(hamburger){
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    header.classList.toggle("mobile-open");
+    body.classList.toggle("menu-open");
+  });
+}
+</script>
+
+<script>
+/* ================= TV MODE TOGGLE ================= */
+
+(function(){
+  const urlParams = new URLSearchParams(window.location.search);
+  if(urlParams.get('tv') === '1'){
+    document.body.classList.add('tv-mode');
+  }
+})();
+</script>
+
+<script>
+/* ===============================
+   TRUE VERTICAL 3D WHEEL (MATCH HOME)
+   =============================== */
+(function(){
+
+  const mq = window.matchMedia("(max-width:1200px;
+  const AUTO_INTERVAL = 2600;
+  const RADIUS = 100;
+  const VERTICAL_SPREAD = 0.65;
+  const PERSPECTIVE = 1200;
+
+  function initWheel(container){
+
+    const cards = Array.from(container.querySelectorAll(".card-base"));
+    if(!cards.length) return;
+
+    let angle = 0;
+    const step = 360 / cards.length;
+    let timer = null;
+
+    container.style.position = "relative";
+    container.style.perspective = PERSPECTIVE + "px";
+    container.style.transformStyle = "preserve-3d";
+    container.style.overflow = "visible";
+    container.style.minHeight = "420px";
+
+    cards.forEach(card=>{
+      card.style.position = "absolute";
+      card.style.left = "50%";
+      card.style.top  = "50%";
+      card.style.transformStyle = "preserve-3d";
+      card.style.transition =
+        "transform 1.15s cubic-bezier(0.16,1,0.3,1), opacity .7s ease, filter .7s ease, box-shadow .7s ease";
+      card.style.willChange = "transform";
+    });
+
+    function layout(){
+      cards.forEach((card,i)=>{
+
+        const a = (angle + i * step) * Math.PI / 180;
+
+        let y = Math.sin(a) * RADIUS * VERTICAL_SPREAD;
+        y = Math.round(y * 2) / 2;
+        const z = Math.cos(a) * RADIUS;
+
+        const depthRatio = (z + RADIUS) / (2 * RADIUS);
+        const opacity = 0.25 + depthRatio * 0.75;
+        const scale = 0.82 + depthRatio * 0.18;
+        const blur = (1 - depthRatio) * 2;
+
+        const glowIntensity = depthRatio * 0.6;
+
+const OFFSET = 100; // <<< controla aqui
+
+card.style.transform =
+  `translate(-50%, calc(-50% + ${250}px)) 
+   translateY(${y}px) 
+   translateZ(${z}px)`;
+
+        card.style.opacity = opacity;
+        card.style.filter = `blur(${blur}px)`;
+
+        card.style.boxShadow =
+          depthRatio > 0.85
+          ? `0 0 ${18 + depthRatio*22}px rgba(111,179,255,${glowIntensity}),
+             inset 0 0 ${10 + depthRatio*12}px rgba(111,179,255,${glowIntensity*0.6})`
+          : "";
+
+        card.style.zIndex = Math.round(z + RADIUS);
+      });
+    }
+
+    function stepWheel(dir = 1){
+      angle += dir * step;
+      layout();
+
+      const target = Math.round(angle / step) * step;
+      angle += (target - angle) * 0.18;
+      layout();
+    }
+
+    function startAuto(){
+      stopAuto();
+      timer = setInterval(()=>stepWheel(1), AUTO_INTERVAL);
+    }
+
+    function stopAuto(){
+      if(timer){
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function onWheel(e){
+      e.preventDefault();
+      stopAuto();
+      stepWheel(e.deltaY > 0 ? 1 : -1);
+      startAuto();
+    }
+
+    container.addEventListener("wheel", onWheel, { passive:false });
+    window.addEventListener("resize", layout);
+
+    layout();
+    startAuto();
+  }
+
+  function boot(){
+    if(!mq.matches) return;
+
+    const mainGrid = document.querySelector("#mainGrid");
+    if(mainGrid) initWheel(mainGrid);
+  }
+
+  window.addEventListener("load", boot);
+  mq.addEventListener("change", () => location.reload());
+
+} else {
+    bottom.style.opacity = "1";
+    bottom.style.visibility = "visible";
+  }
+}
+
+/* Hook into existing popup logic safely */
+document.addEventListener("DOMContentLoaded", function(){
+
+  const mainOverlay = document.getElementById("mainOverlay");
+  const secondaryOverlay = document.getElementById("secondaryOverlay");
+
+  const observer = new MutationObserver(updateBottomStatementVisibility);
+
+  if(mainOverlay){
+    observer.observe(mainOverlay, { attributes: true, attributeFilter: ["class"] });
+  }
+
+  if(secondaryOverlay){
+    observer.observe(secondaryOverlay, { attributes: true, attributeFilter: ["class"] });
+  }
+
+});
+</script>
+
+<script>
+/* ===============================
+   MOBILE 3D WHEEL — MAIN POPUP ONLY
+================================== */
+(function(){
+
+  const mq = window.matchMedia("(max-width:1200px;
+  const RADIUS = 100;
+  const AUTO_INTERVAL = 2600;
+
+  function initMainPopupWheel(){
+
+    if(!mq.matches) return;
+
+    const overlay = document.getElementById("mainOverlay");
+    const container = overlay?.querySelector(".popup-actions");
+    if(!container) return;
+
+    const cards = Array.from(container.querySelectorAll(".card-base"));
+    if(!cards.length) return;
+
+    let angle = 0;
+    const step = 360 / cards.length;
+    let timer = null;
+
+    container.style.position = "relative";
+    container.style.perspective = "1200px";
+    container.style.transformStyle = "preserve-3d";
+    container.style.minHeight = "420px";
+
+    cards.forEach(card=>{
+      card.style.position = "absolute";
+      card.style.left = "50%";
+      card.style.top  = "50%";
+      card.style.width = "90vw";
+      card.style.height = "165px";
+      card.style.transformStyle = "preserve-3d";
+      card.style.transition =
+        "transform 1s cubic-bezier(.22,1,.36,1), opacity .6s ease";
+    });
+
+    function layout(){
+      cards.forEach((card,i)=>{
+        const a = (angle + i * step) * Math.PI / 180;
+        const y = Math.sin(a) * 65;
+        const z = Math.cos(a) * RADIUS;
+
+        const depthRatio = (z + RADIUS) / (2 * RADIUS);
+        const opacity = 0.35 + depthRatio * 0.65;
+
+const OFFSET = 100; // <<< controla aqui
+
+card.style.transform =
+  `translate(-50%, calc(-50% + ${200}px)) 
+   translateY(${y}px) 
+   translateZ(${z}px)`;
+
+        card.style.opacity = opacity;
+        card.style.zIndex = Math.round(z + RADIUS);
+      });
+    }
+
+    function rotate(dir = 1){
+      angle += dir * step;
+      layout();
+    }
+
+    function startAuto(){
+      stopAuto();
+      timer = setInterval(()=>rotate(1), AUTO_INTERVAL);
+    }
+
+    function stopAuto(){
+      if(timer){
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    container.addEventListener("wheel", e=>{
+      e.preventDefault();
+      stopAuto();
+      rotate(e.deltaY > 0 ? 1 : -1);
+      startAuto();
+    }, { passive:false });
+
+    layout();
+    startAuto();
+  }
+
+  document.addEventListener("DOMContentLoaded", initMainPopupWheel);
+  mq.addEventListener("change", ()=>location.reload());
+
+})();
+</script>
+
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+var map = L.map('map', { zoomControl: false }, { attributionControl: true }).setView([48.5, 9], 4);
+map.attributionControl.setPosition('bottomleft');
+
+L.tileLayer(
+    'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.jpg',
+    { subdomains: 'abcd', maxZoom: 19 }
+).addTo(map);
+
+var projects = [
+    {year:"2026", company:"GLN Advanced Solutions", city:"Leiria", country:"Portugal", lat:39.7436, lon:-8.8071},
+    {year:"2022", company:"Volvo Group", city:"Gotemburgo", country:"Suécia", lat:57.7089, lon:11.9746},
+    {year:"2020", company:"Stellantis", city:"Trnava", country:"Eslováquia", lat:48.3774, lon:17.5872},
+    {year:"2019", company:"Magna Steyr", city:"Graz", country:"Áustria", lat:47.0707, lon:15.4395},
+    {year:"2016", company:"Renault", city:"Guyancourt", country:"França", lat:48.7734, lon:2.0736},
+    {year:"2015", company:"Faurecia", city:"Méru", country:"França", lat:49.2333, lon:2.1333},
+    {year:"2014", company:"Automotive Lighting", city:"Guyancourt", country:"França", lat:48.7734, lon:2.0736},
+    {year:"2013", company:"GRUPO ANTOLIN", city:"Guyancourt", country:"França", lat:48.7734, lon:2.0736},
+    
+    {year:"2012", company:"Simoldes", city:"Oliveira de Azeméis", country:"Portugal", lat:40.8410, lon:-8.4750},
+    {year:"2011", company:"NexxPro", city:"Anadia", country:"Portugal", lat:40.4384, lon:-8.4335},
+    {year:"2010", company:"Dassault Aviation", city:"Tarbes", country:"França", lat:43.2320, lon:0.0781},
+    {year:"2009", company:"AgustaWestland", city:"Yeovil", country:"Reino Unido", lat:50.9416, lon:-2.6320},
+    {year:"2008", company:"GRUPO ANTOLIN", city:"Burgos", country:"Espanha", lat:42.3439, lon:-3.6969},
+    {year:"2008", company:"CEEIA", city:"Porto", country:"Portugal", lat:41.1579, lon:-8.6291},
+    {year:"2007", company:"SIRMAF", city:"Coimbra", country:"Portugal", lat:40.2033, lon:-8.4103},
+    {year:"2006", company:"SOMEMA", city:"Marinha Grande", country:"Portugal", lat:39.7478, lon:-8.9322},
+    {year:"2001", company:"CIE Automotive", city:"Figueira da Foz", country:"Portugal", lat:40.1508, lon:-8.8618}
+];
+
+
+var bounds = [];
+
+
+
+function createPin(size = 26){
+    return L.divIcon({
+        className: '',
+        html: `
+        <svg width="${size}" height="${size*1.4}" viewBox="0 0 24 36" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0C6 0 1.5 4.5 1.5 10.5C1.5 18 12 36 12 36C12 36 22.5 18 22.5 10.5C22.5 4.5 18 0 12 0Z"
+                  fill="#0f3f5c"
+                  stroke="#1C6089"
+                  stroke-width="2"/>
+            <circle cx="12" cy="10.5" r="4" fill="#C7C9CF"/>
+        </svg>
+        `,
+        iconSize: [size, size*1.4],
+        iconAnchor: [size/2, size*1.4],
+        popupAnchor: [0,-size]
+    });
+}
+
+const isTV = document.body.classList.contains("tv-mode");
+const bluePin = createPin(isTV ? 34 : 26);
+
+
+
+projects.sort((a,b)=> parseInt(a.year) - parseInt(b.year));
+
+var markerIndex = {};
+
+projects.forEach(function(p, index){
+
+    setTimeout(function(){
+
+        var marker = L.marker([p.lat, p.lon], { icon: bluePin }).addTo(map)
+            .bindPopup("<b>" + p.year + "</b><br>" + p.company +
+                       "<br>" + p.city + " · " + p.country);
+
+        marker.on("popupopen", function(){
+            const el = marker._icon;
+            if(!el) return;
+            el.classList.add("marker-ripple");
+            setTimeout(()=>el.classList.remove("marker-ripple"), 700);
+        });
+
+        markerIndex[p.company] = marker;
+
+        marker.on("mouseover", function(){
+            document.querySelectorAll(".right-premium-list .item").forEach(item=>{
+                if(item.querySelector(".company")?.innerText === p.company){
+                    item.style.background = "rgba(28,96,137,.15)";
+                    item.style.transition = "background .3s ease";
+                }
+            });
+        });
+
+        marker.on("mouseout", function(){
+            document.querySelectorAll(".right-premium-list .item").forEach(item=>{
+                item.style.background = "";
+            });
+        });
+
+        bounds.push([p.lat, p.lon]);
+
+        if(index === projects.length - 1){
+            map.fitBounds(bounds, { padding:[60,60] });
+        }
+
+    }, index * 120);
+
+});
+
+function highlightMarker(companyName){
+    const marker = markerIndex[companyName];
+    if(!marker) return;
+
+    const el = marker._icon;
+    if(!el) return;
+
+    el.style.transform = "scale(1.2)";
+    el.style.filter = "drop-shadow(0 0 22px rgba(28,96,137,1))";
+
+    map.flyTo(marker.getLatLng(), 6, {duration:1.1});
+    marker.openPopup();
+}
+
+function resetMarkers(){
+    Object.values(markerIndex).forEach(m=>{
+        const el = m._icon;
+        if(!el) return;
+        el.style.transform = "";
+        el.style.filter = "";
+    });
+}
+
+document.querySelectorAll(".right-premium-list .item").forEach(item=>{
+    const company = item.querySelector(".company")?.innerText;
+
+    item.addEventListener("mouseenter", ()=>highlightMarker(company));
+    item.addEventListener("mouseleave", ()=>resetMarkers());
+});
+
+
+// Calibrated fit for 850px width layout
+map.fitBounds(bounds, {
+    padding: [60, 60]  // vertical, horizontal padding tuned for 850px width
+});
+
+</script>
+
+
+<!-- ===============================
+     INTERACTION UPGRADE (Timeline ↔ Map Sync)
+================================== -->
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    const mapInstance = map; // reuse existing Leaflet map
+    const markers = [];
+
+    // Build marker index by company name
+    mapInstance.eachLayer(function(layer){
+        if(layer instanceof L.Marker){
+            markers.push(layer);
+        }
+    });
+
+    function focusOnCompany(companyName){
+        markers.forEach(m => {
+            if(m.getPopup() && m.getPopup().getContent().includes(companyName)){
+                mapInstance.flyTo(m.getLatLng(), 6, {duration:1.2});
+                m.openPopup();
+            }
+        });
+    }
+
+    // Attach hover listeners to right timeline items
+    document.querySelectorAll(".right-premium-list .item").forEach(item=>{
+        const company = item.querySelector(".company")?.innerText;
+        if(company){
+            item.addEventListener("mouseenter", ()=>focusOnCompany(company));
+        }
+    });
+
+});
+</script>
+
+</body>
+</html>
