@@ -1,0 +1,2802 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Craft⁴</title>
+<meta name="description" content="Contact Craft⁴ Technologies to discuss simulation-driven engineering solutions tailored to your industrial challenges.">
+<link rel="preload" as="image" href="images/Bg_Contact.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="header.css">
+
+<style>
+
+/* ================= DESIGN TOKENS ================= */
+:root{
+  --brand-blue:#37AEFC;
+  --footer-color:#817B7A;
+
+  --text-primary:#C7C9CF;
+  --text-secondary:#b3bcce;
+  --accent-blue:#1C6089;
+
+  --bg-overlay-start:rgba(0,0,0,.78);
+  --bg-overlay-end:rgba(0,0,0,.68);
+
+  --radius-lg:18px;
+  --container-max:1400px;
+
+  --spacing-xs:8px;
+  --spacing-sm:16px;
+  --spacing-md:32px;
+  --spacing-lg:60px;
+  --spacing-xl:140px;
+
+  --transition-smooth:.35s ease;
+}
+
+/* ================= RESET ================= */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html, body{
+  height:100%;
+}
+
+/* ================= LAYOUT CORE ================= */
+body{
+  font-family:'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color:var(--text-secondary);
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* ===== TRUE FULLSCREEN BACKGROUND LAYER ===== */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url('images/Bg_Contact.jpg') center center / cover no-repeat;
+  z-index:-2;
+}
+
+/* Overlay Layer */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(to bottom,var(--bg-overlay-start),var(--bg-overlay-end));
+  z-index:-1;
+}
+
+header, main, footer{
+  position:relative;
+  overflow-x:hidden;
+  z-index:1;
+}
+
+/* ================= MAIN ================= */
+main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:0 var(--spacing-md);
+}
+
+.container{
+  width:100%;
+  max-width:var(--container-max);
+  margin:0 auto;
+}
+
+/* ================= HERO TEXT ================= */
+
+.hero-title{
+  font-size: clamp(32px, 6vw, 71px);
+  font-weight:500;
+  color:#C7C9CF;
+}
+.hero-subtitle{
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight:500;
+  color:#1C6089;
+}
+	
+
+
+/* ================= ACTIVE NAV ================= */
+
+	
+/* ================= CTA ================= */
+.glow-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:150px;
+  height:42px;
+  border-radius:999px;
+  background:linear-gradient(180deg,#6f2109 0%,#8a2d10 55%,#a43a18 100%);
+  border:2px solid #ff8a2a;
+  color:#C7C9CF !important;
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  text-decoration:none;
+  text-align:center;
+  transition:transform var(--transition-smooth);
+}
+
+.glow-button:hover{
+  transform:translateY(-2px);
+}
+
+/* ================= FOOTER ================= */
+footer{
+  height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  color:var(--footer-color);
+  flex-shrink:0;
+}
+
+	
+.bottom-statement{
+  text-align:center;
+  margin:12px auto 8px auto;
+  font-size:clamp(16px,1.2vw,20px);
+  font-weight:500;
+  color:#C7C9CF; /* mesmo tom do hero-title */
+  letter-spacing:0.2px;
+  max-width:900px;
+}
+
+
+	
+/* ================= BOTTOM STATEMENT ================= */
+.bottom-statement .hero-accent{
+  color:#1C6089; /* brand blue */
+  font-weight:600;
+}
+	
+</style>
+
+<style>
+/* ================= FINAL MOBILE HEADER SYSTEM ================= */
+
+.hamburger{
+  display:none;
+  position:absolute;
+  right:24px;
+  top:50%;
+  transform:translateY(-50%);
+  width:32px;
+  height:24px;
+  flex-direction:column;
+  justify-content:space-between;
+  cursor:pointer;
+  z-index:1100;
+}
+
+.hamburger span{
+  height:3px;
+  background:#f4f7fb;
+  border-radius:2px;
+  transition:.35s ease;
+}
+
+.hamburger.active span:nth-child(1){
+  transform:translateY(10px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2){
+  opacity:0;
+}
+.hamburger.active span:nth-child(3){
+  transform:translateY(-10px) rotate(-45deg);
+}
+
+</style>
+
+<style>
+/* ===== MOBILE GO BACK STYLE (MATCH HOME) ===== */
+
+
+    
+</style>
+
+<style>
+
+<style>
+/* ===== CLEAN MOBILE BACK FIX ===== */
+
+/* Ensure overlay never blocks clicks */
+.overlay{
+    pointer-events: none !important;
+}
+
+/* Force mobile back above everything */
+
+</style>
+
+<style>
+/* ===== MOBILE BACK PERFECT CENTER FIX ===== */
+
+</style>
+
+<style>
+/* ===== STRICT RESPONSIVE VISIBILITY ===== */
+
+/* Default: desktop = show normal button, hide < */
+
+
+.go-back-button{
+    display:inline-flex !important;
+}
+
+/* Mobile / Tablet */
+
+</style>
+
+<style>
+/* ===== BLUE PULSE ENERGETIC HAMBURGER ===== */
+
+.hamburger span{
+  box-shadow:0 0 14px rgba(55,174,252,.55);
+  animation:bluePulse 2.5s ease-in-out infinite;
+  transition:transform .35s cubic-bezier(.4,0,.2,1),
+             opacity .25s ease,
+             box-shadow .3s ease;
+}
+
+@keyframes bluePulse{
+  0%,100%{
+    box-shadow:0 0 10px rgba(55,174,252,.45);
+  }
+  
+
+header.mobile-open .hamburger span{
+  animation:none;
+  box-shadow:0 0 26px rgba(55,174,252,1);
+}
+
+/* ===== MOBILE LOGO SPACING MATCH IMAGE ===== */
+
+</style>
+
+<style>
+/* ================= CLEAN CONSOLIDATED MOBILE SYSTEM ================= */
+
+
+  
+
+}
+
+@media (max-width:900px){
+
+  /* Show hamburger */
+  .hamburger{ display:flex; }
+
+  /* Hide desktop nav */
+  .nav-buttons,
+  .header-actions{ display:none !important; }
+
+  /* Mobile full screen menu */
+  header.mobile-open{
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100vh;
+    background:linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.96) 0%,
+      rgba(0,0,0,0.88) 60%,
+      rgba(0,0,0,0.80) 100%
+    );
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    padding-top:140px; /* final spacing */
+    z-index:9999;
+  }
+
+  /* Logo spacing */
+  header.mobile-open .logo{
+    margin:0 auto 60px auto;
+  }
+
+  /* Center nav items */
+  header.mobile-open .nav-buttons{
+    display:flex !important;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    gap:28px;
+  }
+
+  header.mobile-open .nav-buttons a{
+    text-align:center;
+  }
+
+  /* Center CTA */
+  header.mobile-open .header-actions{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    width:100%;
+    margin:40px auto 0 auto !important;
+  }
+
+  header.mobile-open .header-actions .glow-button{
+    margin:0 auto !important;
+  }
+
+  /* X position */
+  header.mobile-open .hamburger{
+    position:fixed;
+    top:36px;
+    right:24px;
+    transform:none;
+    z-index:10000;
+  }
+
+  body.menu-open{ overflow:hidden; }
+
+}
+</style>
+
+
+<style>
+/* ================= PRO MOTION REFINEMENT ================= */
+
+/* Smoother hamburger easing */
+.hamburger span{
+  transition: transform .45s cubic-bezier(.22,1,.36,1),
+              opacity .3s ease,
+              box-shadow .4s ease;
+}
+
+/* Backdrop blur for mobile menu */
+@media (max-width:900px){
+  header.mobile-open{
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  /* Stagger animation for nav items */
+  header.mobile-open .nav-buttons a{
+    opacity:0;
+    transform:translateY(12px);
+    animation:fadeSlideUp .5s forwards;
+  }
+
+  header.mobile-open .nav-buttons a:nth-child(1){ animation-delay:.05s; }
+  header.mobile-open .nav-buttons a:nth-child(2){ animation-delay:.10s; }
+  header.mobile-open .nav-buttons a:nth-child(3){ animation-delay:.15s; }
+  header.mobile-open .nav-buttons a:nth-child(4){ animation-delay:.20s; }
+  header.mobile-open .nav-buttons a:nth-child(5){ animation-delay:.25s; }
+
+  @keyframes fadeSlideUp{
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+
+  /* CTA micro interaction */
+  header.mobile-open .glow-button:active{
+    transform:scale(.95);
+  }
+}
+
+/* Subtle premium hover refinement */
+.glow-button{
+  transition: transform .35s cubic-bezier(.22,1,.36,1),
+              box-shadow .4s ease;
+}
+
+.glow-button:hover{
+  box-shadow:0 8px 28px rgba(255,138,42,.35);
+}
+
+</style>
+
+
+<style>
+/* ================= CINEMATIC MOTION SYSTEM ================= */
+
+:root{
+  --easing-cinematic:cubic-bezier(.22,1,.36,1);
+}
+
+/* ===== HERO CINEMATIC ENTRY ===== */
+
+
+
+
+.bottom-statement{
+  opacity:0;
+  transform:translateY(30px);
+  
+  animation-delay:.3s;
+}
+
+@keyframes heroIn{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ===== MOBILE MENU CINEMATIC OVERLAY ===== */
+@media (max-width:900px){
+
+  header.mobile-open{
+    animation:menuFadeIn .6s var(--easing-cinematic);
+  }
+
+  @keyframes menuFadeIn{
+    from{ opacity:0; }
+    to{ opacity:1; }
+  }
+
+  /* Logo enters first */
+  header.mobile-open .logo{
+    opacity:0;
+    transform:translateY(20px);
+    animation:menuItemIn .7s var(--easing-cinematic) forwards;
+  }
+
+  /* Nav items stagger */
+  header.mobile-open .nav-buttons a{
+    opacity:0;
+    transform:translateY(20px);
+    animation:menuItemIn .7s var(--easing-cinematic) forwards;
+  }
+
+  header.mobile-open .nav-buttons a:nth-child(1){ animation-delay:.08s; }
+  header.mobile-open .nav-buttons a:nth-child(2){ animation-delay:.16s; }
+  header.mobile-open .nav-buttons a:nth-child(3){ animation-delay:.24s; }
+  header.mobile-open .nav-buttons a:nth-child(4){ animation-delay:.32s; }
+  header.mobile-open .nav-buttons a:nth-child(5){ animation-delay:.40s; }
+
+  /* CTA enters last */
+  header.mobile-open .header-actions{
+    opacity:0;
+    transform:translateY(20px);
+    animation:menuItemIn .7s var(--easing-cinematic) forwards;
+    animation-delay:.5s;
+  }
+
+  @keyframes menuItemIn{
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+
+}
+
+/* ===== HAMBURGER DRAMATIC CLICK FEEDBACK ===== */
+.hamburger{
+  transition:transform .35s var(--easing-cinematic);
+}
+
+.hamburger:active{
+  transform:scale(.88);
+}
+
+header.mobile-open .hamburger span{
+  box-shadow:0 0 30px rgba(55,174,252,1);
+}
+
+/* ===== CTA CINEMATIC INTERACTION ===== */
+.glow-button{
+  transition:transform .4s var(--easing-cinematic),
+             box-shadow .4s var(--easing-cinematic);
+}
+
+.glow-button:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 40px rgba(255,138,42,.45);
+}
+
+.glow-button:active{
+  transform:scale(.94);
+}
+
+</style>
+
+
+<style>
+/* ================= UNIVERSAL RESPONSIVE SYSTEM ================= */
+
+/* --- Small Phones (≤380px) --- */
+@media (max-width:380px){
+  
+  
+  main{ padding-top:0; /* removed large spacing */ /* original was */ /* padding-top:100px; }
+  
+}
+
+/* --- Standard Phones (≤480px) --- */
+@media (max-width:480px){
+  
+  
+}
+
+/* --- Tablets Portrait (768px–900px) --- */
+@media (min-width:768px) and (max-width:900px){
+  
+  
+  main{ padding-top:0; /* removed large spacing */ /* original was */ /* padding-top:140px; }
+}
+
+/* --- Laptop 13" (~1280px) --- */
+@media (min-width:1200px) and (max-width:1350px){
+  
+  
+  main{ padding-top:0; /* removed large spacing */ /* original was */ /* padding-top:160px; }
+}
+
+/* --- Laptop 14–15" (~1440px) --- */
+@media (min-width:1351px) and (max-width:1600px){
+  
+  
+}
+
+/* --- Laptop 16" / Large Desktop (~1728px) --- */
+@media (min-width:1601px) and (max-width:1919px){
+  
+  
+  main{ padding-top:0; /* removed large spacing */ /* original was */ /* padding-top:190px; }
+}
+
+/* --- UltraWide / 4K --- */
+@media (min-width:1920px){
+  .container{ max-width:1600px; }
+  
+  
+  main{
+    padding-top:0; /* removed large spacing */ /* original was */ /* padding-top:220px;
+    padding-bottom:140px;
+  }
+}
+</style>
+
+
+<style>
+/* ================= TV / MEETING ROOM MODE ================= */
+
+/* 4K Screens */
+@media (min-width:2560px){
+
+  body{
+    letter-spacing:0.3px;
+  }
+
+  
+
+  
+
+  .bottom-statement{
+    font-size:26px;
+    max-width:1400px;
+  }
+
+  main{
+    padding-top:0; /* removed large spacing */ /* original was */ /* padding-top:260px;
+    padding-bottom:180px;
+  }
+
+}
+
+/* Large TV 4K+ (3840px and above) */
+@media (min-width:3840px){
+
+  
+
+  
+
+  .bottom-statement{
+    font-size:30px;
+  }
+
+  main{
+    padding-top:0; /* removed large spacing */ /* original was */ /* padding-top:320px;
+  }
+
+}
+</style>
+
+
+<style>
+/* ================= BOARDROOM / TV / PROJECTOR MODE ================= */
+
+/* Large 4K TVs (75–85"+) */
+@media (min-width:3000px){
+
+  body{
+    font-weight:400;
+  }
+
+  
+
+  
+
+  .bottom-statement{
+    font-size:32px;
+    line-height:1.5;
+    max-width:1500px;
+  }
+
+  main{
+    padding-top:0; /* removed large spacing */ /* original was */ /* padding-top:300px;
+    padding-bottom:220px;
+  }
+
+  /* Stronger overlay for projector contrast */
+  .overlay{
+    background:rgba(0,0,0,.75) !important;
+  }
+
+  .hero-title,
+  .hero-subtitle,
+  .bottom-statement{
+    text-shadow:0 2px 12px rgba(0,0,0,.6);
+  }
+
+}
+
+/* Ultra large LED walls / 5K+ */
+@media (min-width:3800px){
+
+  
+
+  
+
+  .bottom-statement{
+    font-size:36px;
+  }
+
+  main{
+    padding-top:0; /* removed large spacing */ /* original was */ /* padding-top:360px;
+  }
+
+}
+</style>
+
+
+<!-- ===== PRODUCTION OPTIMIZATION (CLEANED) ===== -->
+<meta name="description" content="CRAFT⁴ Technologies — Simulation-driven engineering for faster, smarter industrial decisions.">
+<meta property="og:title" content="CRAFT⁴ Technologies">
+<meta property="og:description" content="Engineering Tomorrow’s Industry">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0f1c">
+
+<style>
+/* Ensure font rendering stability */
+html{ -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+
+/* Unify easing variable */
+:root{
+  --easing-global:cubic-bezier(.22,1,.36,1);
+}
+
+/* Remove excessive shadow on ultra large screens */
+@media (min-width:3000px){
+  .hero-title,.hero-subtitle,.bottom-statement{
+    text-shadow:0 2px 8px rgba(0,0,0,.5);
+  }
+}
+
+/* =======================================
+   CINEMATIC FULL BALANCE MODE (FIXED)
+======================================= */
+
+/* Keep layout architecture intact */
+main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+/* Hero rhythm refinement */
+
+
+
+
+.hero-description{
+  margin-bottom:clamp(12px,1.8vh,22px);
+  line-height:1.55;
+}
+
+/* Bottom statement proportional refinement */
+.bottom-statement{
+  font-size:clamp(12px,1.2vw,16px);
+  line-height:1.45;
+  margin:clamp(28px,4vh,48px) auto clamp(18px,3vh,32px) auto;
+  opacity:0.92;
+}
+
+/* Smooth micro balance */
+.hero-title,
+.hero-subtitle,
+.bottom-statement{
+  transition:transform .6s var(--easing-global),
+             opacity .6s var(--easing-global);
+}
+
+/* Small-height refinement without forcing full viewport */
+@media (max-height:900px){
+  main{
+    padding-top:0; /* removed large spacing */ /* original was */ /* padding-top:120px;
+    padding-bottom:40px;
+  }
+
+  
+  
+}
+
+</style>
+
+<style>
+.brand-hero{
+  position:relative;
+  isolation:isolate;
+  width:100%;
+}
+</style>
+
+
+<style>
+
+
+
+<style>
+/* ================= NAV BUTTON UNDERLINE SYSTEM ================= */
+
+.nav-buttons a{
+  position:relative;
+  color:#C7C9CF !important; /* Default color */
+  text-decoration:none;
+  font-weight:500;
+  transition:color .3s ease;
+}
+
+.nav-buttons a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:100%;
+  height:2px;
+  background:linear-gradient(to right, #1C6089 40%, rgba(28,96,137,0) 60%); /* More gradual transition */
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .35s cubic-bezier(.22,1,.36,1);
+}
+
+/* Hover */
+.nav-buttons a:hover{
+  color:#1C6089 !important;
+}
+
+.nav-buttons a:hover::after{
+  transform:scaleX(1);
+}
+
+/* Active */
+
+
+
+</style>
+
+
+<style>
+/* ================= TV MODE SYSTEM ================= */
+
+body.tv-mode .nav-buttons a{
+  font-size:22px;
+  letter-spacing:0.5px;
+}
+
+body.tv-mode 
+
+body.tv-mode 
+
+body.tv-mode .bottom-statement{
+  font-size:40px;
+  max-width:1800px;
+  line-height:1.4;
+}
+
+body.tv-mode .card-content h4{
+  font-size:26px;
+}
+
+body.tv-mode .card-content p{
+  font-size:18px;
+}
+
+body.tv-mode .overlay{
+  background:rgba(0,0,0,.82) !important;
+}
+</style>
+
+
+<style>
+/* ================= INTERNAL POPUP DARKEN 50% ================= */
+
+.popup::before{
+  background:
+    radial-gradient(circle at 50% 20%, rgba(0,0,0,0.15), rgba(0,0,0,0.40)),
+    linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.50)) !important;
+}
+
+</style>
+
+
+<style>
+/* Hide bottom statement when any popup is active */
+
+</style>
+
+
+<style>
+/* ===== MOBILE CARD SIZE OVERRIDE ===== */
+@media (max-width:1024px){
+
+  #mainGrid .card-base{
+    width:90vw !important;
+    max-width:90vw !important;
+    height:auto !important;
+    aspect-ratio:2 / 1;
+  }
+
+}
+</style>
+
+
+<style>
+/* ===== MOBILE HEIGHT 330px (NO SCALE ENGINE) ===== */
+@media (max-width:1024px){
+
+  #mainGrid .card-base{
+    width:90vw !important;
+    height:165px !important;
+  }
+
+}
+</style>
+
+
+<style>
+/* ===== MOBILE HERO TEXT ===== */
+.mobile-only{
+  display:none;
+}
+
+@media (max-width:1024px){
+  .mobile-only{
+    display:block;
+    margin-top:16px;
+    font-size:1rem;
+    line-height:1.5;
+    opacity:.9;
+  }
+
+  .hero-description{
+    display:none !important;
+  }
+}
+	
+	
+/* ===== MOBILE BOTTOM STATEMENT OFFSET (REAL SPACING) ===== */
+	
+@media (max-width:1024px){
+
+  
+
+  .bottom-statement{
+    margin-top:200px !important;
+  }
+
+}
+
+	
+	</style>
+
+	
+	
+
+
+
+<style>
+/* ===== POPUP MOBILE CARD HEIGHT MATCH MAIN (165px) ===== */
+@media (max-width:1024px){
+
+  #mainOverlay .popup-actions .card-base{
+    height:165px !important;
+    aspect-ratio:auto !important;
+    min-height:165px !important;
+    max-height:165px !important;
+  }
+
+}
+</style>
+
+
+<style>
+/* ===== MOBILE BOTTOM STATEMENT OFFSET ===== */
+</style>
+
+
+<style>
+/* ===== MOBILE LAYOUT OFFSET (200px CLEAN FIX) ===== */
+@media (max-width:1024px){
+  main{
+    justify-content:flex-start !important;
+    padding-top:150px !important;
+  }
+}
+</style>
+
+
+<style>
+/* ==========================================
+   GLOBAL STABILITY FIX (MATCH HOME)
+========================================== */
+
+/* Garantir que nunca aparece cinzento residual */
+html{
+  background:#0a0f1c;
+}
+
+/* Header sempre visível acima da overlay */
+header{
+  position:relative;
+  z-index:20;
+  flex:0 0 auto !important;
+}
+
+/* Remover centramento vertical problemático */
+main{
+  flex:1 0 auto !important;
+  display:block !important;
+  padding-top:140px !important;
+  padding-bottom:80px !important;
+}
+
+/* Ajuste para ecrãs baixos */
+@media (max-height:900px){
+  main{
+    padding-top:120px !important;
+    padding-bottom:60px !important;
+  }
+}
+
+</style>
+
+
+<style>
+/* ==========================================
+   CRAFT⁴ PREMIUM SCROLLBAR — 6px
+   Brand Color: #1C6089
+========================================== */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1C6089;
+  border-radius: 20px;
+  transition: background .3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #37AEFC;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1C6089 transparent;
+}
+
+</style>
+
+
+<style>
+/* ==========================================
+   CRAFT⁴ VIEWPORT BALANCE FIX (NO FAKE SCROLL)
+   Only allow scroll when content truly exceeds viewport height
+========================================== */
+
+/* Remove artificial vertical spacing */
+main{
+  flex:1 0 auto !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  align-items:center !important;
+  padding:0 var(--spacing-md) !important;
+}
+
+/* Remove previous forced offsets on mobile */
+@media (max-width:1024px){
+  main{
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+    justify-content:center !important;
+  }
+
+  .bottom-statement{
+    margin-top:40px !important;
+  }
+}
+
+/* Ensure scroll appears ONLY when needed */
+body{
+  overflow-y:auto;
+}
+</style>
+<style>
+@media (max-width:1024px){
+  .bottom-statement{
+    margin-top:220px !important;
+  }
+}
+</style>
+<style>
+/* ================================
+   CONTACT MODAL
+   ================================ */
+.contact-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:99999;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .35s ease;
+}
+
+.contact-modal.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.contact-panel{
+    width:min(720px, 92vw);
+    padding:48px 54px 56px;
+    border-radius:18px;
+    background:
+        radial-gradient(120% 120% at 20% 0%, rgba(80,140,255,.18), transparent 55%),
+        linear-gradient(145deg, #05070d, #02040a);
+    box-shadow:
+        0 0 0 1px rgba(120,170,255,.25),
+        0 0 80px rgba(80,140,255,.45);
+    color:#f4f7fb;
+    position:relative;
+}
+
+.contact-panel h3{
+    text-align:center;
+    font-size:26px;
+    margin-bottom:28px;
+    letter-spacing:.5px;
+}
+
+.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    background:rgba(0,0,0,.65);
+    border:1px solid rgba(120,170,255,.35);
+    border-radius:8px;
+    padding:12px 14px;
+    color:#f4f7fb;
+    font-size:14px;
+    outline:none;
+}
+
+.contact-form textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+    color:#7f8fa8;
+}
+
+.contact-actions{
+    margin-top:18px;
+    display:flex;
+    justify-content:center;
+}
+
+.modal-close{
+    position:absolute;
+    top:14px;
+    right:16px;
+    background:none;
+    border:none;
+    color:#9fb6ff;
+    font-size:22px;
+    cursor:pointer;
+}
+
+
+.hero-lead{
+    margin-top:24px;
+    font-size:18px;
+    line-height:1.6;
+}
+
+.lead-white{
+    color:#f4f7fb; /* branco gelo */
+}
+
+.lead-blue{
+    color:#2fa4ff; /* azul eléctrico */
+}
+
+
+/* Desktop scale 2x for contact text box */
+@media (min-width: 1024px){
+    .contact-box{
+        transform: scale(2);
+        transform-origin: center;
+    }
+}
+
+
+/* ================================
+   SPACING HARMONIZATION
+   ================================ */
+
+/* Ensure hero has enough vertical space */
+.hero{
+    padding-bottom:140px;
+}
+
+/* Better spacing between QR and contact box */
+.qr-wrap{
+    gap:64px;
+    margin-top:40px;
+}
+
+/* Prevent scaled contact box from overlapping */
+@media (min-width: 1024px){
+    .qr-wrap{
+        margin-top:80px;
+        gap:120px;
+    }
+
+    .contact-box{
+        margin:20px 0;
+    }
+}
+
+/* Spacing for slogan and CTA */
+.qr-slogan{
+    margin-top:56px;
+}
+
+.qr-cta{
+    margin-top:36px;
+}
+
+
+/* Desktop scale 1.5x for QR Code */
+@media (min-width: 1024px){
+    .qr-wrap img{
+        transform: scale(1.5);
+        transform-origin: center;
+    }
+}
+
+
+/* ================================
+   QR ↔ CONTACT BOX SPACING TUNING
+   ================================ */
+
+/* Base spacing */
+.qr-wrap{
+    column-gap:72px;
+}
+
+/* Desktop tuning considering QR 1.5x and contact-box 2x */
+@media (min-width: 1024px){
+    .qr-wrap{
+        column-gap:160px;
+    }
+}
+
+/* Ultra-wide screens safety */
+@media (min-width: 1600px){
+    .qr-wrap{
+        column-gap:200px;
+    }
+}
+
+
+/* ================================
+   QR PRECISION GLOW (Visible Area)
+   ================================ */
+.qr-wrap img{
+    position:relative;
+    filter: drop-shadow(0 0 12px rgba(120,180,255,.55))
+            drop-shadow(0 0 28px rgba(120,180,255,.45))
+            drop-shadow(0 0 60px rgba(120,180,255,.35));
+    animation:qrPrecisionGlow 5s ease-in-out infinite;
+}
+
+@keyframes qrPrecisionGlow{
+    0%,100%{
+        filter:
+            drop-shadow(0 0 10px rgba(120,180,255,.45))
+            drop-shadow(0 0 24px rgba(120,180,255,.35))
+            drop-shadow(0 0 52px rgba(120,180,255,.25));
+    }
+    50%{
+        filter:
+            drop-shadow(0 0 16px rgba(160,210,255,.75))
+            drop-shadow(0 0 42px rgba(160,210,255,.55))
+            drop-shadow(0 0 96px rgba(160,210,255,.45));
+    }
+}
+
+
+/* ================================
+   QR VISUAL SYSTEM – INTERACTION
+   (keeps precision glow intact)
+   ================================ */
+.qr-wrap img{
+    transition:
+        transform .55s cubic-bezier(.22,.61,.36,1),
+        filter .45s ease;
+    will-change: transform, filter;
+}
+
+.qr-wrap img:hover{
+    transform: scale(1.08);
+    filter:
+        drop-shadow(0 0 18px rgba(180,220,255,.85))
+        drop-shadow(0 0 46px rgba(160,210,255,.65))
+        drop-shadow(0 0 110px rgba(160,210,255,.55));
+}
+
+/* Smooth idle micro-motion (subtle cinematic breathing) */
+@keyframes qrFloat{
+    0%,100%{ transform: translateY(0px) scale(1); }
+    50%{ transform: translateY(-3px) scale(1.01); }
+}
+
+.qr-wrap img{
+    animation:
+        qrPrecisionGlow 5s ease-in-out infinite,
+        qrFloat 7s ease-in-out infinite;
+}
+
+
+/* ================================
+   QR SCALE RESPONSIVE CONTROL
+   ================================ */
+
+/* Base (mobile / tablet) */
+.qr-wrap img:hover{
+    transform: scale(1.08);
+}
+
+@keyframes qrFloat{
+    0%,100%{ transform: translateY(0px) scale(1); }
+    50%{ transform: translateY(-3px) scale(1.01); }
+}
+
+/* Desktop only */
+@media (min-width: 1024px){
+    .qr-wrap img:hover{
+        transform: scale(1.62);
+    }
+
+    @keyframes qrFloat{
+        0%,100%{ transform: translateY(0px) scale(1.5); }
+        50%{ transform: translateY(-3px) scale(1.53); }
+    }
+}
+
+
+/* ================================
+   MOBILE HEADER NAV ALIGNMENT
+   ================================ */
+@media (max-width: 768px){
+    header{
+        flex-direction: column;
+        height: auto;
+        padding: 16px 20px 12px;
+        gap: 12px;
+    }
+
+    header img.logo{
+        height: 56px;
+    }
+
+    .nav-buttons{
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+        gap: 22px;
+    }
+
+    .nav-buttons a{
+    font-size:15px;
+        font-size: 13px;
+        letter-spacing: 0.8px;
+    }
+}
+
+
+/* ================================
+   FOOTER COLOR CALIBRATION
+   ================================ */
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  backdrop-filter: none;
+
+  font-size: 13px;
+  letter-spacing: .04em;
+  font-family:'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  color: #817B7A;
+  text-align: center;
+  user-select: none;
+}
+
+
+/* ===============================
+   HAMBURGER (MOBILE)
+   =============================== */
+.hamburger{
+    display:none;
+    cursor:pointer;
+    width:32px;
+    height:24px;
+    flex-direction:column;
+    justify-content:space-between;
+    position:absolute;
+    right:24px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:200;
+}
+.hamburger span{
+    height:3px;
+    background:#f4f7fb;
+    border-radius:2px;
+    transition:.35s;
+}
+.hamburger.active span:nth-child(1){transform:translateY(10px) rotate(45deg);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:translateY(-10px) rotate(-45deg);}
+
+/* MOBILE MENU MODE */
+header.mobile-open{
+    height:100vh;
+    align-items:center;
+    padding-top:36px;
+    flex-direction:column;
+    background:linear-gradient(
+        rgba(0,0,0,0.40),
+        rgba(0,0,0,0.50)
+    );
+}
+
+header.mobile-open .nav-buttons{
+    display:flex !important;
+    flex-direction:column;
+    gap:20px;
+    margin:40px auto 0 auto;
+}
+
+@media (max-width: 900px){
+    header{
+        padding:0 24px;
+        height:96px;
+    }
+    .nav-buttons{
+        display:none;
+    }
+    .hamburger{
+        display:flex;
+    }
+}
+
+/* Center logo + fixed close button */
+@media (max-width: 900px){
+    header.mobile-open{
+        align-items:center;
+        text-align:center;
+    }
+    header.mobile-open img.logo{
+        margin:8px auto 0 auto;
+        display:block;
+    }
+    header.mobile-open .hamburger{
+        position:fixed;
+        top:18px;
+        right:18px;
+        transform:none;
+        z-index:300;
+    }
+}
+
+
+/* ================================
+   TEXT READABILITY ENHANCEMENTS
+   ================================ */
+
+/* Hero titles */
+.hero h1{
+    font-size:clamp(38px,4.8vw,56px);
+    font-weight:600;
+    letter-spacing:1.4px;
+    text-shadow:
+        0 8px 26px rgba(0,0,0,0.65),
+        0 0 18px rgba(111,179,255,0.15);
+}
+
+.hero-lead{
+    max-width:880px;
+    margin:24px auto 0;
+    font-size:18px;
+    line-height:1.7;
+    opacity:0.94;
+    text-shadow:0 3px 12px rgba(0,0,0,0.45);
+}
+
+/* Contact box text */
+.contact-box{
+    font-size:16px;
+    line-height:1.7;
+    color:#C7C9CF;
+}
+
+/* Modal text */
+.contact-panel h3{
+    font-weight:600;
+    letter-spacing:0.6px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    line-height:1.5;
+}
+
+/* Limit line length on large screens */
+.hero-content{
+    max-width:1100px;
+}
+
+/* Mobile fine-tuning */
+@media (max-width: 768px){
+    .hero h1{
+        font-size:clamp(32px,7vw,40px);
+        letter-spacing:1px;
+    }
+    .hero-lead{
+        font-size:16px;
+        line-height:1.65;
+    }
+    .contact-box{
+        font-size:15px;
+    }
+}
+
+
+/* ================================
+   FORCE NAV FONT SIZE (HAMBURGER)
+   ================================ */
+header.mobile-open .nav-buttons a{
+    font-size:15px !important;
+    letter-spacing:1px;
+}
+
+
+/* ================================
+   MENU VISIBILITY FIX
+   ================================ */
+
+/* Disable Dark Cinematic overlay when hamburger menu is open */
+body.dark-cinematic header.mobile-open{
+    filter:none !important;
+}
+
+body.dark-cinematic header.mobile-open::before,
+body.dark-cinematic::before{
+    display:none !important;
+}
+
+/* Ensure menu overlay is the ONLY darkening layer */
+header.mobile-open{
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.40),
+            rgba(0,0,0,0.50)
+        ) !important;
+}
+
+
+/* ================================
+   HAMBURGER MENU – OVERLAY RESET
+   ================================ */
+
+/* Remove ALL overlays, filters and blends when menu is open */
+header.mobile-open{
+    background: transparent !important;
+}
+
+header.mobile-open::before,
+header.mobile-open::after{
+    display:none !important;
+    content:none !important;
+}
+
+/* Disable Dark Cinematic completely while menu is open */
+body.dark-cinematic,
+body.dark-cinematic header,
+body.dark-cinematic header *{
+    filter:none !important;
+}
+
+body.dark-cinematic::before{
+    display:none !important;
+}
+
+/* Ensure nothing stacks visually above the menu */
+header{
+    backdrop-filter:none !important;
+    box-shadow:none !important;
+}
+
+
+/* ================================
+   HAMBURGER MENU – SINGLE OVERLAY
+   ================================ */
+
+/* One and only overlay when menu is open */
+header.mobile-open{
+    background: rgba(0,0,0,0.95) !important;
+}
+
+
+/* ================================
+   HAMBURGER → X (STANDARD PAGE)
+   ================================ */
+.hamburger.active span:nth-child(1){
+    transform: translateY(10px) rotate(45deg) !important;
+}
+.hamburger.active span:nth-child(2){
+    opacity: 0 !important;
+}
+.hamburger.active span:nth-child(3){
+    transform: translateY(-10px) rotate(-45deg) !important;
+}
+
+/* Keep X fixed top-right when menu open */
+header.mobile-open .hamburger{
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    transform: none !important;
+    z-index: 9999;
+}
+
+
+</style>
+
+<style>
+/* ================================
+   QR BREATHING BLUE SYSTEM
+================================ */
+.qr-breath{
+    transition: transform .6s cubic-bezier(.22,1,.36,1),
+                filter .6s ease;
+    animation: qrBreath 5.5s ease-in-out infinite;
+    will-change: transform, filter;
+}
+
+@keyframes qrBreath{
+    0%,100%{
+        transform: scale(1);
+        filter:
+            drop-shadow(0 0 8px rgba(28,96,137,.35))
+            drop-shadow(0 0 18px rgba(28,96,137,.25))
+            drop-shadow(0 0 36px rgba(28,96,137,.18));
+    }
+    50%{
+        transform: scale(1.05);
+        filter:
+            drop-shadow(0 0 14px rgba(28,96,137,.65))
+            drop-shadow(0 0 32px rgba(28,96,137,.45))
+            drop-shadow(0 0 70px rgba(28,96,137,.35));
+    }
+}
+	
+/* ================================
+   DESKTOP – MOVE ONLY LOWER 3 ELEMENTS UP
+================================ */
+
+@media (min-width:1024px){
+
+  /* QR wrapper */
+  main > div[style*="text-align:center"]{
+    margin-top:-150px !important;
+  }
+
+  /* Get in Touch button */
+  .go-back-button{
+    margin-top:50px !important; /* antes 60px inline */
+  }
+
+  /* Bottom statement */
+  .bottom-statement{
+    margin-top:100px !important;
+  }
+
+}
+
+</style>
+	
+	
+
+<style>
+/* === PERFORMANCE FIX: Restore Hero Visibility === */
+.hero-title,
+.hero-subtitle,
+.bottom-statement{
+    opacity:1 !important;
+    transform:none !important;
+}
+</style>
+
+
+<style>
+/* ===== REMOVE TEXT CARET ===== */
+*:focus {
+  outline: none;
+}
+
+html, body {
+  caret-color: transparent;
+}
+</style>
+
+<!-- Root fallback (VERY important) -->
+<link rel="icon" href="/favicon.ico">
+
+<!-- Standard -->
+<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+<!-- PNG -->
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+
+<!-- Apple -->
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180x180.png">
+	
+	
+	
+</head>
+
+<body>
+<div class="overlay"></div>
+<header>
+<img src="images/logo.png" class="logo" alt="CRAFT⁴ Logo">
+
+<nav class="nav-buttons">
+  <a href="index.html" class="active" data-i18n="home">Home</a>
+  <a href="Industries.html" data-i18n="industries">Industries</a>
+  <a href="Technologies.html" data-i18n="technologies">Technologies</a>
+  <a href="Footprint.html" data-i18n="footprint">Footprint</a>
+  <a href="About.html" data-i18n="about">About</a>
+  <a href="#" id="langBtn">EN</a>
+</nav>
+
+  
+
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+</header>
+<main>
+<div class="container">
+  <h1 class="hero-title" data-i18n="hero.title">
+      Get in Touch
+    </h1>
+
+
+      <h2 class="hero-subtitle">
+  <span style="color:#C7C9CF;" data-i18n="hero.subtitle1"></span>
+  <span style="color:#1C6089;" data-i18n="hero.subtitle2"></span></h2>
+
+
+
+
+<div style="margin-top:40px; line-height:1.9; font-size:18px; color:#C7C9CF; text-align:center;">
+
+    <div style="display:inline-grid; grid-template-columns:40px auto; row-gap:18px; column-gap:16px; align-items:center; text-align:left;">
+
+        <img src="images/PhoneIcon.png" loading="lazy" decoding="async" alt="Phone"
+             style="width:22px; height:22px; justify-self:center;
+             filter: brightness(0) saturate(100%) invert(32%) sepia(27%) saturate(1150%) hue-rotate(168deg) brightness(90%) contrast(95%);">
+
+        <a href="tel:+351965715104" style="color:inherit; text-decoration:none;">
+            <strong>+351 965 715 104</strong>
+        </a>
+
+        <img src="images/MailIcon.png" loading="lazy" decoding="async" alt="Email"
+             style="width:22px; height:22px; justify-self:center;
+             filter: brightness(0) saturate(100%) invert(32%) sepia(27%) saturate(1150%) hue-rotate(168deg) brightness(90%) contrast(95%);">
+
+        <a href="mailto:contact@craftfour.com" style="color:inherit; text-decoration:none;">
+            contact@craftfour.com
+        </a>
+
+        <img src="images/LocationIcon.png" loading="lazy" decoding="async" alt="Location"
+             style="width:22px; height:22px; justify-self:center;
+             filter: brightness(0) saturate(100%) invert(32%) sepia(27%) saturate(1150%) hue-rotate(168deg) brightness(90%) contrast(95%);">
+
+        <a href="https://www.google.com/maps/search/?api=1&query=Rua+Infante+Dom+Henrique,+28,+3080-446+Figueira+da+Foz"
+           target="_blank" style="color:inherit; text-decoration:none;">
+            Rua Infante Dom Henrique, 28<br>
+            3080-446 Figueira da Foz
+        </a>
+
+    </div>
+
+</div>
+
+
+
+
+</div>
+
+<p class="hero-mobile-text mobile-only" data-i18n="hero.mobile"></p>
+      
+      <p class="hero-description heroDesktop1 desktop-only">
+		<br><span data-i18n="hero.p1.line1"></span><br>
+        <span data-i18n="hero.p1.line2"></span></p>
+      <p class="hero-description heroDesktop2 desktop-only">
+		<br><span data-i18n="hero.p2.line1"></span><br>
+        <span data-i18n="hero.p2.line2"></span></p>
+      <p class="hero-description heroDesktop2 desktop-only">
+		<br><span data-i18n="hero.p3.line1"></span><br>
+        <span data-i18n="hero.p3.line2"></span></p><br>
+		  
+</div>
+<!-- ===== CRAFT⁴ BRAND GRID A — CLEAN MODULAR VERSION ===== -->
+
+<style>
+.brand-grid-a{
+  --accent:#37AEFC;
+  --glass-top:rgba(30,35,45,0.55);
+  --glass-bottom:rgba(15,18,25,0.55);
+  --border:rgba(160,200,255,0.22);
+}
+
+.brand-grid-a *{box-sizing:border-box;margin:0;padding:0}
+
+
+/* ================= GRID ================= */
+
+#mainGrid{
+  perspective:1200px;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  grid-template-rows:repeat(2, 165px);
+  gap:40px;
+  width:85vw;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* ================= CARD BASE ================= */
+
+.card-base{
+  width:260px;
+  aspect-ratio: 2.67 / 1;
+  border-radius:16px;
+  background:linear-gradient(180deg,var(--glass-top),var(--glass-bottom));
+  backdrop-filter:blur(10px);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  transform-style:preserve-3d;
+  cursor:pointer;
+  overflow:visible;
+  transition:transform .4s cubic-bezier(.22,.61,.36,1),
+             box-shadow .4s ease;
+  box-shadow:0 10px 24px rgba(0,0,0,.35);
+}
+
+.card-base:hover{
+  transform:translateY(-6px) rotateX(7deg);
+  box-shadow:0 18px 40px rgba(0,0,0,.45);
+}
+
+/* ================= HEX ================= */
+
+.hex-wrap{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:120px;
+  height:60px;
+}
+
+
+.hex{
+  width:100%;
+  height:100%;
+  padding:1px;
+  background:linear-gradient(180deg,rgba(40,80,130,.6),rgba(15,35,70,.6));
+  clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hex svg{
+  width:36px;
+  height:36px;
+  stroke:var(--accent);
+  fill:none;
+  stroke-width:1.2;
+  transition:transform .4s ease;
+}
+
+.card-base:hover .hex svg{
+  transform:scale(1.05);
+}
+
+/* ================= CONTENT ================= */
+
+.card-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  gap:6px;
+  padding:28px 16px 16px 16px;
+}
+
+.card-content h4{font-weight:600;}
+.card-content p{font-size:12px;color:#BFC9DD;}
+
+/* ================= OVERLAY ================= */
+	
+	
+.brand-grid-a .overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(8,8,10,0.75);
+  backdrop-filter:blur(12px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .35s ease;
+}
+
+.brand-grid-a .overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* ================= POPUP ================= */
+
+.popup{
+  width:85vw;
+  height:85vh;
+  padding:48px 56px;
+  border-radius:22px;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  position:relative;
+  border:1px solid rgba(140,190,255,.32);
+  box-shadow:0 40px 120px rgba(0,0,0,.65),
+             0 0 120px rgba(55,174,252,.18);
+  display:flex;
+  flex-direction:column;
+  transition:background-image .6s ease-in-out;
+}
+
+/* Cinematic dark overlay over popup image */
+
+
+.popup::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(0,0,0,0.14), rgba(0,0,0,0.35)),
+    linear-gradient(180deg, rgba(5,8,12,0.42), rgba(10,14,20,0.48));
+  z-index:1;
+}
+
+
+
+.popup > *{
+  position:relative;
+  z-index:2;
+}
+
+/* Popup header */
+
+.popup-header{text-align:center;margin-bottom:28px;}
+
+.popup-header::after{
+  content:"";
+  display:block;
+  width:60px;
+  height:2px;
+  margin:14px auto 0 auto;
+  background:linear-gradient(90deg,#37AEFC,transparent);
+  opacity:.7;
+}
+
+.popup-header h2,
+.popup-header h3{
+  font-size:28px;
+  font-weight:600;
+  letter-spacing:-0.3px;
+}
+
+.popup-header h4{
+  font-size:16px;
+  font-weight:500;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  opacity:0.85;
+}
+
+/* Popup body */
+
+.popup-body{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#BFC9DD;
+  font-size:18px;
+  line-height:1.6;
+}
+
+/* Popup actions */
+
+.popup-actions{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-top:auto;
+}
+
+/* Secondary popup sizing */
+
+#secondaryOverlay .popup{
+  width:75vw;
+  height:75vh;
+}
+
+/* ================================= */
+/* ===== MICRO POLISH 10/10 ======== */
+/* ================================= */
+
+/* 1️⃣ Stage-like directional popup shadow */
+.popup{
+  box-shadow:
+    0 55px 140px rgba(0,0,0,.70),
+    0 10px 40px rgba(0,0,0,.35),
+    0 0 100px rgba(55,174,252,.12);
+}
+
+/* 2️⃣ Softer popup entrance animation */
+@keyframes popupEnter{
+  0%{
+    opacity:0;
+    transform:translateY(20px) scale(.98);
+  }
+  100%{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.overlay.active .popup{
+  animation:popupEnter .55s cubic-bezier(.22,.61,.36,1);
+}
+
+/* 3️⃣ Improve text readability over bright backgrounds */
+.popup-body{
+  text-shadow:0 1px 2px rgba(0,0,0,.35);
+}
+
+/* 4️⃣ Subtle overlay fade refinement */
+.overlay{
+  transition:opacity .45s cubic-bezier(.22,.61,.36,1);
+}
+
+/* 5️⃣ Refine card hover easing (more luxury) */
+.card-base{
+  transition:
+    transform .5s cubic-bezier(.22,.61,.36,1),
+    box-shadow .5s cubic-bezier(.22,.61,.36,1);
+}
+
+/* ================================= */
+/* ===== ULTRA DISPLAY SUPPORT ===== */
+/* ================================= */
+
+/* Large TVs & Projectors (4K / 8K / 85"+) */
+@media (min-width:1920px){
+  #mainGrid{
+    max-width:1600px;
+    gap:60px;
+  }
+
+  .card-base{
+    width:320px;
+  }
+
+  .card-content h4{
+    font-size:20px;
+  }
+
+  .card-content p{
+    font-size:14px;
+  }
+}
+
+/* Very Large Screens (Wall displays / Projectors) */
+@media (min-width:2560px){
+  #mainGrid{
+    max-width:2000px;
+    gap:80px;
+  }
+
+  .card-base{
+    height:100%;
+  }
+
+		
+  .popup{
+    max-width:1800px;
+    max-height:1000px;
+  }
+
+  .popup-header h2,
+  .popup-header h3{
+    font-size:34px;
+  }
+
+  .popup-body{
+    font-size:20px;
+  }
+}
+
+/* Prevent excessive stretch on ultra-wide */
+@media (min-width:3440px){
+  #mainGrid{
+    margin:auto;
+    justify-content:center;
+  }
+}
+
+/* ================================= */
+/* ===== FLUID RESPONSIVE SYSTEM === */
+/* ================================= */
+
+/* Smooth fluid grid scaling */
+#mainGrid{
+  width:clamp(90vw, 85vw, 1800px);
+  gap:clamp(24px, 3vw, 80px);
+  transition:all .6s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Fluid card scaling */
+.card-base{
+  width:clamp(220px, 18vw, 380px);
+  transition:
+    transform .5s cubic-bezier(.22,.61,.36,1),
+    box-shadow .5s cubic-bezier(.22,.61,.36,1),
+    width .6s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Fluid typography */
+.card-content h4{
+  font-size:clamp(16px, 1.2vw, 22px);
+}
+
+.card-content p{
+  font-size:clamp(12px, 0.9vw, 15px);
+}
+
+/* Popup fluid sizing */
+.popup{
+  width:clamp(90vw, 85vw, 1800px);
+  height:clamp(80vh, 85vh, 1000px);
+  transition:all .6s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Fluid popup typography */
+.popup-header h2,
+.popup-header h3{
+  font-size:clamp(22px, 2vw, 36px);
+}
+
+.popup-body{
+  font-size:clamp(16px, 1.2vw, 22px);
+}
+
+/* Ultra smooth viewport resize animation */
+@media (prefers-reduced-motion: no-preference){
+  body{
+    transition:all .6s cubic-bezier(.22,.61,.36,1);
+  }
+}
+
+#mainGrid {
+    width: 100%;  /* Ajustando para garantir 100% da largura */
+    max-width: 1200px;  /* Garantindo que a largura máxima seja 1200px */
+    margin: 0 auto;  /* Centralizando o grid */
+}
+
+.card-base {
+    width: 260px;
+    max-width: 100%;  /* Garantindo que a largura do card não ultrapasse a do grid */
+}
+
+/* === CRAFT⁴ Typography Update === */
+
+.brand-grid-a{
+  font-family:'Space Grotesk', sans-serif;
+}
+
+.brand-grid-a h2,
+.brand-grid-a h3,
+.brand-grid-a h4{
+  color:#C7C9CF;
+}
+
+
+/* === HARD HEIGHT FIX FOR UNIFORM CARDS === */
+.card-base{
+  height:100% !important;
+  aspect-ratio:auto !important;
+  width:100% !important;
+}
+
+</style>
+<style>
+.brand-hero{
+  position:relative;
+  isolation:isolate;
+  width:100%;
+}
+</style>
+
+<div style="text-align:center; margin:20px 0;">
+    <img loading="lazy" decoding="async" src="images/QRCODE.jpg" alt="CRAFT⁴ QR Code" class="qr-breath" 
+         style="max-width:320px; width:80%; height:auto; display:inline-block;">
+    <div style="margin-top:22px; font-size:16px; letter-spacing:.12em; text-transform:uppercase;">
+        <span style="color:#C7C9CF;" data-i18n="qrcode.line1"></span>
+        <span style="color:#1C6089;" data-i18n="qrcode.line2"></span>
+    </div>
+</div>
+	
+
+	
+	
+	
+	
+<a aria-label="Go back" class="go-back-button glow-button" style="margin-top:60px;" href="javascript:void(0)" onclick="openContactModal(); return false;"> <span data-i18n="contact" data-i18n-key="ui.back">Get in Touch</span></a>
+<div class="bottom-statement"> <span data-i18n="brand.confidence.pre"></span> <span class="hero-accent" data-i18n="brand.confidence.highlight"></span></div>
+<!-- ===== END BRAND GRID A MODULE ===== -->
+</main>
+<footer>
+  © 2026 CRAFT⁴ — Engineering is our craft.
+</footer>
+
+	
+	
+
+<script defer>
+(function(){
+
+window.I18N = {
+
+  EN:{
+	  
+	  
+home:"Home",
+industries:"Industries",
+technologies:"Technologies",
+about:"About",
+footprint:"Footprint",
+contact:"Get in Touch",
+	  
+	  
+	  
+    "hero.title":"Get in Touch",
+    "hero.subtitle1":"Connect with us to learn more about our",
+    "hero.subtitle2":"innovative solutions",
+    "qrcode.line1":"SCAN TO",
+    "qrcode.line2":"GET IN TOUCH",
+    "brand.confidence.pre":"Let’s craft the future,",
+    "brand.confidence.highlight":"together"
+  },
+
+  PT:{
+	  
+home:"Início",
+industries:"Indústrias",
+technologies:"Tecnologias",
+about:"Sobre Nós",
+footprint:"Presença Global",
+contact:"Contacto",
+	  
+    "hero.title":"Entre em Contacto",
+    "hero.subtitle1":"Entre em contacto connosco para conhecer melhor as nossas",
+    "hero.subtitle2":"soluções de engenharia.",
+    "qrcode.line1":"DIGITALIZE PARA",
+    "qrcode.line2":"ENTRAR EM CONTACTO",
+    "brand.confidence.pre":"Vamos construir o futuro,",
+    "brand.confidence.highlight":"juntos"
+  },
+
+  ES:{
+	  
+home:"Inicio",
+industries:"Industrias",
+technologies:"Tecnologías",
+about:"Sobre Nosotros",
+footprint:"Presencia Global",
+contact:"Contacto",
+	  
+    "hero.title":"Póngase en contacto",
+    "hero.subtitle1":"Conéctese con nosotros para conocer mejor nuestras",
+    "hero.subtitle2":"soluciones de ingeniería.",
+    "qrcode.line1":"ESCANEE PARA",
+    "qrcode.line2":"CONTACTAR",
+    "brand.confidence.pre":"Construyamos el futuro,",
+    "brand.confidence.highlight":"juntos"
+  },
+
+  FR:{
+	  
+home:"Accueil",
+industries:"Industries",
+technologies:"Technologies",
+about:"À Propos",
+footprint:"Présence Mondiale",
+contact:"Contact",
+	  
+    "hero.title":"Contactez-nous",
+    "hero.subtitle1":"Contactez-nous pour découvrir nos",
+    "hero.subtitle2":"solutions d’ingénierie.",
+    "qrcode.line1":"SCANNER POUR",
+    "qrcode.line2":"NOUS CONTACTER",
+    "brand.confidence.pre":"Construisons l’avenir,",
+    "brand.confidence.highlight":"ensemble"
+  },
+
+  DE:{
+	  
+home:"Startseite",
+industries:"Branchen",
+technologies:"Technologien",
+about:"Über Uns",
+footprint:"Globale Präsenz",
+contact:"Kontakt",
+	  
+    "hero.title":"Kontakt aufnehmen",
+    "hero.subtitle1":"Kontaktieren Sie uns, um mehr über unsere",
+    "hero.subtitle2":"Ingenieurlösungen zu erfahren.",
+    "qrcode.line1":"SCANNEN, UM",
+    "qrcode.line2":"KONTAKT AUFZUNEHMEN",
+    "brand.confidence.pre":"Gestalten wir die Zukunft –",
+    "brand.confidence.highlight":"gemeinsam"
+  },
+
+  ZH:{
+	  
+home:"Startseite",
+industries:"Branchen",
+technologies:"Technologien",
+about:"Über Uns",
+footprint:"Globale Präsenz",
+contact:"Kontakt",
+	  
+    "hero.title":"联系我们",
+    "hero.subtitle1":"联系我们，深入了解我们的",
+    "hero.subtitle2":"工程解决方案。",
+    "qrcode.line1":"扫描以",
+    "qrcode.line2":"联系我们",
+    "brand.confidence.pre":"让我们携手共创",
+    "brand.confidence.highlight":"未来"
+  }
+
+};
+
+const LANG_ORDER = ["EN","PT","ES","FR","DE","ZH"];
+
+/* old setLanguage removed */ function __old_setLanguage_disabled(lang){
+
+  const selected = I18N[lang] ? lang : "EN";
+  const dictionary = I18N[selected];
+
+  document.documentElement.setAttribute("lang", selected.toLowerCase());
+
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.dataset.i18n;
+    if(dictionary[key] !== undefined){
+      el.textContent = dictionary[key];
+    }
+  });
+
+  localStorage.setItem("preferredLanguage", selected);
+
+  const btn = document.getElementById("langBtn");
+  if(btn) btn.textContent = selected;
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  const saved = localStorage.getItem("preferredLanguage") || "EN";
+  setLanguage(saved);
+
+  const langBtn = document.getElementById("langBtn");
+
+  if(langBtn){
+    langBtn.addEventListener("click", function(e){
+      e.preventDefault();
+
+      const current = localStorage.getItem("preferredLanguage") || "EN";
+      const index = LANG_ORDER.indexOf(current);
+      const next = LANG_ORDER[(index + 1) % LANG_ORDER.length];
+
+      setLanguage(next);
+    });
+  }
+
+});
+
+})();
+</script>
+
+
+<script defer>
+const hamburger = document.getElementById("hamburger");
+const header = document.querySelector("header");
+const body = document.body;
+
+if(hamburger){
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    header.classList.toggle("mobile-open");
+    body.classList.toggle("menu-open");
+  });
+}
+</script>
+
+
+<script defer>
+/* ================= TV MODE TOGGLE ================= */
+
+(function(){
+  const urlParams = new URLSearchParams(window.location.search);
+  if(urlParams.get('tv') === '1'){
+    document.body.classList.add('tv-mode');
+  }
+})();
+</script>
+
+
+<script defer>
+/* ===============================
+   TRUE VERTICAL 3D WHEEL (MATCH HOME)
+   =============================== */
+(function(){
+
+  const mq = window.matchMedia("(max-width:1024px)");
+  const AUTO_INTERVAL = 2600;
+  const RADIUS = 100;
+  const VERTICAL_SPREAD = 0.65;
+  const PERSPECTIVE = 1200;
+
+  function initWheel(container){
+
+    const cards = Array.from(container.querySelectorAll(".card-base"));
+    if(!cards.length) return;
+
+    let angle = 0;
+    const step = 360 / cards.length;
+    let timer = null;
+
+    container.style.position = "relative";
+    container.style.perspective = PERSPECTIVE + "px";
+    container.style.transformStyle = "preserve-3d";
+    container.style.overflow = "visible";
+    container.style.minHeight = "420px";
+
+    cards.forEach(card=>{
+      card.style.position = "absolute";
+      card.style.left = "50%";
+      card.style.top  = "50%";
+      card.style.transformStyle = "preserve-3d";
+      card.style.transition =
+        "transform 1.15s cubic-bezier(0.16,1,0.3,1), opacity .7s ease, filter .7s ease, box-shadow .7s ease";
+      card.style.willChange = "transform";
+    });
+
+    function layout(){
+      cards.forEach((card,i)=>{
+
+        const a = (angle + i * step) * Math.PI / 180;
+
+        let y = Math.sin(a) * RADIUS * VERTICAL_SPREAD;
+        y = Math.round(y * 2) / 2;
+        const z = Math.cos(a) * RADIUS;
+
+        const depthRatio = (z + RADIUS) / (2 * RADIUS);
+        const opacity = 0.25 + depthRatio * 0.75;
+        const scale = 0.82 + depthRatio * 0.18;
+        const blur = (1 - depthRatio) * 2;
+
+        const glowIntensity = depthRatio * 0.6;
+
+const OFFSET = 100; // <<< controla aqui
+
+card.style.transform =
+  `translate(-50%, calc(-50% + ${250}px)) 
+   translateY(${y}px) 
+   translateZ(${z}px)`;
+
+
+        card.style.opacity = opacity;
+        card.style.filter = `blur(${blur}px)`;
+
+        card.style.boxShadow =
+          depthRatio > 0.85
+          ? `0 0 ${18 + depthRatio*22}px rgba(111,179,255,${glowIntensity}),
+             inset 0 0 ${10 + depthRatio*12}px rgba(111,179,255,${glowIntensity*0.6})`
+          : "";
+
+        card.style.zIndex = Math.round(z + RADIUS);
+      });
+    }
+
+    function stepWheel(dir = 1){
+      angle += dir * step;
+      layout();
+
+      const target = Math.round(angle / step) * step;
+      angle += (target - angle) * 0.18;
+      layout();
+    }
+
+    function startAuto(){
+      stopAuto();
+      timer = setInterval(()=>stepWheel(1), AUTO_INTERVAL);
+    }
+
+    function stopAuto(){
+      if(timer){
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function onWheel(e){
+      e.preventDefault();
+      stopAuto();
+      stepWheel(e.deltaY > 0 ? 1 : -1);
+      startAuto();
+    }
+
+    container.addEventListener("wheel", onWheel, { passive:false });
+    window.addEventListener("resize", layout);
+
+    layout();
+    startAuto();
+  }
+
+  function boot(){
+    if(!mq.matches) return;
+
+    const mainGrid = document.querySelector("#mainGrid");
+    if(mainGrid) initWheel(mainGrid);
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){ if(window.innerWidth<=1024){ setTimeout(boot, 1200); } });
+  mq.addEventListener("change", () => location.reload());
+
+})();
+</script>
+
+
+<script defer>
+function updateBottomStatementVisibility(){
+  const mainOverlay = document.getElementById("mainOverlay");
+  const secondaryOverlay = document.getElementById("secondaryOverlay");
+  const bottom = document.querySelector(".bottom-statement");
+
+  if(!bottom) return;
+
+  const mainActive = mainOverlay && mainOverlay.classList.contains("active");
+  const secondaryActive = secondaryOverlay && secondaryOverlay.classList.contains("active");
+
+  if(mainActive || secondaryActive){
+    bottom.style.opacity = "0";
+    bottom.style.visibility = "hidden";
+  } else {
+    bottom.style.opacity = "1";
+    bottom.style.visibility = "visible";
+  }
+}
+
+/* Hook into existing popup logic safely */
+document.addEventListener("DOMContentLoaded", function(){
+
+  const mainOverlay = document.getElementById("mainOverlay");
+  const secondaryOverlay = document.getElementById("secondaryOverlay");
+
+  const observer = new MutationObserver(updateBottomStatementVisibility);
+
+  if(mainOverlay){
+    observer.observe(mainOverlay, { attributes: true, attributeFilter: ["class"] });
+  }
+
+  if(secondaryOverlay){
+    observer.observe(secondaryOverlay, { attributes: true, attributeFilter: ["class"] });
+  }
+
+});
+</script>
+
+
+<script defer>
+/* ===============================
+   MOBILE 3D WHEEL — MAIN POPUP ONLY
+================================== */
+(function(){
+
+  const mq = window.matchMedia("(max-width:1024px)");
+  const RADIUS = 100;
+  const AUTO_INTERVAL = 2600;
+
+  function initMainPopupWheel(){
+
+    if(!mq.matches) return;
+
+    const overlay = document.getElementById("mainOverlay");
+    const container = overlay?.querySelector(".popup-actions");
+    if(!container) return;
+
+    const cards = Array.from(container.querySelectorAll(".card-base"));
+    if(!cards.length) return;
+
+    let angle = 0;
+    const step = 360 / cards.length;
+    let timer = null;
+
+    container.style.position = "relative";
+    container.style.perspective = "1200px";
+    container.style.transformStyle = "preserve-3d";
+    container.style.minHeight = "420px";
+
+    cards.forEach(card=>{
+      card.style.position = "absolute";
+      card.style.left = "50%";
+      card.style.top  = "50%";
+      card.style.width = "90vw";
+      card.style.height = "165px";
+      card.style.transformStyle = "preserve-3d";
+      card.style.transition =
+        "transform 1s cubic-bezier(.22,1,.36,1), opacity .6s ease";
+    });
+
+    function layout(){
+      cards.forEach((card,i)=>{
+        const a = (angle + i * step) * Math.PI / 180;
+        const y = Math.sin(a) * 65;
+        const z = Math.cos(a) * RADIUS;
+
+        const depthRatio = (z + RADIUS) / (2 * RADIUS);
+        const opacity = 0.35 + depthRatio * 0.65;
+
+const OFFSET = 100; // <<< controla aqui
+
+card.style.transform =
+  `translate(-50%, calc(-50% + ${200}px)) 
+   translateY(${y}px) 
+   translateZ(${z}px)`;
+
+
+        card.style.opacity = opacity;
+        card.style.zIndex = Math.round(z + RADIUS);
+      });
+    }
+
+    function rotate(dir = 1){
+      angle += dir * step;
+      layout();
+    }
+
+    function startAuto(){
+      stopAuto();
+      timer = setInterval(()=>rotate(1), AUTO_INTERVAL);
+    }
+
+    function stopAuto(){
+      if(timer){
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    container.addEventListener("wheel", e=>{
+      e.preventDefault();
+      stopAuto();
+      rotate(e.deltaY > 0 ? 1 : -1);
+      startAuto();
+    }, { passive:false });
+
+    layout();
+    startAuto();
+  }
+
+  document.addEventListener("DOMContentLoaded", initMainPopupWheel);
+  mq.addEventListener("change", ()=>location.reload());
+
+})();
+</script>
+
+
+
+
+<div class="contact-modal" id="contactModal">
+    <div class="contact-panel">
+        <button class="modal-close" onclick="closeContactModal()">×</button>
+        <h3>Contact Form</h3>
+        <form class="contact-form" action="mailto:joao.baptista@craftfour.com" method="POST" enctype="text/plain">
+            <input type="text" name="Nome" placeholder="Nome" required>
+            <input type="email" name="Email" placeholder="Email" required>
+            <textarea name="Mensagem" placeholder="Mensagem" required></textarea>
+            <div class="contact-actions">
+                <button type="submit" class="glow-button">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script defer>
+/* Contact Modal */
+function openContactModal(){
+    document.getElementById('contactModal').classList.add('active');
+}
+
+function closeContactModal(){
+    document.getElementById('contactModal').classList.remove('active');
+}
+
+
+</script>
+
+<script defer>
+/* ===== GLOBAL I18N CORE (UNIFIED) ===== */
+window.LANG_ORDER = ["EN","PT","ES","FR","DE","ZH"];
+
+window.currentLang = localStorage.getItem("preferredLanguage") || "EN";
+
+window.applyLanguage = function(){
+  if(!window.I18N) return;
+  const dict = window.I18N[window.currentLang] || window.I18N["EN"];
+
+  document.documentElement.setAttribute("lang", window.currentLang.toLowerCase());
+
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.dataset.i18n;
+    if(dict && dict[key] !== undefined){
+      el.innerHTML = dict[key];
+    }
+  });
+
+  const btn = document.getElementById("langBtn");
+  if(btn) btn.textContent = window.currentLang;
+};
+
+window.setLanguage = function(lang){
+  if(!window.I18N || !window.I18N[lang]) return;
+  window.currentLang = lang;
+  localStorage.setItem("preferredLanguage", lang);
+  window.applyLanguage();
+};
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  window.currentLang = localStorage.getItem("preferredLanguage") || "EN";
+  window.applyLanguage();
+
+  const btn = document.getElementById("langBtn");
+
+  if(btn){
+    btn.addEventListener("click", function(e){
+      e.preventDefault();
+      const index = window.LANG_ORDER.indexOf(window.currentLang);
+      const next = window.LANG_ORDER[(index + 1) % window.LANG_ORDER.length];
+      window.setLanguage(next);
+    });
+  }
+
+});
+</script>
+
+</body>
+</html>
