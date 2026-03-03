@@ -1,8 +1,6 @@
 
 (function(){
 
-const AUTO_OPEN_DELAY = 22000;
-
 let currentStep = 1;
 const totalSteps = 5;
 let leadData = {};
@@ -352,10 +350,6 @@ content.innerHTML=`
 alert("Submission failed. Please try again.");
 });
 }
-
-setTimeout(()=>{
-if(!isOpen) toggle();
-},AUTO_OPEN_DELAY);
 
 }
 
