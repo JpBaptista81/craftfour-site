@@ -23,12 +23,12 @@ Stage: ${leadData.stage}
 Challenge: ${leadData.challenge}
     `;
 
-    await resend.emails.send({
-      from: 'Craft4 Copilot <onboarding@resend.dev>',
-      to: 'joao.baptista@craftfour.com',
-      subject: 'New Engineering Lead - Craft4',
-      text: formattedLead,
-    });
+await resend.emails.send({
+  from: 'Craft⁴ Engineering <no-reply@craftfour.com>',
+  to: 'contact@craftfour.com',
+  subject: 'New Engineering Lead - Craft4',
+  text: formattedLead,
+});
 
     return res.status(200).json({ success: true });
 
@@ -37,3 +37,4 @@ Challenge: ${leadData.challenge}
     return res.status(500).json({ message: 'Email sending failed' });
   }
 }
+
