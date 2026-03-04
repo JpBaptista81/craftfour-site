@@ -2,49 +2,54 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export default async function handler(req, res) {
+export default async function handler(req,res){
 
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method not allowed" });
-  }
+if(req.method !== "POST"){
+return res.status(405).end();
+}
 
-  try {
+const {name,email,leadData} = req.body;
 
-    const { name, email, leadData } = req.body;
+try{
 
-    const formattedLead = `
-NEW ENGINEERING LEAD
+/* EMAIL PARA TI */
 
-Name: ${name}
-Email: ${email}
+await resend.emails.send({
+  from: "Craft⁴ Engineering Copilot <copilot@craftfour.com>",
+  to: "contact@craftfour.com",
+  subject: "New Engineering Lead",
+  html: `
+  <h3>New Engineering Lead</h3>
+  <p><b>Name:</b> ${name}</p>
+  <p><b>Email:</b> ${email}</p>
+  <p><b>Industry:</b> ${leadData.industry}</p>
+  <p><b>Context:</b> ${leadData.context}</p>
+  <p><b>Challenge:</b> ${leadData.challenge}</p>
+  `
+});
 
-Industry: ${leadData.industry}
-Project Stage: ${leadData.stage}
+/* AUTO-REPLY PARA O CLIENTE */
 
-Challenge:
-${leadData.challenge}
+await resend.emails.send({
+  from: "Craft⁴ Engineering Team <copilot@craftfour.com>",
+  to: email,
+  subject: "Engineering request received",
+  html: `
+  <p>Hello ${name},</p>
+  <p>Our engineering team received your request.</p>
+  <p>We will review your context and reply shortly.</p>
+  <br>
+  <p>Craft⁴ Engineering</p>
+  `
+});
 
-Context:
-${leadData.context}
-`;
+return res.status(200).json({success:true});
 
-    await resend.emails.send({
-      from: "Craft⁴ Engineering <no-reply@craftfour.com>",
-      to: "contact@craftfour.com",
-      reply_to: email,
-      subject: `New Engineering Lead – ${name}`,
-      text: formattedLead,
-    });
+}catch(err){
 
-    return res.status(200).json({ success: true });
+console.error(err);
+return res.status(500).json({error:"Email failed"});
 
-  } catch (error) {
+}
 
-    console.error(error);
-
-    return res.status(500).json({
-      message: "Email sending failed"
-    });
-
-  }
 }
