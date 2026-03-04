@@ -3,20 +3,17 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-/* CLASSIFICAÇÃO DO LEAD */
+
+/* CLASSIFICAÇÃO DO PROJETO */
 
 function classifyLead(leadData){
 
 let projectType = "Independent";
 let priority = "C";
 
-/* tipo de projeto */
-
 if(["startup","small","mid","large"].includes(leadData.context)){
 projectType = "Industrial";
 }
-
-/* prioridade */
 
 if(projectType === "Industrial"){
 
@@ -34,6 +31,42 @@ return {projectType, priority};
 
 }
 
+
+/* DETEÇÃO DO PERFIL DO VISITANTE */
+
+function detectProfile(email, leadData){
+
+let profile = "Unknown";
+
+const academicDomains = [".edu",".ac",".student",".university"];
+const freeDomains = ["gmail","hotmail","outlook","icloud","yahoo"];
+
+const domain = email.split("@")[1].toLowerCase();
+
+/* estudante */
+
+if(academicDomains.some(d => domain.includes(d))){
+profile = "Student";
+}
+
+/* engenheiro / empresa */
+
+else if(["startup","small","mid","large"].includes(leadData.context)){
+profile = "Engineer";
+}
+
+/* email pessoal */
+
+else if(freeDomains.some(d => domain.includes(d))){
+profile = "Independent";
+}
+
+return profile;
+
+}
+
+
+
 export default async function handler(req, res) {
 
 if (req.method !== "POST") {
@@ -44,12 +77,19 @@ try {
 
 const { name, email, leadData } = req.body;
 
-/* CLASSIFICAR O PROJETO */
+
+/* CLASSIFICAR PROJETO */
 
 const classification = classifyLead(leadData);
 
 const projectType = classification.projectType;
 const priority = classification.priority;
+
+
+/* DETETAR PERFIL DO VISITANTE */
+
+const visitorProfile = detectProfile(email, leadData);
+
 
 /* ENGINEERING BRIEF */
 
@@ -64,6 +104,9 @@ Email: ${email}
 PROJECT CLASSIFICATION
 Project Type: ${projectType}
 Lead Priority: ${priority}
+
+VISITOR PROFILE
+${visitorProfile}
 
 ENGINEERING CONTEXT
 Organization: ${leadData.context}
@@ -80,6 +123,7 @@ Craft⁴ Engineering Copilot
 https://craftfour.com
 `;
 
+
 /* EMAIL PARA A CRAFT⁴ */
 
 await resend.emails.send({
@@ -89,6 +133,7 @@ reply_to: email,
 subject: `Engineering Project Brief – ${name}`,
 text: formattedLead
 });
+
 
 /* AUTO-RESPOSTA PARA O VISITANTE */
 
@@ -112,6 +157,7 @@ Engineering Simulation & Industrial Design
 https://craftfour.com
 `
 });
+
 
 return res.status(200).json({ success: true });
 
