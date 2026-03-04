@@ -618,7 +618,7 @@ content.innerHTML=`
 
 <div class="c4-options">
 
-<button class="c4-option-btn" onclick="selectAction('followup')">
+<button class="c4-option-btn" onclick="selectAction('followup', event)">
 ${t.step5_1}
 </button>
 
@@ -636,7 +636,7 @@ ${t.step5_1}
 <input type="email" class="c4-input" placeholder="${t.contact_email}" id="c4-email">
 </div>
 
-<button class="c4-option-btn" onclick="selectAction('discussion')">
+<button class="c4-option-btn" onclick="selectAction('discussion', event)">
 ${t.step5_2}
 </button>
 
