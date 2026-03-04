@@ -864,9 +864,8 @@ leadData.action="discussion";
 
 aiThinking(()=>{
 
-const questions=generateQuestions();
-
-runDiscussion(questions,0);
+aiQuestions = generateQuestions();
+runDiscussion(aiQuestions,0);
 
 });
 
