@@ -417,6 +417,11 @@ content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
 background:var(--accent);border-top-left-radius:8px;
 border-bottom-left-radius:8px;opacity:0.85;}
 .c4-option-btn:hover{background:#1c1f22;border-color:rgba(255,255,255,0.12);}
+.c4-option-btn.active{
+background:#1c1f22;
+border-color:var(--accent);
+box-shadow:0 0 0 1px var(--accent) inset;
+}
 .c4-input{
 width:100%;padding:10px 10px 10px 22px;margin-bottom:10px;border-radius:8px;
 border:1px solid rgba(255,255,255,0.1);
