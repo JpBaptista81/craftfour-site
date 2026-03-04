@@ -708,7 +708,7 @@ placeholder="${t.type_answer}"
 <button class="c4-submit-btn"
 style="margin-top:12px"
 onclick="window.submitAIAnswer(${index})">
-<span>Continue</span>
+<span>${t.continue_btn}</span>
 </button>
 
 </div>
