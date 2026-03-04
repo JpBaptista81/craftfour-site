@@ -4,7 +4,25 @@ let currentStep = 1;
 const totalSteps = 5;
 let leadData = {};
 let isOpen = false;
-let currentLang = document.documentElement.lang || "en";
+
+
+function detectLanguage(){
+
+const htmlLang = document.documentElement.lang;
+if(htmlLang && SUPPORTED_LANGS.includes(htmlLang)) return htmlLang;
+
+const browserLangs = navigator.languages || [navigator.language];
+
+for(let lang of browserLangs){
+let short = lang.toLowerCase().split("-")[0];
+if(SUPPORTED_LANGS.includes(short)) return short;
+}
+
+return "en";
+
+}
+
+let currentLang = detectLanguage();
 
 /* ================= I18N ================= */
 const SUPPORTED_LANGS = ["en","pt","de","fr","es","it","zh","ja"];
