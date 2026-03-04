@@ -775,7 +775,7 @@ ${t.step5_1}
 ${t.or}
 </div>
 
-<button class="c4-option-btn" onclick="startDiscussion()">
+<button class="c4-option-btn" onclick="window.startDiscussion()">
 ${t.step5_2}
 </button>
 
