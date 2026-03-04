@@ -712,22 +712,7 @@ emailWrapper.classList.remove("has-text");
 }
 }
 
-animateTransition(()=>{
-content.innerHTML=`
-<strong><span class='c4-cursor'>|</span>${t.contact_title}</strong>
-<div style="margin-top:15px;">
-<div class="c4-input-wrapper blinking" id="name-wrapper">
-<span class="c4-input-cursor">|</span>
-<input type="text" class="c4-input" placeholder="${t.contact_name}" id="c4-name">
-</div>
-<div class="c4-input-wrapper" id="email-wrapper">
-<span class="c4-input-cursor">|</span>
-<input type="email" class="c4-input" placeholder="${t.contact_email}" id="c4-email">
-</div>
-<button class="c4-submit-btn" onclick="submitLead()">${t.contact_submit}</button>
-</div>`;
-setTimeout(attachInputLogic,50);
-});
+
 }
 
 window.submitLead=function(){
