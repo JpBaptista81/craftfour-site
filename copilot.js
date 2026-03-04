@@ -5,7 +5,8 @@ let currentStep = 1;
 const totalSteps = 5;
 let leadData = {};
 let isOpen = false;
-let currentLang = document.documentElement.lang || "en";
+
+let currentLang = (document.documentElement.lang || navigator.language || "en").slice(0,2);
 
 /* ================= CSS ================= */
 const style = document.createElement("style");
