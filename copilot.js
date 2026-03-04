@@ -516,6 +516,7 @@ const bubble=document.getElementById("c4-bubble");
 const overlay=document.getElementById("c4-overlay");
 const content=document.getElementById("c4-content");
 const progress=document.getElementById("c4-progress");
+let aiQuestions = [];
 
 function formatStep(n){
 return String(n).padStart(2,'0')+" / "+String(totalSteps).padStart(2,'0');
