@@ -615,19 +615,6 @@ animateTransition(()=>{
 
 content.innerHTML=`
 <strong><span class='c4-cursor'>|</span>${t.step5_title}</strong>
-<div style="font-size:12px;opacity:0.6;margin-top:6px">
-Selecione uma opção antes de submeter o pedido
-</div>
-
-<div class="c4-options">
-
-<button class="c4-option-btn" onclick="submitLead('followup')">
-${t.step5_1}
-</button>
-
-<div style="text-align:center;font-size:12px;opacity:0.5;margin:6px 0;">
-ou
-</div>
 
 <div style="margin-top:18px;">
 
