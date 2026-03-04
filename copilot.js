@@ -4,25 +4,15 @@ try {
 
 const SUPPORTED_LANGS = ["en","pt","es","fr","de","zh"];
 
-const htmlLang = document.documentElement.lang;
+const htmlLang = (document.documentElement.lang || "").toLowerCase();
+const browserLang = (navigator.language || "").toLowerCase();
 
-if(htmlLang){
-const short = htmlLang.toLowerCase().split("-")[0];
-if(SUPPORTED_LANGS.includes(short)) currentLang = short;
-else {
+const lang = htmlLang || browserLang;
 
-const browserLangs = navigator.languages || [navigator.language];
+const short = lang.split("-")[0];
 
-for(let lang of browserLangs){
-const s = lang.toLowerCase().split("-")[0];
-if(SUPPORTED_LANGS.includes(s)){
-currentLang = s;
-break;
-}
-}
-
-}
-
+if(SUPPORTED_LANGS.includes(short)){
+currentLang = short;
 }
 
 }catch(e){
