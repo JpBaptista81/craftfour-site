@@ -527,6 +527,22 @@ content.classList.add("fade-out");
 setTimeout(()=>{callback();content.classList.remove("fade-out");},90);
 }
 
+function aiThinking(callback){
+
+animateTransition(()=>{
+
+content.innerHTML=`
+<div style="opacity:0.7;font-size:13px;">
+<span class="c4-cursor">|</span>Analyzing engineering context...
+</div>
+`;
+
+});
+
+setTimeout(callback,1400);
+
+}
+  
 function toggle(){
 if(!panel.classList.contains("active")){
 panel.classList.add("active");
