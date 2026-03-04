@@ -554,14 +554,19 @@ function aiThinking(callback){
 animateTransition(()=>{
 
 content.innerHTML=`
-<div style="opacity:0.7;font-size:13px;">
-<span class="c4-cursor">|</span>Analyzing engineering context...
-</div>
+<div id="ai-typing" style="opacity:0.7;font-size:13px;white-space:pre-line"></div>
 `;
+
+const el = document.getElementById("ai-typing");
+
+typeText(
+el,
+"| Analyzing engineering context...\n| Generating technical questions..."
+);
 
 });
 
-setTimeout(callback,1400);
+setTimeout(callback,2000);
 
 }
 
