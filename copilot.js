@@ -566,9 +566,9 @@ const el = document.getElementById("ai-typing");
 
 typeText(
 el,
-| Parsing engineering context...
-| Evaluating simulation scenario...
-| Generating engineering questions...
+"| Analyzing engineering context...\n| Generating technical questions...",
+18,
+callback
 );
 
 });
