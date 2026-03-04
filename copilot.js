@@ -570,6 +570,58 @@ questions.push("Could you briefly describe the main engineering constraint you a
 return questions.slice(0,3);
 }
 
+function generateQuestions(){
+
+let questions=[];
+
+...
+
+return questions.slice(0,3);
+}
+
+function runDiscussion(questions,index){
+
+if(index>=questions.length){
+
+submitLead('discussion');
+return;
+
+}
+
+animateTransition(()=>{
+
+content.innerHTML=`
+<strong><span class='c4-cursor'>|</span>${questions[index]}</strong>
+
+<div style="margin-top:16px">
+
+<textarea id="c4-ai-answer"
+style="
+width:100%;
+height:90px;
+border-radius:8px;
+background:#141618;
+border:1px solid rgba(255,255,255,0.1);
+color:#C7C9CF;
+padding:10px;
+resize:none;
+"
+placeholder="Type your answer..."
+></textarea>
+
+<button class="c4-submit-btn"
+style="margin-top:12px"
+onclick="submitAIAnswer(${index})">
+Continue
+</button>
+
+</div>
+`;
+
+});
+
+}
+
 function toggle(){
 if(!panel.classList.contains("active")){
 panel.classList.add("active");
