@@ -631,7 +631,20 @@ function runDiscussion(questions,index){
 
 if(index>=questions.length){
 
-window.submitLead('discussion');
+animateTransition(()=>{
+
+content.innerHTML=`
+<strong><span class='c4-cursor'>|</span>Thank you. Our engineering team will review your discussion.</strong>
+
+<div style="margin-top:16px">
+<button class="c4-submit-btn" onclick="window.submitLead('discussion')">
+<span>Submit discussion</span>
+</button>
+</div>
+`;
+
+});
+
 return;
 
 }
