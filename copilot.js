@@ -727,7 +727,7 @@ window.submitLead=function(){
 let name=document.getElementById("c4-name").value;
 let email=document.getElementById("c4-email").value;
 
-if(!name||!email){
+if(!name || !email || !leadData.action){
 alert(t.alert_fields);
 return;
 }
