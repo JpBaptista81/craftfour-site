@@ -445,9 +445,18 @@ border:1px solid rgba(255,255,255,0.05);
 border-radius:8px;color:white;text-align:left;
 cursor:pointer;position:relative;}
 .c4-submit-btn::before{
-content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
-background:var(--accent);border-top-left-radius:8px;
-border-bottom-left-radius:8px;opacity:0.85;}
+content:"";
+position:absolute;
+left:0;
+top:0;
+bottom:0;
+width:3px;
+background:var(--accent);
+border-top-left-radius:8px;
+border-bottom-left-radius:8px;
+opacity:0.85;
+z-index:-1;
+}
 .c4-success{display:flex;flex-direction:column;
 align-items:center;justify-content:center;height:100%;
 text-align:center;animation:fadeIn .4s ease forwards;}
