@@ -636,6 +636,10 @@ ${t.step5_1}
 <input type="email" class="c4-input" placeholder="${t.contact_email}" id="c4-email">
 </div>
 
+<button class="c4-submit-btn" onclick="submitLead()">
+${t.contact_submit}
+</button>
+
 <button class="c4-option-btn" onclick="selectAction('discussion', event)">
 ${t.step5_2}
 </button>
