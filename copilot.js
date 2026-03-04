@@ -542,7 +542,19 @@ container.appendChild(btn);
 content.appendChild(container);
 }
 
-function startFlow(){step1();}
+function startFlow(){
+
+// sincronizar idioma com o site
+if(window.currentLang){
+currentLang = window.currentLang.toLowerCase().split("-")[0];
+}
+
+// atualizar tradução ativa
+t = I18N[currentLang] || I18N.en;
+
+step1();
+
+}
 
 function step1(){
 currentStep=1;
