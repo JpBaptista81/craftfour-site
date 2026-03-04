@@ -6,6 +6,8 @@ const totalSteps = 5;
 let leadData = {};
 let isOpen = false;
 
+let aiQuestions = [];
+  
 let currentLang = "en";
 
 try{
