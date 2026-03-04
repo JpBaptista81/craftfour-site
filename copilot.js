@@ -675,7 +675,6 @@ content.innerHTML=`
 </div>`;
 });
 }
-
 function attachInputLogic(){
 const nameInput=document.getElementById("c4-name");
 const emailInput=document.getElementById("c4-email");
@@ -712,11 +711,15 @@ emailWrapper.classList.remove("has-text");
 }
 }
 
-
 window.submitLead=function(){
+
 let name=document.getElementById("c4-name").value;
 let email=document.getElementById("c4-email").value;
-if(!name||!email){alert(t.alert_fields);return;}
+
+if(!name||!email){
+alert(t.alert_fields);
+return;
+}
 
 fetch("/api/engineering-lead",{
 method:"POST",
@@ -725,20 +728,19 @@ body:JSON.stringify({name,email,leadData})
 })
 .then(()=>{
 animateTransition(()=>{
-  
 content.innerHTML=`
 <div class="c4-success">
 <h3 style="margin-bottom:10px;">${t.success_title}</h3>
 <p style="opacity:0.7;">${t.success_text}</p>
 </div>`;
-
 });
 })
 .catch(()=>{
 alert(t.alert_error);
 });
-}
 
 }
 
-})(); 
+}
+
+})();
