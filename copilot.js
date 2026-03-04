@@ -1,23 +1,11 @@
-let currentLang = "en";
 
-try {
+(function(){
 
-const SUPPORTED_LANGS = ["en","pt","es","fr","de","zh"];
-
-const htmlLang = (document.documentElement.lang || "").toLowerCase();
-const browserLang = (navigator.language || "").toLowerCase();
-
-const lang = htmlLang || browserLang;
-
-const short = lang.split("-")[0];
-
-if(SUPPORTED_LANGS.includes(short)){
-currentLang = short;
-}
-
-}catch(e){
-currentLang = "en";
-}
+let currentStep = 1;
+const totalSteps = 5;
+let leadData = {};
+let isOpen = false;
+let currentLang = document.documentElement.lang || "en";
 
 /* ================= CSS ================= */
 const style = document.createElement("style");
