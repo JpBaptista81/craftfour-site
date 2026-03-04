@@ -573,8 +573,6 @@ el,
 
 });
 
-setTimeout(callback,2000);
-
 }
 
 function generateQuestions(){
