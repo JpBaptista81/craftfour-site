@@ -5,8 +5,118 @@ let currentStep = 1;
 const totalSteps = 5;
 let leadData = {};
 let isOpen = false;
+let currentLang = document.documentElement.lang || "en";
+	
+	
+const I18N = {
 
-let currentLang = (document.documentElement.lang || navigator.language || "en").slice(0,2);
+en:{
+step1_title:"Tell us about your engineering context",
+step1_1:"Independent project",
+step1_2:"Startup (1–5 engineers)",
+step1_3:"Small technical team (5–20)",
+step1_4:"Mid-size engineering team (20–100)",
+step1_5:"Large engineering organization (100+)",
+
+step2_title:"Which industry are you working in?",
+step2_1:"Automotive",
+step2_2:"Tooling & Molds",
+step2_3:"Protective Equipment (Helmets & Safety)",
+step2_4:"Aerospace",
+step2_5:"Consumer Products",
+step2_6:"Industrial Systems & Industry 4.0",
+step2_7:"Other industrial sector",
+
+step3_title:"What is the current focus of your project?",
+step3_1:"Concept validation",
+step3_2:"Detailed simulation & testing",
+step3_3:"Performance optimization",
+step3_4:"Platform development support",
+
+step4_title:"What type of technical challenge are you facing?",
+step4_1:"Structural simulation",
+step4_2:"Impact analysis",
+step4_3:"Thermal / CFD analysis",
+step4_4:"Optimization & weight reduction",
+step4_5:"Design validation strategy",
+
+step5_title:"How would you like to proceed?",
+step5_1:"Request technical follow-up",
+step5_2:"Continue technical discussion",
+
+copilot_title:"Describe your technical question",
+copilot_placeholder:"Enter your technical question",
+copilot_submit:"Submit question",
+copilot_received:"Technical query received",
+copilot_review:"Submit for engineering review",
+
+contact_title:"Engineering follow-up coordination",
+contact_name:"Your name",
+contact_email:"Your email",
+contact_submit:"Submit request",
+
+success_title:"✓ Request submitted",
+success_text:"Our engineering team will review your context and respond shortly.",
+
+alert_fields:"Please fill in both fields.",
+alert_error:"Submission failed. Please try again."
+},
+
+pt:{
+step1_title:"Fale-nos sobre o seu contexto de engenharia",
+step1_1:"Projeto independente",
+step1_2:"Startup (1–5 engenheiros)",
+step1_3:"Pequena equipa técnica (5–20)",
+step1_4:"Equipa de engenharia média (20–100)",
+step1_5:"Grande organização de engenharia (100+)",
+
+step2_title:"Em que indústria está a trabalhar?",
+step2_1:"Automóvel",
+step2_2:"Ferramentaria e Moldes",
+step2_3:"Equipamento de proteção (capacetes e segurança)",
+step2_4:"Aeroespacial",
+step2_5:"Produtos de consumo",
+step2_6:"Sistemas industriais e Indústria 4.0",
+step2_7:"Outro setor industrial",
+
+step3_title:"Qual é o foco atual do seu projeto?",
+step3_1:"Validação de conceito",
+step3_2:"Simulação detalhada e testes",
+step3_3:"Otimização de desempenho",
+step3_4:"Suporte ao desenvolvimento de plataforma",
+
+step4_title:"Que tipo de desafio técnico está a enfrentar?",
+step4_1:"Simulação estrutural",
+step4_2:"Análise de impacto",
+step4_3:"Análise térmica / CFD",
+step4_4:"Otimização e redução de peso",
+step4_5:"Estratégia de validação de design",
+
+step5_title:"Como gostaria de avançar?",
+step5_1:"Solicitar acompanhamento técnico",
+step5_2:"Continuar discussão técnica",
+
+copilot_title:"Descreva a sua questão técnica",
+copilot_placeholder:"Introduza a sua questão técnica",
+copilot_submit:"Submeter pergunta",
+copilot_received:"Questão técnica recebida",
+copilot_review:"Enviar para análise de engenharia",
+
+contact_title:"Coordenação de acompanhamento técnico",
+contact_name:"O seu nome",
+contact_email:"O seu email",
+contact_submit:"Submeter pedido",
+
+success_title:"✓ Pedido submetido",
+success_text:"A nossa equipa de engenharia irá analisar o seu contexto e responder brevemente.",
+
+alert_fields:"Por favor preencha ambos os campos.",
+alert_error:"Falha no envio. Tente novamente."
+}
+
+};
+
+const t = I18N[currentLang] || I18N.en;
 
 /* ================= CSS ================= */
 const style = document.createElement("style");
@@ -199,8 +309,8 @@ function startFlow(){step1();}
 
 function step1(){
 currentStep=1;
-renderQuestion("Tell us about your engineering context",[
-{label:"Independent project",action:()=>{leadData.context="independent";step2();}},
+renderQuestion(t.step1_title,[
+{label:t.step1_1,action:()=>{leadData.context="independent";step2();}},
 {label:"Startup (1–5 engineers)",action:()=>{leadData.context="startup";step2();}},
 {label:"Small technical team (5–20)",action:()=>{leadData.context="small";step2();}},
 {label:"Mid-size engineering team (20–100)",action:()=>{leadData.context="mid";step2();}},
