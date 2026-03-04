@@ -528,7 +528,7 @@ content.classList.add("fade-out");
 setTimeout(()=>{callback();content.classList.remove("fade-out");},90);
 }
 
-function typeText(element, text, speed = 18){
+function typeText(element, text, speed = 18, done){
 
 let i = 0;
 element.innerHTML = "";
@@ -541,6 +541,10 @@ element.innerHTML += text.charAt(i);
 i++;
 
 setTimeout(type, speed);
+
+}else{
+
+if(done) done();
 
 }
 
