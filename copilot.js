@@ -621,8 +621,16 @@ Selecione uma opção antes de submeter o pedido
 
 <div class="c4-options">
 
-<button class="c4-option-btn" onclick="selectAction('followup', event)">
+<button class="c4-option-btn" onclick="submitLead('followup')">
 ${t.step5_1}
+</button>
+
+<div style="text-align:center;font-size:12px;opacity:0.5;margin:6px 0;">
+ou
+</div>
+
+<button class="c4-option-btn" onclick="submitLead('discussion')">
+${t.step5_2}
 </button>
 
 </div>
