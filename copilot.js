@@ -650,7 +650,7 @@ ${t.step5_1}
 </button>
 
 <div style="text-align:center;font-size:12px;opacity:0.5;margin:6px 0;">
-ou
+${t.or}
 </div>
 
 <button class="c4-option-btn" onclick="submitLead('discussion')">
