@@ -630,7 +630,7 @@ content.innerHTML=`
 <strong><span class='c4-cursor'>|</span>${t.step5_title}</strong>
 
 <div style="font-size:12px;opacity:0.6;margin-top:6px">
-${t.step5_hint}
+${t.step5_hint || ""}
 </div>
 
 <div style="margin-top:18px;">
