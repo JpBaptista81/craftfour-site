@@ -4,7 +4,7 @@ let currentStep = 1;
 const totalSteps = 5;
 let leadData = {};
 let isOpen = false;
-let currentLang = (document.getElementById("langBtn")?.innerText || "EN").toLowerCase();
+let currentLang = "en";
 
 /* ================= I18N ================= */
 
