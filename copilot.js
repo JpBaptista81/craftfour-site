@@ -36,6 +36,62 @@ email:"O seu email",
 submit:"Enviar pedido",
 successTitle:"✓ Pedido enviado",
 successText:"A nossa equipa de engenharia irá analisar o seu contexto e responder em breve."
+},
+
+es:{
+step1:"Cuéntenos sobre el contexto de su proyecto de ingeniería",
+step2:"¿En qué industria está trabajando?",
+step3:"¿Cuál es el enfoque actual de su proyecto?",
+step4:"¿Qué tipo de desafío técnico enfrenta?",
+step5:"¿Cómo le gustaría continuar?",
+contact:"Coordinación de seguimiento técnico",
+name:"Su nombre",
+email:"Su correo electrónico",
+submit:"Enviar solicitud",
+successTitle:"✓ Solicitud enviada",
+successText:"Nuestro equipo de ingeniería revisará su contexto y responderá en breve."
+},
+
+fr:{
+step1:"Parlez-nous du contexte de votre projet d’ingénierie",
+step2:"Dans quelle industrie travaillez-vous ?",
+step3:"Quel est le focus actuel de votre projet ?",
+step4:"Quel défi technique rencontrez-vous ?",
+step5:"Comment souhaitez-vous continuer ?",
+contact:"Coordination du suivi technique",
+name:"Votre nom",
+email:"Votre email",
+submit:"Envoyer la demande",
+successTitle:"✓ Demande envoyée",
+successText:"Notre équipe d’ingénierie examinera votre contexte et répondra rapidement."
+},
+
+de:{
+step1:"Erzählen Sie uns über den Kontext Ihres Engineering-Projekts",
+step2:"In welcher Branche arbeiten Sie?",
+step3:"Was ist der aktuelle Fokus Ihres Projekts?",
+step4:"Welche technische Herausforderung haben Sie?",
+step5:"Wie möchten Sie fortfahren?",
+contact:"Koordination der technischen Nachverfolgung",
+name:"Ihr Name",
+email:"Ihre E-Mail",
+submit:"Anfrage senden",
+successTitle:"✓ Anfrage gesendet",
+successText:"Unser Engineering-Team wird Ihren Kontext prüfen und sich bald melden."
+},
+
+zh:{
+step1:"请介绍您的工程项目背景",
+step2:"您所在的行业是什么？",
+step3:"您的项目当前重点是什么？",
+step4:"您面临的技术挑战是什么？",
+step5:"您希望如何继续？",
+contact:"工程技术跟进协调",
+name:"您的姓名",
+email:"您的邮箱",
+submit:"提交请求",
+successTitle:"✓ 请求已提交",
+successText:"我们的工程团队会审核您的项目背景并尽快回复。"
 }
 
 };
