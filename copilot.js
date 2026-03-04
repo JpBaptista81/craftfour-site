@@ -653,9 +653,15 @@ setTimeout(attachInputLogic,50);
 
 }
 
-
 window.selectAction = function(action){
+
 leadData.action = action;
+
+document.querySelectorAll(".c4-option-btn")
+.forEach(btn=>btn.classList.remove("active"));
+
+event.currentTarget.classList.add("active");
+
 };
 
 function activateCopilot(){
