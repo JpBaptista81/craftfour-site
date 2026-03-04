@@ -63,15 +63,15 @@ step5:"Como gostaria de prosseguir?",
 context1:"Projeto independente",
 context2:"Startup (1–5 engenheiros)",
 context3:"Pequena equipa técnica (5–20)",
-context4:"Equipa de engenharia média (20–100)",
+context4:"Equipa média de engenharia (20–100)",
 context5:"Grande organização de engenharia (100+)",
 
 industry1:"Automóvel",
-industry2:"Ferramentas e Moldes",
-industry3:"Equipamento de Proteção (Capacetes e Segurança)",
+industry2:"Ferramentas e moldes",
+industry3:"Equipamento de proteção (capacetes e segurança)",
 industry4:"Aeroespacial",
-industry5:"Produtos de Consumo",
-industry6:"Sistemas Industriais e Indústria 4.0",
+industry5:"Produtos de consumo",
+industry6:"Sistemas industriais e Indústria 4.0",
 industry7:"Outro setor industrial",
 
 stage1:"Validação de conceito",
@@ -104,8 +104,8 @@ return (T[currentLang] && T[currentLang][k]) || T.en[k];
 
 /* ================= CSS ================= */
 
-const style=document.createElement("style");
-style.innerHTML=`
+const style = document.createElement("style");
+style.innerHTML = `
 :root{
 --panel-bg:rgba(17,19,20,0.92);
 --accent:#1C6089;
@@ -124,11 +124,11 @@ document.head.appendChild(style);
 
 document.addEventListener("DOMContentLoaded",()=>{
 
-currentLang=(document.getElementById("langBtn")?.innerText||"EN").toLowerCase();
+currentLang = (document.getElementById("langBtn")?.innerText || "EN").toLowerCase();
 
 document.getElementById("langBtn")?.addEventListener("click",()=>{
 setTimeout(()=>{
-currentLang=(document.getElementById("langBtn")?.innerText||"EN").toLowerCase();
+currentLang = (document.getElementById("langBtn")?.innerText || "EN").toLowerCase();
 },100);
 });
 
@@ -147,7 +147,11 @@ document.body.insertAdjacentHTML("beforeend",`
 </div>
 <div class="c4-content" id="c4-content"></div>
 </div>
-<div class="c4-bubble" id="c4-bubble"></div>
+<div class="c4-bubble" id="c4-bubble">
+<svg viewBox="0 0 24 24">
+<path d="M12 3C6.5 3 2 6.9 2 11.5c0 2.4 1.2 4.6 3.2 6.2L4 21l4.2-2.1c1.2.3 2.4.5 3.8.5 5.5 0 10-3.9 10-8.5S17.5 3 12 3z"/>
+</svg>
+</div>
 `);
 
 initLogic();
@@ -166,6 +170,22 @@ function formatStep(n){
 return String(n).padStart(2,'0')+" / "+String(totalSteps).padStart(2,'0');
 }
 function updateProgress(){progress.innerText=formatStep(currentStep);}
+
+function toggle(){
+if(!panel.classList.contains("active")){
+panel.classList.add("active");
+overlay.classList.add("active");
+bubble.classList.add("hidden");
+startFlow();
+}else{
+panel.classList.remove("active");
+overlay.classList.remove("active");
+bubble.classList.remove("hidden");
+}
+}
+
+bubble.onclick=toggle;
+overlay.onclick=toggle;
 
 function renderQuestion(title,options){
 updateProgress();
@@ -243,7 +263,7 @@ function step5(){
 currentStep=5;
 renderQuestion(t("step5"),[
 {label:t("proceed1"),action:()=>{stepContact();}},
-{label:t("proceed2"),action:()=>{}}
+{label:t("proceed2"),action:()=>{activateCopilot();}}
 ]);
 }
 
@@ -275,11 +295,17 @@ headers:{"Content-Type":"application/json"},
 body:JSON.stringify({name,email,leadData})
 })
 .then(()=>{
+
 content.innerHTML=`
 <div class="c4-success">
-<h3>${t("successTitle")}</h3>
-<p>${t("successText")}</p>
-</div>`;
+<h3 style="margin-bottom:10px;">${t("successTitle")}</h3>
+<p style="opacity:0.7;">${t("successText")}</p>
+</div>
+`;
+
+})
+.catch(()=>{
+alert("Submission failed. Please try again.");
 });
 
 }
