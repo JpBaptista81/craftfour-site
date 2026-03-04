@@ -668,7 +668,6 @@ emailWrapper.classList.remove("has-text");
 }
 }
 
-function stepContact(){
 animateTransition(()=>{
 content.innerHTML=`
 <strong><span class='c4-cursor'>|</span>${t.contact_title}</strong>
