@@ -953,7 +953,7 @@ const name = leadData.name || "";
 const email = leadData.email || "";
 
 if(!name || !email){
-alert("Por favor preencha nome e email.");
+alert(t.alert_name_email);
 return;
 }
 
