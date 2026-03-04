@@ -629,12 +629,6 @@ ${t.step5_1}
 ou
 </div>
 
-<button class="c4-option-btn" onclick="submitLead('discussion')">
-${t.step5_2}
-</button>
-
-</div>
-
 <div style="margin-top:18px;">
 
 <div class="c4-input-wrapper blinking" id="name-wrapper">
@@ -646,6 +640,22 @@ ${t.step5_2}
 <span class="c4-input-cursor">|</span>
 <input type="email" class="c4-input" placeholder="${t.contact_email}" id="c4-email">
 </div>
+
+</div>
+
+<div class="c4-options">
+
+<button class="c4-option-btn" onclick="submitLead('followup')">
+${t.step5_1}
+</button>
+
+<div style="text-align:center;font-size:12px;opacity:0.5;margin:6px 0;">
+ou
+</div>
+
+<button class="c4-option-btn" onclick="submitLead('discussion')">
+${t.step5_2}
+</button>
 
 </div>
 `;
