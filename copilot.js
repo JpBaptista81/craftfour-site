@@ -713,8 +713,6 @@ emailWrapper.classList.remove("has-text");
 }
 
 
-}
-
 window.submitLead=function(){
 let name=document.getElementById("c4-name").value;
 let email=document.getElementById("c4-email").value;
