@@ -101,7 +101,7 @@ step1_2:"Startup (1–5 engenheiros)",
 step1_3:"Pequena equipa técnica (5–20)",
 step1_4:"Equipa de engenharia média (20–100)",
 step1_5:"Grande organização de engenharia (100+)",
-step5_hint:"Selecione uma opção antes de submeter o pedido",
+step5_hint:"${t.step5_hint}",
 or:"ou",
 
 step2_title:"Em que indústria está a trabalhar?",
