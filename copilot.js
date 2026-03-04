@@ -372,10 +372,10 @@ renderQuestion(t.step5_title,[
 function activateCopilot(){
 animateTransition(()=>{
 content.innerHTML=`
-<strong><span class='c4-cursor'>|</span>Describe your technical question</strong>
+<strong><span class='c4-cursor'>|</span>${t.copilot_title}</strong>
 <div style="margin-top:15px;">
-<input type="text" class="c4-input" id="c4-question" placeholder="Enter your technical question">
-<button class="c4-submit-btn" onclick="respondCopilot()">Submit question</button>
+<input type="text" class="c4-input" id="c4-question" placeholder="${t.copilot_placeholder}">
+<button class="c4-submit-btn" onclick="respondCopilot()">${t.copilot_submit}</button>
 </div>`;
 });
 }
