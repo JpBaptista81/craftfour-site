@@ -527,6 +527,28 @@ content.classList.add("fade-out");
 setTimeout(()=>{callback();content.classList.remove("fade-out");},90);
 }
 
+function typeText(element, text, speed = 18){
+
+let i = 0;
+element.innerHTML = "";
+
+function type(){
+
+if(i < text.length){
+
+element.innerHTML += text.charAt(i);
+i++;
+
+setTimeout(type, speed);
+
+}
+
+}
+
+type();
+
+}
+
 function aiThinking(callback){
 
 animateTransition(()=>{
