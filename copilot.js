@@ -613,11 +613,11 @@ content.innerHTML=`
 
 <div class="c4-options">
 
-<button class="c4-option-btn" onclick="leadData.action='followup'">
+<button class="c4-option-btn" onclick="selectAction('followup')">
 ${t.step5_1}
 </button>
 
-<button class="c4-option-btn" onclick="activateCopilot()">
+<button class="c4-option-btn" onclick="selectAction('discussion')">
 ${t.step5_2}
 </button>
 
