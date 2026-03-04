@@ -450,7 +450,7 @@ setTimeout(attachInputLogic,50);
 window.submitLead=function(){
 let name=document.getElementById("c4-name").value;
 let email=document.getElementById("c4-email").value;
-if(!name||!email){alert("Please fill in both fields.");return;}
+if(!name||!email){alert(t.alert_fields);return;}
 
 fetch("/api/engineering-lead",{
 method:"POST",
