@@ -760,6 +760,19 @@ emailWrapper.classList.remove("has-text");
 
 }
 
+window.startDiscussion=function(){
+
+leadData.action="discussion";
+
+aiThinking(()=>{
+
+const questions=generateQuestions();
+
+runDiscussion(questions,0);
+
+});
+
+};
 
 /* ================= SUBMIT ================= */
 
