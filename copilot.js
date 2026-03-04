@@ -6,7 +6,7 @@ const totalSteps = 5;
 let leadData = {};
 let isOpen = false;
 
-let currentLang = (document.documentElement.lang || navigator.language || "en").toLowerCase().substring(0,2);
+let currentLang = (navigator.language || navigator.languages?.[0] || "en").toLowerCase().substring(0,2);
 
 const I18N = {
 
