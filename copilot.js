@@ -826,6 +826,26 @@ runDiscussion(questions,0);
 
 };
 
+window.submitAIAnswer=function(index){
+
+const answer=document.getElementById("c4-ai-answer").value.trim();
+
+if(!answer)return;
+
+if(!leadData.aiAnswers) leadData.aiAnswers=[];
+
+leadData.aiAnswers.push(answer);
+
+const questions=generateQuestions();
+
+aiThinking(()=>{
+
+runDiscussion(questions,index+1);
+
+});
+
+};
+
 /* ================= SUBMIT ================= */
 
 window.submitLead=function(action){
