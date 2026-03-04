@@ -24,13 +24,13 @@ Stage: ${leadData.stage || "Not provided"}
 Challenge: ${leadData.challenge || "Not provided"}
 `;
 
-    await resend.emails.send({
-      from: "Craft⁴ Engineering <no-reply@craftfour.com>",
-      to: "contact@craftfour.com",
-      reply_to: email,
-      subject: "New Engineering Lead - Craft4",
-      text: formattedLead,
-    });
+await resend.emails.send({
+  from: 'Craft⁴ Engineering <no-reply@craftfour.com>',
+  to: 'contact@craftfour.com',
+  reply_to: email,
+  subject: `New Engineering Lead – ${name}`,
+  text: formattedLead,
+});
 
     return res.status(200).json({ success: true });
 
@@ -45,3 +45,4 @@ Challenge: ${leadData.challenge || "Not provided"}
 
   }
 }
+
