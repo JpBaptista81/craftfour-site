@@ -702,7 +702,7 @@ color:#C7C9CF;
 padding:10px;
 resize:none;
 "
-placeholder="Type your answer..."
+placeholder="${t.type_answer}"
 ></textarea>
 
 <button class="c4-submit-btn"
