@@ -587,10 +587,14 @@ const el = document.getElementById("ai-typing");
 typeText(
 el,
 "| Parsing engineering context...\n| Evaluating simulation scenario...\n| Generating engineering questions...",
-18
-);
+18,
+()=>{
 
-setTimeout(callback,1800);
+setTimeout(()=>{
+if(callback) callback();
+},300);
+
+});
 
 });
 
