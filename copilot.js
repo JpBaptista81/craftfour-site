@@ -657,7 +657,7 @@ ${t.step5_1}
 ${t.or}
 </div>
 
-<button class="c4-option-btn" onclick="submitLead('discussion')">
+<button class="c4-option-btn" onclick="startDiscussion()">
 ${t.step5_2}
 </button>
 
