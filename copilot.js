@@ -353,7 +353,7 @@ alert_error:"提交失败，请重试。"
 
 };
 
-const t = I18N[currentLang] ? I18N[currentLang] : I18N.en;
+let t = I18N[currentLang] || I18N.en;
 
 /* ================= CSS ================= */
 const style = document.createElement("style");
