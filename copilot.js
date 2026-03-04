@@ -667,11 +667,13 @@ body:JSON.stringify({name,email,leadData})
 })
 .then(()=>{
 animateTransition(()=>{
+  
 content.innerHTML=`
 <div class="c4-success">
-<h3 style="margin-bottom:10px;">✓ Request submitted</h3>
-<p style="opacity:0.7;">Our engineering team will review your context and respond shortly.</p>
+<h3 style="margin-bottom:10px;">${t.success_title}</h3>
+<p style="opacity:0.7;">${t.success_text}</p>
 </div>`;
+
 });
 })
 .catch(()=>{
