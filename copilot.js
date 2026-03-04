@@ -4,43 +4,19 @@ let currentStep = 1;
 const totalSteps = 5;
 let leadData = {};
 let isOpen = false;
-
-/* Detect language */
-let lang = (document.documentElement.lang || "en").toUpperCase();
+let currentLang = (document.getElementById("langBtn")?.innerText || "EN").toLowerCase();
 
 /* ================= I18N ================= */
 
 const T = {
 
-EN:{
-context:"Tell us about your engineering context",
-industry:"Which industry are you working in?",
-stage:"What is the current focus of your project?",
-challenge:"What type of technical challenge are you facing?",
-proceed:"How would you like to proceed?",
-independent:"Independent project",
-startup:"Startup (1–5 engineers)",
-small:"Small technical team (5–20)",
-mid:"Mid-size engineering team (20–100)",
-large:"Large engineering organization (100+)",
-automotive:"Automotive",
-molds:"Tooling & Molds",
-protective:"Protective Equipment",
-aerospace:"Aerospace",
-consumer:"Consumer Products",
-industry4:"Industrial Systems & Industry 4.0",
-other:"Other industrial sector",
-concept:"Concept validation",
-simulation:"Detailed simulation & testing",
-optimization:"Performance optimization",
-platform:"Platform development support",
-structural:"Structural simulation",
-impact:"Impact analysis",
-thermal:"Thermal / CFD analysis",
-weight:"Optimization & weight reduction",
-validation:"Design validation strategy",
-request:"Request technical follow-up",
-discussion:"Continue technical discussion",
+en:{
+step1:"Tell us about your engineering context",
+step2:"Which industry are you working in?",
+step3:"What is the current focus of your project?",
+step4:"What type of technical challenge are you facing?",
+step5:"How would you like to proceed?",
+contact:"Engineering follow-up coordination",
 name:"Your name",
 email:"Your email",
 submit:"Submit request",
@@ -48,118 +24,119 @@ successTitle:"✓ Request submitted",
 successText:"Our engineering team will review your context and respond shortly."
 },
 
-PT:{
-context:"Fale-nos sobre o contexto do seu projeto de engenharia",
-industry:"Em que indústria está a trabalhar?",
-stage:"Qual é o foco atual do seu projeto?",
-challenge:"Que desafio técnico está a enfrentar?",
-proceed:"Como gostaria de prosseguir?",
-independent:"Projeto independente",
-startup:"Startup (1–5 engenheiros)",
-small:"Pequena equipa técnica (5–20)",
-mid:"Equipa de engenharia média (20–100)",
-large:"Grande organização de engenharia (100+)",
-automotive:"Automóvel",
-molds:"Ferramentaria e Moldes",
-protective:"Equipamentos de Proteção",
-aerospace:"Aeroespacial",
-consumer:"Produtos de Consumo",
-industry4:"Sistemas Industriais e Indústria 4.0",
-other:"Outro setor industrial",
-concept:"Validação de conceito",
-simulation:"Simulação detalhada",
-optimization:"Otimização de desempenho",
-platform:"Suporte ao desenvolvimento de plataforma",
-structural:"Simulação estrutural",
-impact:"Análise de impacto",
-thermal:"Análise térmica / CFD",
-weight:"Otimização e redução de peso",
-validation:"Estratégia de validação de design",
-request:"Solicitar acompanhamento técnico",
-discussion:"Continuar discussão técnica",
+pt:{
+step1:"Fale-nos sobre o contexto do seu projeto de engenharia",
+step2:"Em que indústria está a trabalhar?",
+step3:"Qual é o foco atual do seu projeto?",
+step4:"Que desafio técnico está a enfrentar?",
+step5:"Como gostaria de prosseguir?",
+contact:"Coordenação de acompanhamento técnico",
 name:"O seu nome",
 email:"O seu email",
 submit:"Enviar pedido",
 successTitle:"✓ Pedido enviado",
 successText:"A nossa equipa de engenharia irá analisar o seu contexto e responder em breve."
-},
-
-ES:{
-context:"Cuéntenos sobre el contexto de su proyecto",
-industry:"¿En qué industria trabaja?",
-stage:"¿Cuál es el enfoque actual de su proyecto?",
-challenge:"¿Qué desafío técnico enfrenta?",
-proceed:"¿Cómo desea continuar?",
-request:"Solicitar seguimiento técnico",
-discussion:"Continuar discusión técnica",
-name:"Su nombre",
-email:"Su correo electrónico",
-submit:"Enviar solicitud",
-successTitle:"✓ Solicitud enviada",
-successText:"Nuestro equipo revisará su contexto y responderá pronto."
-},
-
-FR:{
-context:"Parlez-nous du contexte de votre projet",
-industry:"Dans quelle industrie travaillez-vous ?",
-stage:"Quel est le focus actuel de votre projet ?",
-challenge:"Quel défi technique rencontrez-vous ?",
-proceed:"Comment souhaitez-vous continuer ?",
-request:"Demander un suivi technique",
-discussion:"Continuer la discussion technique",
-name:"Votre nom",
-email:"Votre email",
-submit:"Envoyer la demande",
-successTitle:"✓ Demande envoyée",
-successText:"Notre équipe analysera votre contexte et répondra rapidement."
-},
-
-DE:{
-context:"Erzählen Sie uns über Ihr Engineering-Projekt",
-industry:"In welcher Branche arbeiten Sie?",
-stage:"Was ist der aktuelle Fokus Ihres Projekts?",
-challenge:"Welche technische Herausforderung haben Sie?",
-proceed:"Wie möchten Sie fortfahren?",
-request:"Technisches Follow-up anfordern",
-discussion:"Technische Diskussion fortsetzen",
-name:"Ihr Name",
-email:"Ihre E-Mail",
-submit:"Anfrage senden",
-successTitle:"✓ Anfrage gesendet",
-successText:"Unser Engineering-Team wird Ihren Kontext prüfen."
-},
-
-ZH:{
-context:"请介绍您的工程项目背景",
-industry:"您所在的行业是什么？",
-stage:"您的项目当前重点是什么？",
-challenge:"您目前面临什么技术挑战？",
-proceed:"您希望如何继续？",
-request:"请求技术跟进",
-discussion:"继续技术讨论",
-name:"您的姓名",
-email:"您的邮箱",
-submit:"提交请求",
-successTitle:"✓ 请求已提交",
-successText:"我们的工程团队会尽快联系您。"
 }
 
 };
 
-function t(key){
-return (T[lang] && T[lang][key]) || T["EN"][key];
+function t(k){
+return (T[currentLang] && T[currentLang][k]) || T.en[k];
 }
+
+/* ================= CSS ================= */
+const style = document.createElement("style");
+style.innerHTML = `
+:root{
+--panel-bg:rgba(17,19,20,0.92);
+--accent:#1C6089;
+--accent-soft:#2F7BA8;
+--text-main:#C7C9CF;
+--status:#4CAF50;
+--radius:18px;
+--motion-fast:90ms ease;
+--motion-slow:180ms ease;
+font-family:"Inter",sans-serif;
+}
+.c4-cursor{opacity:0.8;margin-right:6px;color:var(--accent);}
+.c4-overlay{position:fixed;inset:0;backdrop-filter:blur(8px);
+background:rgba(0,0,0,0.25);opacity:0;
+transition:opacity var(--motion-slow);
+pointer-events:none;z-index:9998;}
+.c4-overlay.active{opacity:1;pointer-events:auto;}
+.c4-bubble{position:fixed;bottom:25px;right:25px;
+width:60px;height:60px;display:flex;
+align-items:center;justify-content:center;
+cursor:pointer;background:none;border:none;
+z-index:10001;}
+.c4-bubble svg{width:100%;height:100%;fill:#C7C9CF;}
+.c4-bubble.hidden{opacity:0;pointer-events:none;}
+.c4-panel{position:fixed;bottom:25px;right:25px;
+width:374px;max-width:95%;height:520px;
+background:var(--panel-bg);backdrop-filter:blur(12px);
+color:var(--text-main);border-radius:var(--radius);
+display:flex;flex-direction:column;overflow:hidden;
+opacity:0;transform:translateY(10px);
+transition:opacity var(--motion-slow),transform var(--motion-slow);
+z-index:10000;
+box-shadow:0 40px 90px rgba(0,0,0,0.55),
+0 0 0 1px rgba(255,255,255,0.04);}
+.c4-panel.active{opacity:1;transform:translateY(0);}
+.c4-header{padding:18px 20px;border-bottom:1px solid rgba(255,255,255,0.06);
+display:flex;justify-content:space-between;align-items:flex-start;}
+.c4-title{font-weight:600;
+background:linear-gradient(90deg,var(--accent),var(--accent-soft));
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.c4-subtitle{font-size:9px;opacity:0.35;letter-spacing:0.8px;margin-top:3px;}
+.c4-status{font-size:11px;display:flex;align-items:center;gap:6px;opacity:0.6;}
+.c4-status-dot{width:8px;height:8px;border-radius:50%;background:var(--status);}
+.c4-progress{font-size:9px;opacity:0.25;letter-spacing:1px;}
+.c4-content{flex:1;padding:20px;font-size:13.5px;line-height:1.55;
+overflow-y:auto;overflow-x:hidden;transition:opacity var(--motion-fast);}
+.c4-content.fade-out{opacity:0;}
+.c4-options{display:flex;flex-direction:column;gap:8px;margin-top:15px;}
+.c4-option-btn{
+width:100%;padding:12px 14px 12px 18px;
+background:#16181a;border:1px solid rgba(255,255,255,0.05);
+border-radius:8px;color:white;font-size:13px;text-align:left;
+cursor:pointer;position:relative;
+transition:background var(--motion-fast),border var(--motion-fast);}
+.c4-option-btn::before{
+content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+background:var(--accent);border-top-left-radius:8px;
+border-bottom-left-radius:8px;opacity:0.85;}
+.c4-option-btn:hover{background:#1c1f22;border-color:rgba(255,255,255,0.12);}
+.c4-input{
+width:100%;padding:10px 10px 10px 22px;margin-bottom:10px;border-radius:8px;
+border:1px solid rgba(255,255,255,0.1);
+background:#141618;color:var(--text-main);box-sizing:border-box;}
+.c4-submit-btn{
+width:100%;padding:10px 14px 10px 18px;background:#16181a;
+border:1px solid rgba(255,255,255,0.05);
+border-radius:8px;color:white;text-align:left;
+cursor:pointer;position:relative;}
+.c4-submit-btn::before{
+content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+background:var(--accent);border-top-left-radius:8px;
+border-bottom-left-radius:8px;opacity:0.85;}
+.c4-success{display:flex;flex-direction:column;
+align-items:center;justify-content:center;height:100%;
+text-align:center;animation:fadeIn .4s ease forwards;}
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(10px);}
+to{opacity:1;transform:translateY(0);}
+}
+`;
+
+document.head.appendChild(style);
 
 /* ================= UI ================= */
 
 document.addEventListener("DOMContentLoaded",()=>{
 
 document.body.insertAdjacentHTML("beforeend",`
-
 <div class="c4-overlay" id="c4-overlay"></div>
-
 <div class="c4-panel" id="c4-panel">
-
 <div class="c4-header">
 <div>
 <div class="c4-title">Craft<sup>4</sup> Engineering Copilot</div>
@@ -170,24 +147,18 @@ document.body.insertAdjacentHTML("beforeend",`
 <div class="c4-progress" id="c4-progress">01 / 05</div>
 </div>
 </div>
-
 <div class="c4-content" id="c4-content"></div>
-
 </div>
-
 <div class="c4-bubble" id="c4-bubble">
 <svg viewBox="0 0 24 24">
 <path d="M12 3C6.5 3 2 6.9 2 11.5c0 2.4 1.2 4.6 3.2 6.2L4 21l4.2-2.1c1.2.3 2.4.5 3.8.5 5.5 0 10-3.9 10-8.5S17.5 3 12 3z"/>
 </svg>
 </div>
-
 `);
 
 initLogic();
 
 });
-
-/* ================= Logic ================= */
 
 function initLogic(){
 
@@ -197,19 +168,32 @@ const overlay=document.getElementById("c4-overlay");
 const content=document.getElementById("c4-content");
 const progress=document.getElementById("c4-progress");
 
-function updateProgress(){
-progress.innerText=String(currentStep).padStart(2,'0')+" / 05";
+function formatStep(n){
+return String(n).padStart(2,'0')+" / "+String(totalSteps).padStart(2,'0');
+}
+function updateProgress(){progress.innerText=formatStep(currentStep);}
+
+function toggle(){
+if(!panel.classList.contains("active")){
+panel.classList.add("active");
+overlay.classList.add("active");
+bubble.classList.add("hidden");
+startFlow();
+}else{
+panel.classList.remove("active");
+overlay.classList.remove("active");
+bubble.classList.remove("hidden");
+}
 }
 
+bubble.onclick=toggle;
+overlay.onclick=toggle;
+
 function renderQuestion(title,options){
-
 updateProgress();
-
-content.innerHTML=`<strong>| ${title}</strong>`;
-
+content.innerHTML="<strong><span class='c4-cursor'>|</span>"+title+"</strong>";
 let container=document.createElement("div");
 container.className="c4-options";
-
 options.forEach(opt=>{
 let btn=document.createElement("button");
 btn.className="c4-option-btn";
@@ -217,139 +201,73 @@ btn.innerText=opt.label;
 btn.onclick=opt.action;
 container.appendChild(btn);
 });
-
 content.appendChild(container);
-
 }
-
-bubble.onclick=toggle;
-overlay.onclick=toggle;
-
-function toggle(){
-
-if(!panel.classList.contains("active")){
-
-panel.classList.add("active");
-overlay.classList.add("active");
-bubble.classList.add("hidden");
-
-startFlow();
-
-}else{
-
-panel.classList.remove("active");
-overlay.classList.remove("active");
-bubble.classList.remove("hidden");
-
-}
-
-}
-
-/* ================= Steps ================= */
 
 function startFlow(){step1();}
 
 function step1(){
-
 currentStep=1;
-
-renderQuestion(t("context"),[
-
-{label:t("independent"),action:()=>{leadData.context="independent";step2();}},
-{label:t("startup"),action:()=>{leadData.context="startup";step2();}},
-{label:t("small"),action:()=>{leadData.context="small";step2();}},
-{label:t("mid"),action:()=>{leadData.context="mid";step2();}},
-{label:t("large"),action:()=>{leadData.context="large";step2();}}
-
+renderQuestion(t("step1"),[
+{label:"Independent project",action:()=>{leadData.context="independent";step2();}},
+{label:"Startup (1–5 engineers)",action:()=>{leadData.context="startup";step2();}},
+{label:"Small technical team (5–20)",action:()=>{leadData.context="small";step2();}},
+{label:"Mid-size engineering team (20–100)",action:()=>{leadData.context="mid";step2();}},
+{label:"Large engineering organization (100+)",action:()=>{leadData.context="large";step2();}}
 ]);
-
 }
 
 function step2(){
-
 currentStep=2;
-
-renderQuestion(t("industry"),[
-
-{label:t("automotive"),action:()=>{leadData.industry="automotive";step3();}},
-{label:t("molds"),action:()=>{leadData.industry="molds";step3();}},
-{label:t("protective"),action:()=>{leadData.industry="protective";step3();}},
-{label:t("aerospace"),action:()=>{leadData.industry="aerospace";step3();}},
-{label:t("consumer"),action:()=>{leadData.industry="consumer";step3();}},
-{label:t("industry4"),action:()=>{leadData.industry="industry4";step3();}},
-{label:t("other"),action:()=>{leadData.industry="other";step3();}}
-
+renderQuestion(t("step2"),[
+{label:"Automotive",action:()=>{leadData.industry="automotive";step3();}},
+{label:"Tooling & Molds",action:()=>{leadData.industry="molds";step3();}},
+{label:"Protective Equipment (Helmets & Safety)",action:()=>{leadData.industry="protective";step3();}},
+{label:"Aerospace",action:()=>{leadData.industry="aerospace";step3();}},
+{label:"Consumer Products",action:()=>{leadData.industry="consumer";step3();}},
+{label:"Industrial Systems & Industry 4.0",action:()=>{leadData.industry="industry4";step3();}},
+{label:"Other industrial sector",action:()=>{leadData.industry="other";step3();}}
 ]);
-
 }
 
 function step3(){
-
 currentStep=3;
-
-renderQuestion(t("stage"),[
-
-{label:t("concept"),action:()=>{leadData.stage="concept";step4();}},
-{label:t("simulation"),action:()=>{leadData.stage="simulation";step4();}},
-{label:t("optimization"),action:()=>{leadData.stage="optimization";step4();}},
-{label:t("platform"),action:()=>{leadData.stage="platform";step4();}}
-
+renderQuestion(t("step3"),[
+{label:"Concept validation",action:()=>{leadData.stage="concept";step4();}},
+{label:"Detailed simulation & testing",action:()=>{leadData.stage="simulation";step4();}},
+{label:"Performance optimization",action:()=>{leadData.stage="optimization";step4();}},
+{label:"Platform development support",action:()=>{leadData.stage="platform";step4();}}
 ]);
-
 }
 
 function step4(){
-
 currentStep=4;
-
-renderQuestion(t("challenge"),[
-
-{label:t("structural"),action:()=>{leadData.challenge="structural";step5();}},
-{label:t("impact"),action:()=>{leadData.challenge="impact";step5();}},
-{label:t("thermal"),action:()=>{leadData.challenge="thermal";step5();}},
-{label:t("weight"),action:()=>{leadData.challenge="weight";step5();}},
-{label:t("validation"),action:()=>{leadData.challenge="validation";step5();}}
-
+renderQuestion(t("step4"),[
+{label:"Structural simulation",action:()=>{leadData.challenge="structural";step5();}},
+{label:"Impact analysis",action:()=>{leadData.challenge="impact";step5();}},
+{label:"Thermal / CFD analysis",action:()=>{leadData.challenge="thermal";step5();}},
+{label:"Optimization & weight reduction",action:()=>{leadData.challenge="weight";step5();}},
+{label:"Design validation strategy",action:()=>{leadData.challenge="validation";step5();}}
 ]);
-
 }
 
 function step5(){
-
 currentStep=5;
-
-renderQuestion(t("proceed"),[
-
-{label:t("request"),action:()=>{stepContact();}},
-{label:t("discussion"),action:()=>{activateCopilot();}}
-
+renderQuestion(t("step5"),[
+{label:"Request technical follow-up",action:()=>{stepContact();}},
+{label:"Continue technical discussion",action:()=>{activateCopilot();}}
 ]);
-
 }
-
-/* ================= Contact ================= */
 
 function stepContact(){
-
 content.innerHTML=`
-
-<strong>| ${t("request")}</strong>
-
+<strong><span class='c4-cursor'>|</span>${t("contact")}</strong>
 <div style="margin-top:15px;">
-
 <input type="text" class="c4-input" placeholder="${t("name")}" id="c4-name">
-
 <input type="email" class="c4-input" placeholder="${t("email")}" id="c4-email">
-
 <button class="c4-submit-btn" onclick="submitLead()">${t("submit")}</button>
-
-</div>
-
-`;
-
+</div>`;
 }
-
-/* ================= Submit ================= */
 
 window.submitLead=function(){
 
@@ -357,36 +275,28 @@ let name=document.getElementById("c4-name").value;
 let email=document.getElementById("c4-email").value;
 
 if(!name||!email){
-alert("Fill name and email");
+alert("Please fill in both fields.");
 return;
 }
 
 fetch("/api/engineering-lead",{
-
 method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify({name,email,leadData})
-
 })
 .then(()=>{
 
 content.innerHTML=`
-
 <div class="c4-success">
-
-<h3>${t("successTitle")}</h3>
-
-<p>${t("successText")}</p>
-
+<h3 style="margin-bottom:10px;">${t("successTitle")}</h3>
+<p style="opacity:0.7;">${t("successText")}</p>
 </div>
-
 `;
 
 })
-
 .catch(()=>{
 
-alert("Submission failed");
+alert("Submission failed. Please try again.");
 
 });
 
