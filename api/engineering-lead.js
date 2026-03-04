@@ -1,4 +1,4 @@
-```javascript
+
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -11,17 +11,17 @@ function classifyLead(leadData){
 let projectType = "Independent";
 let priority = "C";
 
-if(["startup","small","mid","large"].includes(leadData.context)){
+if(["startup","small","mid","large"].includes(leadData?.context)){
 projectType = "Industrial";
 }
 
 if(projectType === "Industrial"){
 
-if(["simulation","optimization"].includes(leadData.stage)){
+if(["simulation","optimization"].includes(leadData?.stage)){
 priority = "A";
 }
 
-else if(leadData.stage === "concept"){
+else if(leadData?.stage === "concept"){
 priority = "B";
 }
 
@@ -36,12 +36,20 @@ return {projectType, priority};
 
 function detectProfile(email, leadData){
 
+try{
+
 let profile = "Unknown";
 
 const academicDomains = [".edu",".ac",".student",".university"];
 const freeDomains = ["gmail","hotmail","outlook","icloud","yahoo"];
 
-const domain = email.split("@")[1].toLowerCase();
+if(!email) return profile;
+
+const parts = email.split("@");
+
+if(parts.length < 2) return profile;
+
+const domain = parts[1].toLowerCase();
 
 /* estudante */
 
@@ -49,9 +57,9 @@ if(academicDomains.some(d => domain.includes(d))){
 profile = "Student";
 }
 
-/* engenheiro / empresa */
+/* engenheiro */
 
-else if(["startup","small","mid","large"].includes(leadData.context)){
+else if(["startup","small","mid","large"].includes(leadData?.context)){
 profile = "Engineer";
 }
 
@@ -62,6 +70,12 @@ profile = "Independent";
 }
 
 return profile;
+
+}catch(e){
+
+return "Unknown";
+
+}
 
 }
 
@@ -75,20 +89,16 @@ return res.status(405).json({ message: "Method not allowed" });
 
 try {
 
-const { name, email, leadData } = req.body;
+const { name, email, leadData } = req.body || {};
 
 
-/* CLASSIFICAR PROJETO */
+/* CLASSIFICAÇÃO */
 
-const classification = classifyLead(leadData);
+const {projectType, priority} = classifyLead(leadData || {});
 
-const projectType = classification.projectType;
-const priority = classification.priority;
+/* PERFIL */
 
-
-/* DETETAR PERFIL DO VISITANTE */
-
-const visitorProfile = detectProfile(email, leadData);
+const visitorProfile = detectProfile(email, leadData || {});
 
 
 /* ENGINEERING BRIEF */
@@ -109,14 +119,14 @@ VISITOR PROFILE
 ${visitorProfile}
 
 ENGINEERING CONTEXT
-Organization: ${leadData.context}
-Industry: ${leadData.industry}
+Organization: ${leadData?.context}
+Industry: ${leadData?.industry}
 
 PROJECT STAGE
-${leadData.stage}
+${leadData?.stage}
 
 TECHNICAL CHALLENGE
-${leadData.challenge}
+${leadData?.challenge}
 
 SOURCE
 Craft⁴ Engineering Copilot
@@ -124,7 +134,7 @@ https://craftfour.com
 `;
 
 
-/* EMAIL PARA A CRAFT⁴ */
+/* EMAIL PARA TI */
 
 await resend.emails.send({
 from: "Craft⁴ Engineering Team <contact@craftfour.com>",
@@ -135,7 +145,9 @@ text: formattedLead
 });
 
 
-/* AUTO-RESPOSTA PARA O VISITANTE */
+/* AUTO RESPOSTA */
+
+if(email){
 
 await resend.emails.send({
 from: "Craft⁴ Engineering Team <contact@craftfour.com>",
@@ -148,16 +160,16 @@ Thank you for contacting Craft⁴ Engineering.
 
 Your engineering request has been received by our team.
 
-Our engineers will review your project context and technical challenge and will respond as soon as possible.
+Our engineers will review your project context and respond shortly.
 
 Best regards,
 
 Craft⁴ Engineering
-Engineering Simulation & Industrial Design
 https://craftfour.com
 `
 });
 
+}
 
 return res.status(200).json({ success: true });
 
@@ -172,4 +184,3 @@ message: "Email sending failed"
 }
 
 }
-```
