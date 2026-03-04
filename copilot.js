@@ -467,7 +467,7 @@ content.innerHTML=`
 });
 })
 .catch(()=>{
-alert("Submission failed. Please try again.");
+alert(t.alert_error);
 });
 }
 
