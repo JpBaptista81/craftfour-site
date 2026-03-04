@@ -6,39 +6,36 @@ const totalSteps = 5;
 let leadData = {};
 let isOpen = false;
 
-let lang = "en";
+let currentLang = "en";
 
 try{
 
-// 1️⃣ prioridade ao idioma da página
-const htmlLang = document.documentElement.lang;
-
-if(htmlLang){
-const s = htmlLang.toLowerCase().split("-")[0];
-if(["pt","es","fr","de","zh"].includes(s)){
-lang = s;
-}
+// 1️⃣ usa o idioma do site (index.html)
+if(window.currentLang){
+  currentLang = window.currentLang.toLowerCase();
 }
 
 // 2️⃣ fallback para browser
-if(lang === "en"){
-const browserLangs = navigator.languages || [navigator.language];
+else{
 
-for(let l of browserLangs){
-const s = l.toLowerCase().split("-")[0];
+  const browserLangs = navigator.languages || [navigator.language];
 
-if(["pt","es","fr","de","zh"].includes(s)){
-lang = s;
-break;
-}
-}
+  for(let l of browserLangs){
+
+    const s = l.toLowerCase().split("-")[0];
+
+    if(["pt","es","fr","de","zh"].includes(s)){
+      currentLang = s;
+      break;
+    }
+
+  }
+
 }
 
 }catch(e){
-lang = "en";
+currentLang = "en";
 }
-
-const currentLang = lang;
 
 const I18N = {
 
