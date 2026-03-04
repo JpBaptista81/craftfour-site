@@ -915,7 +915,7 @@ const email=document.getElementById("c4-email").value.trim();
 
 if(!name || !email){
 
-alert("Please enter your name and email first.");
+alert(t.alert_name_email);
 
 return;
 
