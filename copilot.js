@@ -881,11 +881,9 @@ if(!leadData.aiAnswers) leadData.aiAnswers=[];
 
 leadData.aiAnswers.push(answer);
 
-const questions=generateQuestions();
-
 aiThinking(()=>{
 
-runDiscussion(questions,index+1);
+runDiscussion(aiQuestions,index+1);
 
 });
 
