@@ -7,7 +7,7 @@ let isOpen = false;
 let currentLang = document.documentElement.lang || "en";
 
 /* ================= I18N ================= */
-
+const SUPPORTED_LANGS = ["en","pt","de","fr","es","it","zh","ja"];
 const I18N = {
 
 en:{
