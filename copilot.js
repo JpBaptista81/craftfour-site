@@ -666,7 +666,6 @@ setTimeout(attachInputLogic,50);
 
 }
 
-window.selectAction = function(action, event){
 
 function attachInputLogic(){
 
