@@ -6,7 +6,16 @@ const totalSteps = 5;
 let leadData = {};
 let isOpen = false;
 
-let currentLang = (navigator.language || navigator.languages?.[0] || "en").toLowerCase().substring(0,2);
+let lang = (navigator.language || navigator.languages?.[0] || "en").toLowerCase();
+
+if(lang.startsWith("pt")) lang = "pt";
+else if(lang.startsWith("es")) lang = "es";
+else if(lang.startsWith("fr")) lang = "fr";
+else if(lang.startsWith("de")) lang = "de";
+else if(lang.startsWith("zh")) lang = "zh";
+else lang = "en";
+
+const currentLang = lang;
 
 const I18N = {
 
