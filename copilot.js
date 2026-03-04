@@ -10,17 +10,28 @@ let lang = "en";
 
 try{
 
+// 1️⃣ prioridade ao idioma da página
+const htmlLang = document.documentElement.lang;
+
+if(htmlLang){
+const s = htmlLang.toLowerCase().split("-")[0];
+if(["pt","es","fr","de","zh"].includes(s)){
+lang = s;
+}
+}
+
+// 2️⃣ fallback para browser
+if(lang === "en"){
 const browserLangs = navigator.languages || [navigator.language];
 
 for(let l of browserLangs){
-
 const s = l.toLowerCase().split("-")[0];
 
 if(["pt","es","fr","de","zh"].includes(s)){
 lang = s;
 break;
 }
-
+}
 }
 
 }catch(e){
