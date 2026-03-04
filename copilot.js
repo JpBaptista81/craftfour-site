@@ -566,9 +566,7 @@ const el = document.getElementById("ai-typing");
 
 typeText(
 el,
-Parsing engineering context
-Evaluating simulation scenario
-Generating engineering questions
+"| Parsing engineering context...\n| Evaluating simulation scenario...\n| Generating engineering questions...",
 18,
 callback
 );
