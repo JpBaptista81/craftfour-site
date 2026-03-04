@@ -1,16 +1,8 @@
-
-(function(){
-
-let currentStep = 1;
-const totalSteps = 5;
-let leadData = {};
-let isOpen = false;
-
 let currentLang = "en";
 
 try {
 
-const SUPPORTED_LANGS = ["en","pt","de","fr","es","it","zh","ja"];
+const SUPPORTED_LANGS = ["en","pt","es","fr","de","zh"];
 
 const htmlLang = document.documentElement.lang;
 
