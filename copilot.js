@@ -620,11 +620,14 @@ if(leadData.challenge==="thermal"){
 questions.push("Is the thermal issue related to electronics cooling or fluid flow?");
 }
 
-if(questions.length===0){
-questions.push("Could you briefly describe the main engineering constraint you are facing?");
-}
+/* fallback questions */
+questions.push("What simulation tools are you currently using?");
+questions.push("What performance targets are you trying to achieve?");
+questions.push("What material or structure are you analysing?");
 
+/* garantir máximo 3 */
 return questions.slice(0,3);
+
 }
 
 function runDiscussion(questions,index){
