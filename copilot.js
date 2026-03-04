@@ -924,8 +924,8 @@ runDiscussion(aiQuestions,index+1);
 
 window.submitLead=function(action){
 
-const name=document.getElementById("c4-name").value.trim();
-const email=document.getElementById("c4-email").value.trim();
+const name = leadData.name || "";
+const email = leadData.email || "";
 
 if(!name || !email){
 alert("Por favor preencha nome e email.");
