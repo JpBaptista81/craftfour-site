@@ -723,8 +723,13 @@ window.submitLead=function(){
 let name=document.getElementById("c4-name").value;
 let email=document.getElementById("c4-email").value;
 
-if(!name || !email || !leadData.action){
-alert(t.alert_fields);
+if(!leadData.action){
+alert("Por favor selecione primeiro como pretende avançar.");
+return;
+}
+
+if(!name || !email){
+alert("Por favor preencha nome e email.");
 return;
 }
 
