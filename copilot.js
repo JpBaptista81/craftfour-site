@@ -640,12 +640,7 @@ ${t.step5_1}
 ${t.contact_submit}
 </button>
 
-<button class="c4-option-btn" onclick="selectAction('discussion', event)">
-${t.step5_2}
-</button>
-
 </div>
-
 `;
 
 setTimeout(attachInputLogic,50);
