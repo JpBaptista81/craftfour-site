@@ -28,12 +28,35 @@ Context:
 ${leadData.context}
 `;
 
+    /* EMAIL PARA TI */
+
     await resend.emails.send({
-      from: "Craft⁴ Engineering <no-reply@craftfour.com>",
+      from: "Craft⁴ Engineering Copilot <copilot@craftfour.com>",
       to: "contact@craftfour.com",
       reply_to: email,
       subject: `New Engineering Lead – ${name}`,
       text: formattedLead,
+    });
+
+    /* AUTO-REPLY PARA O VISITANTE */
+
+    await resend.emails.send({
+      from: "Craft⁴ Engineering Team <copilot@craftfour.com>",
+      to: email,
+      subject: "Engineering request received",
+      text: `
+Hello ${name},
+
+Thank you for contacting Craft⁴ Engineering.
+
+Our engineering team has received your request and will review your project context shortly.
+
+We will get back to you as soon as possible.
+
+Best regards,
+Craft⁴ Engineering
+https://craftfour.com
+`
     });
 
     return res.status(200).json({ success: true });
@@ -47,4 +70,5 @@ ${leadData.context}
     });
 
   }
+
 }
