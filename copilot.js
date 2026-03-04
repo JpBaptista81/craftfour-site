@@ -54,9 +54,7 @@ continue_btn:"Continue",
 type_answer:"Type your answer...",
 discussion_thanks:"${t.discussion_thanks}",
 submit_discussion:"Submit discussion",
-alert_name_email:"Please enter your name and email first."
-
-
+alert_name_email:"Please enter your name and email first.",
 step2_title:"Which industry are you working in?",
 step2_1:"Automotive",
 step2_2:"Tooling & Molds",
@@ -114,8 +112,7 @@ continue_btn:"Continuar",
 type_answer:"Escreva a sua resposta...",
 discussion_thanks:"Obrigado. A nossa equipa de engenharia irá analisar a sua discussão.",
 submit_discussion:"Submeter discussão",
-alert_name_email:"Por favor introduza o seu nome e email primeiro."
-
+alert_name_email:"Por favor introduza o seu nome e email primeiro.",
 step2_title:"Em que indústria está a trabalhar?",
 step2_1:"Automóvel",
 step2_2:"Ferramentaria e Moldes",
@@ -173,8 +170,7 @@ continue_btn:"Continuar",
 type_answer:"Escriba su respuesta...",
 discussion_thanks:"Gracias. Nuestro equipo de ingeniería revisará su discusión.",
 submit_discussion:"Enviar discusión",
-alert_name_email:"Por favor introduzca su nombre y email primero."
-
+alert_name_email:"Por favor introduzca su nombre y email primero.",
 step2_title:"¿En qué industria trabaja?",
 step2_1:"Automoción",
 step2_2:"Herramientas y moldes",
@@ -232,8 +228,7 @@ continue_btn:"Continuer",
 type_answer:"Tapez votre réponse...",
 discussion_thanks:"Merci. Notre équipe d’ingénierie analysera votre discussion.",
 submit_discussion:"Envoyer la discussion",
-alert_name_email:"Veuillez entrer votre nom et email."
-
+alert_name_email:"Veuillez entrer votre nom et email.",
 step2_title:"Dans quelle industrie travaillez-vous ?",
 step2_1:"Automobile",
 step2_2:"Outillage et moules",
@@ -291,8 +286,7 @@ continue_btn:"Weiter",
 type_answer:"Antwort eingeben...",
 discussion_thanks:"Vielen Dank. Unser Engineering-Team wird Ihre Diskussion prüfen.",
 submit_discussion:"Diskussion senden",
-alert_name_email:"Bitte geben Sie Ihren Namen und Ihre E-Mail ein."
-
+alert_name_email:"Bitte geben Sie Ihren Namen und Ihre E-Mail ein.",
 step2_title:"In welcher Branche arbeiten Sie?",
 step2_1:"Automobilindustrie",
 step2_2:"Werkzeugbau und Formenbau",
@@ -350,8 +344,7 @@ continue_btn:"继续",
 type_answer:"输入您的回答...",
 discussion_thanks:"感谢您的提交，我们的工程团队将审核您的讨论。",
 submit_discussion:"提交讨论",
-alert_name_email:"请输入您的姓名和邮箱。"
-
+alert_name_email:"请输入您的姓名和邮箱。",
 step2_title:"您所在的行业是？",
 step2_1:"汽车",
 step2_2:"模具与工具",
