@@ -673,7 +673,7 @@ content.innerHTML=`
 
 <div style="margin-top:16px">
 <button class="c4-submit-btn" onclick="window.submitLead('discussion')">
-<span>Submit discussion</span>
+<span>${t.submit_discussion}</span>
 </button>
 </div>
 `;
