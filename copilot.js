@@ -658,38 +658,8 @@ setTimeout(attachInputLogic,50);
 
 window.selectAction = function(action, event){
 
-leadData.action = action;
-
-document.querySelectorAll(".c4-option-btn")
-.forEach(btn => btn.classList.remove("active"));
-
-event.currentTarget.classList.add("active");
-
-};
-
-function activateCopilot(){
-animateTransition(()=>{
-content.innerHTML=`
-<strong><span class='c4-cursor'>|</span>${t.copilot_title}</strong>
-<div style="margin-top:15px;">
-<input type="text" class="c4-input" id="c4-question" placeholder="${t.copilot_placeholder}">
-<button class="c4-submit-btn" onclick="respondCopilot()">${t.copilot_submit}</button>
-</div>`;
-});
-}
-
-window.respondCopilot=function(){
-let q=document.getElementById("c4-question").value;
-if(!q) return;
-animateTransition(()=>{
-content.innerHTML=`
-<strong><span class='c4-cursor'>|</span>${t.copilot_received}</strong>
-<div class="c4-options" style="margin-top:15px;">
-<button class="c4-option-btn" onclick="stepContact()">${t.copilot_review}</button>
-</div>`;
-});
-}
 function attachInputLogic(){
+
 const nameInput=document.getElementById("c4-name");
 const emailInput=document.getElementById("c4-email");
 const nameWrapper=document.getElementById("name-wrapper");
@@ -697,7 +667,9 @@ const emailWrapper=document.getElementById("email-wrapper");
 
 if(nameInput){
 nameInput.focus();
+
 nameInput.addEventListener("input",()=>{
+
 if(nameInput.value.length>0){
 nameWrapper.classList.remove("blinking");
 nameWrapper.classList.add("has-text");
@@ -705,61 +677,79 @@ nameWrapper.classList.add("has-text");
 nameWrapper.classList.remove("has-text");
 nameWrapper.classList.add("blinking");
 }
+
 });
 }
 
 if(emailInput){
+
 emailInput.addEventListener("focus",()=>{
 if(emailInput.value.length===0){
 emailWrapper.classList.add("blinking");
 }
 });
+
 emailInput.addEventListener("input",()=>{
+
 if(emailInput.value.length>0){
 emailWrapper.classList.remove("blinking");
 emailWrapper.classList.add("has-text");
 }else{
 emailWrapper.classList.remove("has-text");
 }
+
 });
+
 }
+
 }
-  
+
+
+/* ================= SUBMIT ================= */
+
 window.submitLead=function(action){
 
-let name=document.getElementById("c4-name").value;
-let email=document.getElementById("c4-email").value;
-
-if(!leadData.action){
-alert("Por favor selecione primeiro como pretende avançar.");
-return;
-}
+const name=document.getElementById("c4-name").value.trim();
+const email=document.getElementById("c4-email").value.trim();
 
 if(!name || !email){
 alert("Por favor preencha nome e email.");
 return;
 }
 
+leadData.action = action;
+
 fetch("/api/engineering-lead",{
 method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({name,email,leadData})
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+name,
+email,
+leadData
 })
+})
+
 .then(()=>{
+
 animateTransition(()=>{
+
 content.innerHTML=`
 <div class="c4-success">
 <h3 style="margin-bottom:10px;">${t.success_title}</h3>
 <p style="opacity:0.7;">${t.success_text}</p>
-</div>`;
+</div>
+`;
+
 });
+
 })
+
 .catch(()=>{
+
 alert(t.alert_error);
+
 });
 
-}
-
-}
-
-})();
+};
