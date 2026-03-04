@@ -1,3 +1,4 @@
+```javascript
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -13,19 +14,26 @@ export default async function handler(req, res) {
     const { name, email, leadData } = req.body;
 
     const formattedLead = `
-NEW ENGINEERING LEAD
+CRAFT⁴ ENGINEERING PROJECT BRIEF
+--------------------------------
 
+CLIENT
 Name: ${name}
 Email: ${email}
 
+ENGINEERING CONTEXT
+Organization: ${leadData.context}
 Industry: ${leadData.industry}
-Project Stage: ${leadData.stage}
 
-Challenge:
+PROJECT STAGE
+${leadData.stage}
+
+TECHNICAL CHALLENGE
 ${leadData.challenge}
 
-Context:
-${leadData.context}
+SOURCE
+Craft⁴ Engineering Copilot
+https://craftfour.com
 `;
 
     /* EMAIL PARA A CRAFT⁴ */
@@ -34,7 +42,7 @@ ${leadData.context}
       from: "Craft⁴ Engineering Team <contact@craftfour.com>",
       to: "contact@craftfour.com",
       reply_to: email,
-      subject: `New Engineering Lead – ${name}`,
+      subject: `Engineering Project Brief – ${name}`,
       text: formattedLead
     });
 
@@ -49,13 +57,14 @@ Hello ${name},
 
 Thank you for contacting Craft⁴ Engineering.
 
-Our engineering team has received your request and will review your project context shortly.
+Your engineering request has been successfully received by our team.
 
-We will get back to you as soon as possible.
+Our engineers will review your project context and technical challenge and will respond as soon as possible.
 
 Best regards,
 
 Craft⁴ Engineering
+Engineering Simulation & Industrial Design
 https://craftfour.com
 `
     });
@@ -73,3 +82,4 @@ https://craftfour.com
   }
 
 }
+```
