@@ -6,14 +6,26 @@ const totalSteps = 5;
 let leadData = {};
 let isOpen = false;
 
-let lang = (navigator.language || navigator.languages?.[0] || "en").toLowerCase();
+let lang = "en";
 
-if(lang.startsWith("pt")) lang = "pt";
-else if(lang.startsWith("es")) lang = "es";
-else if(lang.startsWith("fr")) lang = "fr";
-else if(lang.startsWith("de")) lang = "de";
-else if(lang.startsWith("zh")) lang = "zh";
-else lang = "en";
+try{
+
+const browserLangs = navigator.languages || [navigator.language];
+
+for(let l of browserLangs){
+
+const s = l.toLowerCase().split("-")[0];
+
+if(["pt","es","fr","de","zh"].includes(s)){
+lang = s;
+break;
+}
+
+}
+
+}catch(e){
+lang = "en";
+}
 
 const currentLang = lang;
 
