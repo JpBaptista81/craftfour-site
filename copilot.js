@@ -767,7 +767,7 @@ ${t.step5_hint || ""}
 
 <div class="c4-options">
 
-<button class="c4-option-btn" onclick="submitLead('followup')">
+<button class="c4-option-btn" onclick="window.submitLead('followup')">
 ${t.step5_1}
 </button>
 
