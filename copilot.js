@@ -655,7 +655,7 @@ placeholder="Type your answer..."
 <button class="c4-submit-btn"
 style="margin-top:12px"
 onclick="window.submitAIAnswer(${index})">
-Continue
+<span>Continue</span>
 </button>
 
 </div>
