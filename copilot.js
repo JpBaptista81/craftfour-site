@@ -662,7 +662,7 @@ if(index>=questions.length){
 animateTransition(()=>{
 
 content.innerHTML=`
-<strong><span class='c4-cursor'>|</span>Thank you. Our engineering team will review your discussion.</strong>
+<strong><span class='c4-cursor'>|</span>${t.discussion_thanks}</strong>
 
 <div style="margin-top:16px">
 <button class="c4-submit-btn" onclick="window.submitLead('discussion')">
