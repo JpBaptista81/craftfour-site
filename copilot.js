@@ -672,15 +672,15 @@ function generateQuestions(){
 let questions=[];
 
 if(leadData.challenge==="impact"){
-questions.push("Is the impact scenario related to safety certification or product durability?");
+questions.push(t.q_impact);
 }
 
 if(leadData.industry==="automotive"){
-questions.push("Are you currently validating a component or a full vehicle system?");
+questions.push(t.q_auto);
 }
 
 if(leadData.stage==="concept"){
-questions.push("Do you already have CAD geometry available for simulation?");
+questions.push(t.q_cad);
 }
 
 if(leadData.challenge==="thermal"){
@@ -688,11 +688,10 @@ questions.push(t.q_thermal);
 }
 
 /* fallback questions */
-questions.push("What simulation tools are you currently using?");
-questions.push("What performance targets are you trying to achieve?");
-questions.push("What material or structure are you analysing?");
+questions.push(t.q_tools);
+questions.push(t.q_targets);
+questions.push(t.q_material);
 
-/* garantir máximo 3 */
 return questions.slice(0,3);
 
 }
