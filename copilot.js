@@ -756,9 +756,11 @@ content.innerHTML=`
 })
 
 .catch(()=>{
-
 alert(t.alert_error);
-
 });
 
 };
+
+}
+
+})();
