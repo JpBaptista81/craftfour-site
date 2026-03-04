@@ -650,12 +650,12 @@ setTimeout(attachInputLogic,50);
 
 }
 
-window.selectAction = function(action){
+window.selectAction = function(action, event){
 
 leadData.action = action;
 
 document.querySelectorAll(".c4-option-btn")
-.forEach(btn=>btn.classList.remove("active"));
+.forEach(btn => btn.classList.remove("active"));
 
 event.currentTarget.classList.add("active");
 
