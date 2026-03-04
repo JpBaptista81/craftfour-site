@@ -684,7 +684,7 @@ questions.push("Do you already have CAD geometry available for simulation?");
 }
 
 if(leadData.challenge==="thermal"){
-questions.push("Is the thermal issue related to electronics cooling or fluid flow?");
+questions.push(t.q_thermal);
 }
 
 /* fallback questions */
