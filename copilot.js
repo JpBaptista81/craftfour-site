@@ -189,7 +189,7 @@ document.head.appendChild(style);
 /* ================= UI ================= */
 
 document.addEventListener("DOMContentLoaded",()=>{
-
+currentLang = (document.getElementById("langBtn")?.innerText || "EN").toLowerCase();
 document.body.insertAdjacentHTML("beforeend",`
 <div class="c4-overlay" id="c4-overlay"></div>
 <div class="c4-panel" id="c4-panel">
