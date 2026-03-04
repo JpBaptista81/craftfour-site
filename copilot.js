@@ -121,6 +121,214 @@ success_text:"A nossa equipa de engenharia irá analisar o seu contexto e respon
 
 alert_fields:"Por favor preencha ambos os campos.",
 alert_error:"Falha no envio. Tente novamente."
+},
+
+es:{
+step1_title:"Cuéntenos sobre su contexto de ingeniería",
+step1_1:"Proyecto independiente",
+step1_2:"Startup (1–5 ingenieros)",
+step1_3:"Pequeño equipo técnico (5–20)",
+step1_4:"Equipo de ingeniería medio (20–100)",
+step1_5:"Gran organización de ingeniería (100+)",
+
+step2_title:"¿En qué industria trabaja?",
+step2_1:"Automoción",
+step2_2:"Herramientas y moldes",
+step2_3:"Equipos de protección",
+step2_4:"Aeroespacial",
+step2_5:"Productos de consumo",
+step2_6:"Sistemas industriales e Industria 4.0",
+step2_7:"Otro sector industrial",
+
+step3_title:"¿Cuál es el foco actual de su proyecto?",
+step3_1:"Validación de concepto",
+step3_2:"Simulación detallada y pruebas",
+step3_3:"Optimización de rendimiento",
+step3_4:"Soporte de desarrollo de plataforma",
+
+step4_title:"¿Qué desafío técnico enfrenta?",
+step4_1:"Simulación estructural",
+step4_2:"Análisis de impacto",
+step4_3:"Análisis térmico / CFD",
+step4_4:"Optimización y reducción de peso",
+step4_5:"Estrategia de validación de diseño",
+
+step5_title:"¿Cómo desea continuar?",
+step5_1:"Solicitar seguimiento técnico",
+step5_2:"Continuar discusión técnica",
+
+copilot_title:"Describa su pregunta técnica",
+copilot_placeholder:"Introduzca su pregunta técnica",
+copilot_submit:"Enviar pregunta",
+copilot_received:"Consulta técnica recibida",
+copilot_review:"Enviar para revisión técnica",
+
+contact_title:"Coordinación de seguimiento técnico",
+contact_name:"Su nombre",
+contact_email:"Su email",
+contact_submit:"Enviar solicitud",
+
+success_title:"✓ Solicitud enviada",
+success_text:"Nuestro equipo de ingeniería revisará su caso y responderá en breve.",
+
+alert_fields:"Por favor complete ambos campos.",
+alert_error:"Error en el envío. Intente nuevamente."
+},
+
+fr:{
+step1_title:"Parlez-nous de votre contexte d’ingénierie",
+step1_1:"Projet indépendant",
+step1_2:"Startup (1–5 ingénieurs)",
+step1_3:"Petite équipe technique (5–20)",
+step1_4:"Équipe d’ingénierie moyenne (20–100)",
+step1_5:"Grande organisation d’ingénierie (100+)",
+
+step2_title:"Dans quelle industrie travaillez-vous ?",
+step2_1:"Automobile",
+step2_2:"Outillage et moules",
+step2_3:"Équipements de protection",
+step2_4:"Aérospatial",
+step2_5:"Produits de consommation",
+step2_6:"Systèmes industriels et Industrie 4.0",
+step2_7:"Autre secteur industriel",
+
+step3_title:"Quel est l’objectif actuel de votre projet ?",
+step3_1:"Validation de concept",
+step3_2:"Simulation détaillée et essais",
+step3_3:"Optimisation des performances",
+step3_4:"Support au développement de plateforme",
+
+step4_title:"Quel défi technique rencontrez-vous ?",
+step4_1:"Simulation structurelle",
+step4_2:"Analyse d’impact",
+step4_3:"Analyse thermique / CFD",
+step4_4:"Optimisation et réduction de poids",
+step4_5:"Stratégie de validation du design",
+
+step5_title:"Comment souhaitez-vous continuer ?",
+step5_1:"Demander un suivi technique",
+step5_2:"Continuer la discussion technique",
+
+copilot_title:"Décrivez votre question technique",
+copilot_placeholder:"Entrez votre question technique",
+copilot_submit:"Envoyer la question",
+copilot_received:"Question technique reçue",
+copilot_review:"Envoyer pour analyse technique",
+
+contact_title:"Coordination du suivi technique",
+contact_name:"Votre nom",
+contact_email:"Votre email",
+contact_submit:"Envoyer la demande",
+
+success_title:"✓ Demande envoyée",
+success_text:"Notre équipe d’ingénierie analysera votre demande et répondra rapidement.",
+
+alert_fields:"Veuillez remplir les deux champs.",
+alert_error:"Échec de l’envoi. Veuillez réessayer."
+},
+
+de:{
+step1_title:"Beschreiben Sie Ihren Engineering-Kontext",
+step1_1:"Unabhängiges Projekt",
+step1_2:"Startup (1–5 Ingenieure)",
+step1_3:"Kleines technisches Team (5–20)",
+step1_4:"Mittleres Engineering-Team (20–100)",
+step1_5:"Große Engineering-Organisation (100+)",
+
+step2_title:"In welcher Branche arbeiten Sie?",
+step2_1:"Automobilindustrie",
+step2_2:"Werkzeugbau und Formenbau",
+step2_3:"Schutzausrüstung",
+step2_4:"Luft- und Raumfahrt",
+step2_5:"Konsumprodukte",
+step2_6:"Industriesysteme und Industrie 4.0",
+step2_7:"Andere Industriebranche",
+
+step3_title:"Was ist der aktuelle Fokus Ihres Projekts?",
+step3_1:"Konzeptvalidierung",
+step3_2:"Detaillierte Simulation und Tests",
+step3_3:"Leistungsoptimierung",
+step3_4:"Plattformentwicklung",
+
+step4_title:"Welche technische Herausforderung haben Sie?",
+step4_1:"Struktursimulation",
+step4_2:"Impact-Analyse",
+step4_3:"Thermische Analyse / CFD",
+step4_4:"Gewichtsoptimierung",
+step4_5:"Designvalidierungsstrategie",
+
+step5_title:"Wie möchten Sie fortfahren?",
+step5_1:"Technische Rückmeldung anfordern",
+step5_2:"Technische Diskussion fortsetzen",
+
+copilot_title:"Beschreiben Sie Ihre technische Frage",
+copilot_placeholder:"Geben Sie Ihre technische Frage ein",
+copilot_submit:"Frage senden",
+copilot_received:"Technische Anfrage erhalten",
+copilot_review:"Zur technischen Prüfung senden",
+
+contact_title:"Technische Nachverfolgung",
+contact_name:"Ihr Name",
+contact_email:"Ihre E-Mail",
+contact_submit:"Anfrage senden",
+
+success_title:"✓ Anfrage gesendet",
+success_text:"Unser Engineering-Team wird Ihre Anfrage prüfen und sich bald melden.",
+
+alert_fields:"Bitte beide Felder ausfüllen.",
+alert_error:"Übermittlung fehlgeschlagen. Bitte erneut versuchen."
+},
+
+zh:{
+step1_title:"请介绍您的工程背景",
+step1_1:"独立项目",
+step1_2:"初创公司 (1–5 名工程师)",
+step1_3:"小型技术团队 (5–20)",
+step1_4:"中型工程团队 (20–100)",
+step1_5:"大型工程组织 (100+)",
+
+step2_title:"您所在的行业是？",
+step2_1:"汽车",
+step2_2:"模具与工具",
+step2_3:"防护设备",
+step2_4:"航空航天",
+step2_5:"消费产品",
+step2_6:"工业系统与工业4.0",
+step2_7:"其他工业领域",
+
+step3_title:"您项目当前的重点是什么？",
+step3_1:"概念验证",
+step3_2:"详细仿真与测试",
+step3_3:"性能优化",
+step3_4:"平台开发支持",
+
+step4_title:"您面临的技术挑战是什么？",
+step4_1:"结构仿真",
+step4_2:"冲击分析",
+step4_3:"热分析 / CFD",
+step4_4:"优化与减重",
+step4_5:"设计验证策略",
+
+step5_title:"您希望如何继续？",
+step5_1:"请求技术跟进",
+step5_2:"继续技术讨论",
+
+copilot_title:"描述您的技术问题",
+copilot_placeholder:"输入您的技术问题",
+copilot_submit:"提交问题",
+copilot_received:"已收到技术问题",
+copilot_review:"提交工程团队评估",
+
+contact_title:"工程跟进协调",
+contact_name:"您的姓名",
+contact_email:"您的邮箱",
+contact_submit:"提交请求",
+
+success_title:"✓ 请求已提交",
+success_text:"我们的工程团队将审核您的需求并尽快回复。",
+
+alert_fields:"请填写所有字段。",
+alert_error:"提交失败，请重试。"
 }
 
 };
