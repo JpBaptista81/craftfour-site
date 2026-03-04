@@ -5,7 +5,37 @@ let currentStep = 1;
 const totalSteps = 5;
 let leadData = {};
 let isOpen = false;
-let currentLang = document.documentElement.lang || "en";
+
+let currentLang = "en";
+
+try {
+
+const SUPPORTED_LANGS = ["en","pt","de","fr","es","it","zh","ja"];
+
+const htmlLang = document.documentElement.lang;
+
+if(htmlLang){
+const short = htmlLang.toLowerCase().split("-")[0];
+if(SUPPORTED_LANGS.includes(short)) currentLang = short;
+else {
+
+const browserLangs = navigator.languages || [navigator.language];
+
+for(let lang of browserLangs){
+const s = lang.toLowerCase().split("-")[0];
+if(SUPPORTED_LANGS.includes(s)){
+currentLang = s;
+break;
+}
+}
+
+}
+
+}
+
+}catch(e){
+currentLang = "en";
+}
 
 /* ================= CSS ================= */
 const style = document.createElement("style");
