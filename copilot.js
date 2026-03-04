@@ -602,11 +602,50 @@ renderQuestion(t.step4_title,[
 }
 
 function step5(){
+
 currentStep=5;
-renderQuestion(t.step5_title,[
-{label:t.step5_1,action:()=>{stepContact();}},
-{label:t.step5_2,action:()=>{activateCopilot();}}
-]);
+updateProgress();
+
+animateTransition(()=>{
+
+content.innerHTML=`
+<strong><span class='c4-cursor'>|</span>${t.step5_title}</strong>
+
+<div class="c4-options">
+
+<button class="c4-option-btn" onclick="leadData.action='followup'">
+${t.step5_1}
+</button>
+
+<button class="c4-option-btn" onclick="activateCopilot()">
+${t.step5_2}
+</button>
+
+</div>
+
+<div style="margin-top:18px;">
+
+<div class="c4-input-wrapper blinking" id="name-wrapper">
+<span class="c4-input-cursor">|</span>
+<input type="text" class="c4-input" placeholder="${t.contact_name}" id="c4-name">
+</div>
+
+<div class="c4-input-wrapper" id="email-wrapper">
+<span class="c4-input-cursor">|</span>
+<input type="email" class="c4-input" placeholder="${t.contact_email}" id="c4-email">
+</div>
+
+<button class="c4-submit-btn" onclick="submitLead()">
+${t.contact_submit}
+</button>
+
+</div>
+`;
+
+setTimeout(attachInputLogic,50);
+
+});
+
 }
 
 function activateCopilot(){
