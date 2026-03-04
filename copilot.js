@@ -837,6 +837,19 @@ emailWrapper.classList.remove("has-text");
 
 window.startDiscussion=function(){
 
+const name=document.getElementById("c4-name").value.trim();
+const email=document.getElementById("c4-email").value.trim();
+
+if(!name || !email){
+
+alert("Please enter your name and email first.");
+
+return;
+
+}
+
+leadData.name = name;
+leadData.email = email;
 leadData.action="discussion";
 
 aiThinking(()=>{
