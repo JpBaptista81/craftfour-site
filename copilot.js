@@ -116,7 +116,7 @@ alert_error:"Falha no envio. Tente novamente."
 
 };
 
-const t = I18N[currentLang] || I18N.en; 
+const t = I18N[currentLang] ? I18N[currentLang] : I18N.en;
 
 /* ================= CSS ================= */
 const style = document.createElement("style");
