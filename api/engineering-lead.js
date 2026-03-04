@@ -10,39 +10,41 @@ export default async function handler(req, res) {
 
   try {
 
-    const { name, email, leadData = {} } = req.body;
+    const { name, email, leadData } = req.body;
 
     const formattedLead = `
-New Engineering Lead — Craft⁴
+NEW ENGINEERING LEAD
 
 Name: ${name}
 Email: ${email}
 
-Context: ${leadData.context || "Not provided"}
-Industry: ${leadData.industry || "Not provided"}
-Stage: ${leadData.stage || "Not provided"}
-Challenge: ${leadData.challenge || "Not provided"}
+Industry: ${leadData.industry}
+Project Stage: ${leadData.stage}
+
+Challenge:
+${leadData.challenge}
+
+Context:
+${leadData.context}
 `;
 
-await resend.emails.send({
-  from: 'Craft⁴ Engineering <no-reply@craftfour.com>',
-  to: 'contact@craftfour.com',
-  reply_to: email,
-  subject: `New Engineering Lead – ${name}`,
-  text: formattedLead,
-});
+    await resend.emails.send({
+      from: "Craft⁴ Engineering <no-reply@craftfour.com>",
+      to: "contact@craftfour.com",
+      reply_to: email,
+      subject: `New Engineering Lead – ${name}`,
+      text: formattedLead,
+    });
 
     return res.status(200).json({ success: true });
 
   } catch (error) {
 
-    console.error("Email error:", error);
+    console.error(error);
 
     return res.status(500).json({
-      success: false,
       message: "Email sending failed"
     });
 
   }
 }
-
