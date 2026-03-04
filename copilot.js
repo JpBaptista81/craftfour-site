@@ -385,9 +385,9 @@ let q=document.getElementById("c4-question").value;
 if(!q) return;
 animateTransition(()=>{
 content.innerHTML=`
-<strong><span class='c4-cursor'>|</span>Technical query received</strong>
+<strong><span class='c4-cursor'>|</span>${t.copilot_received}</strong>
 <div class="c4-options" style="margin-top:15px;">
-<button class="c4-option-btn" onclick="stepContact()">Submit for engineering review</button>
+<button class="c4-option-btn" onclick="stepContact()">${t.copilot_review}</button>
 </div>`;
 });
 }
