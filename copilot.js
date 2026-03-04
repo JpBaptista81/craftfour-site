@@ -601,7 +601,7 @@ function runDiscussion(questions,index){
 
 if(index>=questions.length){
 
-submitLead('discussion');
+window.submitLead('discussion');
 return;
 
 }
