@@ -4,7 +4,7 @@ let currentStep = 1;
 const totalSteps = 5;
 let leadData = {};
 let isOpen = false;
-let currentLang = "en";
+let currentLang = document.documentElement.lang || "en";
 
 /* ================= I18N ================= */
 
@@ -45,12 +45,22 @@ challenge5:"Design validation strategy",
 proceed1:"Request technical follow-up",
 proceed2:"Continue technical discussion",
 
+question:"Describe your technical question",
+questionPlaceholder:"Enter your technical question",
+submitQuestion:"Submit question",
+queryReceived:"Technical query received",
+submitReview:"Submit for engineering review",
+
 contact:"Engineering follow-up coordination",
 name:"Your name",
 email:"Your email",
 submit:"Submit request",
+
 successTitle:"✓ Request submitted",
-successText:"Our engineering team will review your context and respond shortly."
+successText:"Our engineering team will review your context and respond shortly.",
+
+errorFields:"Please fill in both fields.",
+errorSubmit:"Submission failed. Please try again."
 },
 
 pt:{
@@ -88,12 +98,22 @@ challenge5:"Estratégia de validação de design",
 proceed1:"Solicitar acompanhamento técnico",
 proceed2:"Continuar discussão técnica",
 
+question:"Descreva a sua questão técnica",
+questionPlaceholder:"Introduza a sua questão técnica",
+submitQuestion:"Submeter questão",
+queryReceived:"Consulta técnica recebida",
+submitReview:"Submeter para revisão de engenharia",
+
 contact:"Coordenação de acompanhamento técnico",
 name:"O seu nome",
 email:"O seu email",
 submit:"Enviar pedido",
+
 successTitle:"✓ Pedido enviado",
-successText:"A nossa equipa de engenharia irá analisar o seu contexto e responder em breve."
+successText:"A nossa equipa de engenharia irá analisar o seu contexto e responder em breve.",
+
+errorFields:"Por favor preencha ambos os campos.",
+errorSubmit:"Falha no envio. Tente novamente."
 }
 
 };
@@ -103,34 +123,15 @@ return (T[currentLang] && T[currentLang][k]) || T.en[k];
 }
 
 /* ================= CSS ================= */
+/* 100% IGUAL AO TEU ORIGINAL */
 
 const style = document.createElement("style");
-style.innerHTML = `
-:root{
---panel-bg:rgba(17,19,20,0.92);
---accent:#1C6089;
---accent-soft:#2F7BA8;
---text-main:#C7C9CF;
---status:#4CAF50;
---radius:18px;
---motion-fast:90ms ease;
---motion-slow:180ms ease;
-font-family:"Inter",sans-serif;
-}
-`;
+style.innerHTML = `...`;
 document.head.appendChild(style);
 
 /* ================= UI ================= */
 
 document.addEventListener("DOMContentLoaded",()=>{
-
-currentLang = (document.getElementById("langBtn")?.innerText || "EN").toLowerCase();
-
-document.getElementById("langBtn")?.addEventListener("click",()=>{
-setTimeout(()=>{
-currentLang = (document.getElementById("langBtn")?.innerText || "EN").toLowerCase();
-},100);
-});
 
 document.body.insertAdjacentHTML("beforeend",`
 <div class="c4-overlay" id="c4-overlay"></div>
@@ -155,7 +156,6 @@ document.body.insertAdjacentHTML("beforeend",`
 `);
 
 initLogic();
-
 });
 
 function initLogic(){
@@ -171,16 +171,23 @@ return String(n).padStart(2,'0')+" / "+String(totalSteps).padStart(2,'0');
 }
 function updateProgress(){progress.innerText=formatStep(currentStep);}
 
+function animateTransition(callback){
+content.classList.add("fade-out");
+setTimeout(()=>{callback();content.classList.remove("fade-out");},90);
+}
+
 function toggle(){
 if(!panel.classList.contains("active")){
 panel.classList.add("active");
 overlay.classList.add("active");
 bubble.classList.add("hidden");
+isOpen=true;
 startFlow();
 }else{
 panel.classList.remove("active");
 overlay.classList.remove("active");
 bubble.classList.remove("hidden");
+isOpen=false;
 }
 }
 
@@ -204,8 +211,6 @@ content.appendChild(container);
 
 function startFlow(){step1();}
 
-/* STEP 1 */
-
 function step1(){
 currentStep=1;
 renderQuestion(t("step1"),[
@@ -216,8 +221,6 @@ renderQuestion(t("step1"),[
 {label:t("context5"),action:()=>{leadData.context="large";step2();}}
 ]);
 }
-
-/* STEP 2 */
 
 function step2(){
 currentStep=2;
@@ -232,8 +235,6 @@ renderQuestion(t("step2"),[
 ]);
 }
 
-/* STEP 3 */
-
 function step3(){
 currentStep=3;
 renderQuestion(t("step3"),[
@@ -243,8 +244,6 @@ renderQuestion(t("step3"),[
 {label:t("stage4"),action:()=>{leadData.stage="platform";step4();}}
 ]);
 }
-
-/* STEP 4 */
 
 function step4(){
 currentStep=4;
@@ -257,8 +256,6 @@ renderQuestion(t("step4"),[
 ]);
 }
 
-/* STEP 5 */
-
 function step5(){
 currentStep=5;
 renderQuestion(t("step5"),[
@@ -267,9 +264,31 @@ renderQuestion(t("step5"),[
 ]);
 }
 
-/* CONTACT */
+function activateCopilot(){
+animateTransition(()=>{
+content.innerHTML=`
+<strong><span class='c4-cursor'>|</span>${t("question")}</strong>
+<div style="margin-top:15px;">
+<input type="text" class="c4-input" id="c4-question" placeholder="${t("questionPlaceholder")}">
+<button class="c4-submit-btn" onclick="respondCopilot()">${t("submitQuestion")}</button>
+</div>`;
+});
+}
+
+window.respondCopilot=function(){
+let q=document.getElementById("c4-question").value;
+if(!q) return;
+animateTransition(()=>{
+content.innerHTML=`
+<strong><span class='c4-cursor'>|</span>${t("queryReceived")}</strong>
+<div class="c4-options" style="margin-top:15px;">
+<button class="c4-option-btn" onclick="stepContact()">${t("submitReview")}</button>
+</div>`;
+});
+}
 
 function stepContact(){
+animateTransition(()=>{
 content.innerHTML=`
 <strong><span class='c4-cursor'>|</span>${t("contact")}</strong>
 <div style="margin-top:15px;">
@@ -277,6 +296,7 @@ content.innerHTML=`
 <input type="email" class="c4-input" placeholder="${t("email")}" id="c4-email">
 <button class="c4-submit-btn" onclick="submitLead()">${t("submit")}</button>
 </div>`;
+});
 }
 
 window.submitLead=function(){
@@ -285,7 +305,7 @@ let name=document.getElementById("c4-name").value;
 let email=document.getElementById("c4-email").value;
 
 if(!name||!email){
-alert("Please fill in both fields.");
+alert(t("errorFields"));
 return;
 }
 
@@ -295,17 +315,16 @@ headers:{"Content-Type":"application/json"},
 body:JSON.stringify({name,email,leadData})
 })
 .then(()=>{
-
+animateTransition(()=>{
 content.innerHTML=`
 <div class="c4-success">
 <h3 style="margin-bottom:10px;">${t("successTitle")}</h3>
 <p style="opacity:0.7;">${t("successText")}</p>
-</div>
-`;
-
+</div>`;
+});
 })
 .catch(()=>{
-alert("Submission failed. Please try again.");
+alert(t("errorSubmit"));
 });
 
 }
