@@ -440,10 +440,21 @@ width:100%;padding:10px 10px 10px 22px;margin-bottom:10px;border-radius:8px;
 border:1px solid rgba(255,255,255,0.1);
 background:#141618;color:var(--text-main);box-sizing:border-box;}
 .c4-submit-btn{
-width:100%;padding:10px 14px 10px 18px;background:#16181a;
+width:100%;
+padding:10px 14px 10px 18px;
+background:#16181a;
 border:1px solid rgba(255,255,255,0.05);
-border-radius:8px;color:white;text-align:left;
-cursor:pointer;position:relative;}
+border-radius:8px;
+color:white;
+text-align:left;
+cursor:pointer;
+position:relative;
+overflow:hidden;
+}
+.c4-submit-btn span{
+position:relative;
+z-index:2;
+}
 .c4-submit-btn::before{
 content:"";
 position:absolute;
