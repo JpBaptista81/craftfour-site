@@ -12,7 +12,7 @@ try{
 
 // 1️⃣ usa o idioma do site (index.html)
 if(window.currentLang){
-  currentLang = window.currentLang.toLowerCase();
+  currentLang = window.currentLang.toLowerCase().split("-")[0];
 }
 
 // 2️⃣ fallback para browser
