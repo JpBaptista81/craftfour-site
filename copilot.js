@@ -574,7 +574,25 @@ function generateQuestions(){
 
 let questions=[];
 
-...
+if(leadData.challenge==="impact"){
+questions.push("Is the impact scenario related to safety certification or product durability?");
+}
+
+if(leadData.industry==="automotive"){
+questions.push("Are you currently validating a component or a full vehicle system?");
+}
+
+if(leadData.stage==="concept"){
+questions.push("Do you already have CAD geometry available for simulation?");
+}
+
+if(leadData.challenge==="thermal"){
+questions.push("Is the thermal issue related to electronics cooling or fluid flow?");
+}
+
+if(questions.length===0){
+questions.push("Could you briefly describe the main engineering constraint you are facing?");
+}
 
 return questions.slice(0,3);
 }
