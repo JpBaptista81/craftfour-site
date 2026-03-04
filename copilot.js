@@ -648,6 +648,11 @@ setTimeout(attachInputLogic,50);
 
 }
 
+
+window.selectAction = function(action){
+leadData.action = action;
+};
+
 function activateCopilot(){
 animateTransition(()=>{
 content.innerHTML=`
